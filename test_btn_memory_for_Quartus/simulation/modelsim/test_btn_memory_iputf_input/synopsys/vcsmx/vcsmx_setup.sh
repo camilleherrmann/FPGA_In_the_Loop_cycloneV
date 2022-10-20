@@ -1,0 +1,3 @@
+
+
+vhdlan -xlrm "C:/intelFPGA_lite/18.1/projets/test_btn_memory/pll_sim/pll.vho"

@@ -1,0 +1,217 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 dC:/intelFPGA_lite/18.1/projets/test_btn_memory/simulation/modelsim
+Ebtn_led
+Z1 w1666107716
+Z2 DPx4 ieee 15 std_logic_arith 0 22 [G314=:2zXJ`VORJe1J@Z1
+Z3 DPx4 ieee 18 std_logic_unsigned 0 22 ;eZjO2D4ZDz<]0>8AL<ne1
+Z4 DPx4 ieee 11 numeric_std 0 22 :ASDNFgHXf_ih3J@9F3Ze1
+Z5 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
+Z6 DPx4 ieee 14 std_logic_1164 0 22 eNV`TJ_GofJTzYa?f<@Oe1
+R0
+Z7 8C:/intelFPGA_lite/18.1/projets/test_btn_memory/btn.vhd
+Z8 FC:/intelFPGA_lite/18.1/projets/test_btn_memory/btn.vhd
+l0
+L6
+VS>S?H7WTNn=05dd:N;B]92
+!s100 6eOlX4a_e03UI05dLdIeB3
+Z9 OV;C;10.5b;63
+32
+Z10 !s110 1666256972
+!i10b 1
+Z11 !s108 1666256972.000000
+Z12 !s90 -reportprogress|300|-work|work|C:/intelFPGA_lite/18.1/projets/test_btn_memory/btn.vhd|
+Z13 !s107 C:/intelFPGA_lite/18.1/projets/test_btn_memory/btn.vhd|
+!i113 1
+Z14 o-work work
+Z15 tExplicit 1 CvgOpt 0
+Aarchi
+R2
+R3
+R4
+R5
+R6
+DEx4 work 7 btn_led 0 22 S>S?H7WTNn=05dd:N;B]92
+l25
+L17
+VhWmmhiC`TIGn?QWgH1`jN1
+!s100 3[TjU5j2=KbXnZWMlm7_D0
+R9
+32
+R10
+!i10b 1
+R11
+R12
+R13
+!i113 1
+R14
+R15
+Epll
+Z16 w1664443297
+R5
+R6
+Z17 DPx12 altera_lnsim 23 altera_lnsim_components 0 22 QZo1Vh6en2ZO3=hNmAfQ>0
+R0
+Z18 8C:/intelFPGA_lite/18.1/projets/test_btn_memory/pll_sim/pll.vho
+Z19 FC:/intelFPGA_lite/18.1/projets/test_btn_memory/pll_sim/pll.vho
+l0
+L33
+VSVS^2I`DA7m^8JK3iCbD=2
+!s100 Bd1aEK;52DW0meJ7M5aKX3
+R9
+32
+Z20 !s110 1666256739
+!i10b 1
+Z21 !s108 1666256739.000000
+Z22 !s90 -reportprogress|300|C:/intelFPGA_lite/18.1/projets/test_btn_memory/pll_sim/pll.vho|
+Z23 !s107 C:/intelFPGA_lite/18.1/projets/test_btn_memory/pll_sim/pll.vho|
+!i113 1
+R15
+Artl
+R5
+R6
+R17
+DEx4 work 3 pll 0 22 SVS^2I`DA7m^8JK3iCbD=2
+l50
+L43
+V2AR[;VSPoO3n_l1L^Rko90
+!s100 YI>P`_n7hC<?M^>M;A3aZ2
+R9
+32
+R20
+!i10b 1
+R21
+R22
+R23
+!i113 1
+R15
+Esingle_port_ram
+Z24 w1665134287
+R4
+R5
+R6
+R0
+Z25 8C:/intelFPGA_lite/18.1/projets/test_btn_memory/RAM.vhd
+Z26 FC:/intelFPGA_lite/18.1/projets/test_btn_memory/RAM.vhd
+l0
+L10
+VAY=Tdo[kL^AfWidKUR2al0
+!s100 Cfm4=VUDD0WL7TnH[PL>T3
+R9
+32
+R10
+!i10b 1
+R11
+Z27 !s90 -reportprogress|300|-work|work|C:/intelFPGA_lite/18.1/projets/test_btn_memory/RAM.vhd|
+Z28 !s107 C:/intelFPGA_lite/18.1/projets/test_btn_memory/RAM.vhd|
+!i113 1
+R14
+R15
+Artl
+R4
+R5
+R6
+DEx4 work 15 single_port_ram 0 22 AY=Tdo[kL^AfWidKUR2al0
+l41
+L29
+Vh@VKKB`LSTPM9:;e1C?UL0
+!s100 EF;MdUo63]olJZGKdVWkj3
+R9
+32
+R10
+!i10b 1
+R11
+R27
+R28
+!i113 1
+R14
+R15
+Etb_btn_memory
+Z29 w1664894785
+R4
+R5
+R6
+R0
+Z30 8C:/intelFPGA_lite/18.1/projets/test_btn_memory/tb_test.vhd
+Z31 FC:/intelFPGA_lite/18.1/projets/test_btn_memory/tb_test.vhd
+l0
+L5
+Vb:oMB_WSUP=TQbTFJ9F:42
+!s100 il[JnQE2[[YjV;C>bjffA2
+R9
+32
+R10
+!i10b 1
+R11
+Z32 !s90 -reportprogress|300|-work|work|C:/intelFPGA_lite/18.1/projets/test_btn_memory/tb_test.vhd|
+Z33 !s107 C:/intelFPGA_lite/18.1/projets/test_btn_memory/tb_test.vhd|
+!i113 1
+R14
+R15
+Abev
+R4
+R5
+R6
+DEx4 work 13 tb_btn_memory 0 22 b:oMB_WSUP=TQbTFJ9F:42
+l20
+L8
+VzTL1@jf:M@]]1j3aPH=]Y1
+!s100 =njnRdE9T[GQ2]aJBSIBe0
+R9
+32
+R10
+!i10b 1
+R11
+R32
+R33
+!i113 1
+R14
+R15
+Etest_btn_memory
+Z34 w1665136424
+R4
+R5
+R6
+R0
+Z35 8C:/intelFPGA_lite/18.1/projets/test_btn_memory/test_btn_memory.vhd
+Z36 FC:/intelFPGA_lite/18.1/projets/test_btn_memory/test_btn_memory.vhd
+l0
+L6
+V<nXH>^RKFHU[g<m@c3cZQ0
+!s100 [PNR^[BCfO;3dHNd@<_N?1
+R9
+32
+R10
+!i10b 1
+R11
+Z37 !s90 -reportprogress|300|-work|work|C:/intelFPGA_lite/18.1/projets/test_btn_memory/test_btn_memory.vhd|
+Z38 !s107 C:/intelFPGA_lite/18.1/projets/test_btn_memory/test_btn_memory.vhd|
+!i113 1
+R14
+R15
+Aarchi
+R4
+R5
+R6
+Z39 DEx4 work 15 test_btn_memory 0 22 <nXH>^RKFHU[g<m@c3cZQ0
+l56
+L14
+Z40 VCHZ6VOzRE9QZ848Qm1Z8N1
+Z41 !s100 hA_hUA;[0>XP=Mo^>CUS12
+R9
+32
+R10
+!i10b 1
+R11
+R37
+R38
+!i113 1
+R14
+R15

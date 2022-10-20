@@ -2,35 +2,36 @@
 ## Context and tools/softwares
 
 This repo is shared in two parts:
-1. Guetting started with Quartus tools such as Modelsim signal tap...
-2. Guetting started wit FPGA In The Loop (FIL) from MATLAB/Simulink
+| Goal        | Tools          | 
+| ------------- |:-------------:| 
+| 1. Guetting started with Quartus tools such as Modelsim signal tap...     | [Quartus 18.1 lite standard edition for Windows](https://www.intel.com/content/www/us/en/software-kit/665990/intel-quartus-prime-lite-edition-design-software-version-18-1-for-windows.html). This version doesn t request licence | 
+| 2. Guetting started with FPGA In The Loop (FIL) from MATLAB/Simulink      |   MATLAB 2017b (To run the FPGA in te Loop a particular licence is required for the module "HDL verifier").
 
-On this repo I'm working on [Quartus 18.1 lite standard edition for Windows](https://www.intel.com/content/www/us/en/software-kit/665990/intel-quartus-prime-lite-edition-design-software-version-18-1-for-windows.html). This version doest request licence. The code will be run in a Cyclone V SoC FPGA from Intel through JTAG connection, the USB Blaster.
-
-The same code and board is then run with a FIL using MATLAB 2017b (To run the FPGA in te Loop a particular licence is required for the module "HDL verifier").
+ The code will be run on a Cyclone V SoC FPGA from Intel through JTAG connection, the USB Blaster.
 
 ## Quartus software 
 ### Code used
 
-The code will be pretty simple, the goal is to start with tools. The code is using inputs buttons and an output led. The led is on at the begging and turn of once you push the button, then turn on the next time you'll push th button and again and again. Each time the led change its state (button is pushed) the time in nanosec in stored.
+The code will be pretty simple, the goal is to start with the tools. The code is using inputs buttons and an output led. The led is on at the begging and turn off once you push the button, then turn on the next time you'll push the button, and again and again. Each time the led change its state (button is pushed) the time in nanosec in stored.
 
 ### Timing analyser 
 
-Timing analyser is checking all path of the design and check the setup and hold time. It means that the signal must arrive enought time before the rising edge to it destination and stay enough.
-On the menu "Tools" or in the "Task" windows you can access to the Timing analyser. Then an SDC file is necessary to include the clocks frequency. Meaning the clock on the fpga but also the derivatives clocks like PLL ones. In this case you can check the file "time_constraints.sdc"
+Timing analyser is checking all path of the design and check is there are any timing problems.It checks problems such as setup and hold time (it means that the signal must arrive enought time before the rising edge to it destination and stay long enough).
+On the menu "Tools" or in the "Task" tab you can access to the Timing analyser. 
+An SDC file is necessary to include the clocks frequency. Meaning the clock on the fpga but also the derivatives clocks like PLL ones. In this case you can check the file "time_constraints.sdc".
 So here is how it looks
 
 ![image](https://user-images.githubusercontent.com/107047264/196902286-80bd449c-4c00-44ee-8538-9fc56fc2752e.png)
 
 1. Corresponds to the Corners (i.e. the condition of exepriments in Voltage and temperature)
 2. regroups all the reports on timing
-3. Offers the reports and some featurs for exemple the timing between a certain path, the clock tree, skew...
+3. Offers the reports and some features, for exemple the timing between a certain path, the clock tree, skew...
 4. Show the results of what you asked to see in previous part (corner, reports, timing)
 5. Is the console
 
 ### ModelSim
 
-ModelSim allows to run a simulution through a testbench. Testbench is a vhd (or vrilog) code with no I/O and taking for component the model to test, then it genreate signals for the clocks and model inputs and then we can see the outputs.
+ModelSim allows to run a simulution through a testbench. Testbench is a vhd (or verilog) code with no I/O and taking for component the model to test, then it genreate signals for the clocks and model inputs and then we can see the outputs.
 ModelSim should have been installed with your Quartus Version. First go on Tools/options../EDA Tool OPtions and add the path if not already to ModelSim-Aletra:
 
 ![image](https://user-images.githubusercontent.com/107047264/196905154-01aebffe-16fc-47cf-a26c-8fab5b91ad58.png)
@@ -44,7 +45,7 @@ Click and the tool bar on Compile/compile... and select all the files of your mo
 
 ![image](https://user-images.githubusercontent.com/107047264/196908282-7639f5cc-cc84-474c-9543-b16b182e5fa5.png)
 
-On this exemple we can see our clock on 50MHz, the button changing the state of the led and the RAM stored each time the led change its state.
+On this exemple we can see our clock on 50MHz, the button changing the state of the led, and the RAM stored data each time the led change its state.
 
 ### Signal Tap
 
@@ -67,10 +68,54 @@ Finally we want to flash the board. Go on Tools/Programmer, add the device you'r
 
 ![image](https://user-images.githubusercontent.com/107047264/196913156-d786b4e4-84e0-48bb-a867-35ad31a12bba.png)
 
-[![Watch the video](https://youtube.com/shorts/aDLUNqQzOZc)
+https://user-images.githubusercontent.com/107047264/196944916-8b8c6aac-7692-4e7e-bd57-2b47e02beb94.mp4
+
 
 
 ## FPGA In the Loop (FIL)
 
 FIL is a flow allowing to generate a a Simulink block instance from vhd or verilog files. Then you can create a whole model arround to test it with stimulis chosen
 This requieres a licence including "HDL Verifier"
+
+Go on MATLAB and chose for curent folder the folder containing the quartus.exe and its librairies. 
+Then activate the hdl tool on MATLAB shell 
+```
+hdlsetuptoolpath('ToolName','Altera Quartus II','ToolPath','C:\Intel\quartus\bin64\quartus.exe')
+```
+And open the filWIzard
+```
+filWizard
+```
+
+![image](https://user-images.githubusercontent.com/107047264/196919450-b095b0fc-8a46-4407-8052-44a103e724b2.png)
+- Choose or add your board in the board option. If you add a new board you will add the clock pin and cinnection mode and then you can validate it. then click next.
+- In the source files section add the vhd files and select the top one then click next.
+![image](https://user-images.githubusercontent.com/107047264/196932648-42dbdecb-521f-4660-93e8-c769d3573f9a.png)
+
+- In the DUT I/O Ports the outputs and inputs are automatically generated and filled, modyfied if needed and click next.
+![image](https://user-images.githubusercontent.com/107047264/196933355-a12fec68-6085-44cf-bce5-6a60a5142359.png)
+
+- In the Output Types change the Data Type and informaton corresponding 
+![image](https://user-images.githubusercontent.com/107047264/196933562-811f6094-91f5-406d-9f46-b9fdfb077aa1.png)
+
+- Finally chose the output folder and build the FIL
+![image](https://user-images.githubusercontent.com/107047264/196933808-f5f989d9-2d16-45c4-a6c0-847a3f4f8019.png)
+
+By then end of the build you will have a shell with the quartus reports and an open simulink window with the generated block
+WARNING: AT least on my version if you copy the generated block in a another Simulink page it won't work and MATLAB will crash. Keep the same window on create or copy your model there.
+
+Now create the model around the generated block depending on the test you want. Once you've your model turn on the board and double click on the FIL instance to load the generated binary.
+![image](https://user-images.githubusercontent.com/107047264/196936384-31bbd523-7903-4df5-83c2-ef20d6ead85d.png)
+
+Give the time duration of th simulation in the tool bar and put the simulation settings to discrete by Simulation/Model Configuration Parameter/Solver and in Solver options type choose "Fixed-step". Run it and on the scope you should see the expected result 
+![image](https://user-images.githubusercontent.com/107047264/196937301-f8803668-f1a1-4f18-b146-801006ee7516.png)
+
+
+Congratullation you've run a FPGA In The Loop. 
+
+
+
+
+
+
+

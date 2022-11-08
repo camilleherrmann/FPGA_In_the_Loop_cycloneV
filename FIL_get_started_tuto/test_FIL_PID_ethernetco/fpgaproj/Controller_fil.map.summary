@@ -1,0 +1,17 @@
+Analysis & Synthesis Status : Successful - Mon Nov 07 15:06:47 2022
+Quartus Prime Version : 18.1.0 Build 625 09/12/2018 SJ Lite Edition
+Revision Name : Controller_fil
+Top-level Entity Name : Controller_fil
+Family : Cyclone V
+Logic utilization (in ALMs) : N/A
+Total registers : 2125
+Total pins : 17
+Total virtual pins : 0
+Total block memory bits : 95,360
+Total DSP Blocks : 10
+Total HSSI RX PCSs : 0
+Total HSSI PMA RX Deserializers : 0
+Total HSSI TX PCSs : 0
+Total HSSI PMA TX Serializers : 0
+Total PLLs : 1
+Total DLLs : 0

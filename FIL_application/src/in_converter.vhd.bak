@@ -1,0 +1,14 @@
+library ieee;
+use ieee.std_logic_1164.all;
+Use ieee.numeric_std.all;
+
+entity in_converter is 
+	port map (
+			clk                             : IN  std_logic;
+			enb                             : IN  std_logic;
+			reset                           : IN  std_logic;
+			din                             : IN  std_logic_vector(31 DOWNTO 0);
+		);
+end entity in converter;
+
+architecture bev of in_converter is 

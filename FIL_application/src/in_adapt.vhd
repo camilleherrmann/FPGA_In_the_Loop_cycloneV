@@ -16,12 +16,19 @@ generic(
 		din     					: IN  std_logic_vector(31 DOWNTO 0);
 		
 		
-		-- taken from the "to be tested" model
-		ast_sink_valid			: out std_logic;													 												
-		ast_sink_sop			: out std_logic;													 
-		ast_sink_eop			: out std_logic;													
-		ast_sink_data			: out std_logic_vector(31 downto 0);
-		ast_sink_channel		: out std_logic_vector(CHANNEL_WIDTH-1 downto 0)
+		-- link to the "to be tested"
+	
+			--from AST interface  
+			ast_source_ready				: in std_logic; 
+			ast_source_channel			: in  std_logic_vector(CHANNEL_WIDTH-1 downto 0);
+	
+			--to AST interface
+			ast_sink_valid					: out std_logic;													 												
+			ast_sink_sop					: out std_logic;													 
+			ast_sink_eop					: out std_logic;	
+			ast_sink_ready					: out  std_logic; 
+			ast_sink_data					: out std_logic_vector(31 downto 0);
+			ast_sink_channel				: out std_logic_vector(CHANNEL_WIDTH-1 downto 0)	
 		);
 end entity in_adapt;
 
@@ -71,7 +78,7 @@ architecture bev of in_adapt is
 			NUM_CHANNEL 		: integer 	:= 40;
 			CHANNEL_WIDTH		: integer 	:= 6 
 		);	
-	port(
+	port (
 			clk_b    						: IN  std_logic;
 			enb    							: IN  std_logic;
 			reset  							: IN  std_logic;
@@ -83,19 +90,22 @@ architecture bev of in_adapt is
 			wren_b							: OUT STD_LOGIC  := '0';
 			q_b								: IN STD_LOGIC_VECTOR (39 DOWNTO 0);
 			
+			--from AST interface  
+			ast_source_ready				: in std_logic; 
+			ast_source_channel			: in  std_logic_vector(CHANNEL_WIDTH-1 downto 0);
+	
 			--to AST interface
 			ast_sink_valid					: out std_logic;													 												
 			ast_sink_sop					: out std_logic;													 
-			ast_sink_eop					: out std_logic;													
+			ast_sink_eop					: out std_logic;	
+			ast_sink_ready					: out  std_logic; 
 			ast_sink_data					: out std_logic_vector(31 downto 0);
-			ast_sink_channel				: out std_logic_vector(CHANNEL_WIDTH-1 downto 0)
-			
+			ast_sink_channel				: out std_logic_vector(CHANNEL_WIDTH-1 downto 0)		
 		);
-			
-	end component in_conv;
+end component in_conv;
 	
 	signal s_addr_a, s_addr_b 			: std_logic_vector(9 downto 0);
-	signal s_data_a, q_b, q_a, s_data_b	: std_logic_vector(39 downto 0);
+	signal s_data_a, s_q_b, s_q_a, s_data_b	: std_logic_vector(39 downto 0);
 	signal s_wren_a, s_rden_b			: std_logic;
 	
 begin
@@ -111,7 +121,7 @@ begin
 			data_a						=> s_data_a,
 			rden_a						=> open,
 			wren_a						=> s_wren_a,
-			q_a							=> (others => '0')
+			q_a							=> s_q_a
 			);
 			
 	ram : in_sram port map(
@@ -122,13 +132,13 @@ begin
 			clock_a						=> clk,
 			clock_b						=> clk,
 			data_a						=> s_data_a,
-			data_b						=> s_data_b,
+			data_b						=> s_data_a,
 			rden_a						=> '0',
 			rden_b						=> s_rden_b,
 			wren_a						=> s_wren_a,
 			wren_b						=> '0',
-			q_a							=> q_a,
-			q_b							=> q_b
+			q_a							=> s_q_a,
+			q_b							=> s_q_b
 			);
 
 	output : in_conv port map(
@@ -140,13 +150,16 @@ begin
 			data_b						=> s_data_b,
 			rden_b						=> s_rden_b,
 			wren_b						=> open,
-			q_b							=> q_b,
+			q_b							=> s_q_b,
  
+			ast_source_ready			=> ast_source_ready,
 			ast_sink_valid				=> ast_sink_valid,
 			ast_sink_sop				=> ast_sink_sop,
 			ast_sink_eop				=> ast_sink_eop,
+			ast_sink_ready				=> ast_sink_ready,
 			ast_sink_data				=> ast_sink_data,
-			ast_sink_channel			=> ast_sink_channel
+			ast_sink_channel			=> ast_sink_channel,
+			ast_source_channel		=> ast_source_channel
 			);
 			
 end bev;

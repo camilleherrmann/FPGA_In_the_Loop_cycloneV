@@ -21,14 +21,14 @@ generic(
 			q_b								: IN STD_LOGIC_VECTOR (39 DOWNTO 0);
 			
 			--from AST interface  
-			ast_source_ready				: out std_logic; 
+			ast_source_ready				: in std_logic; 
 			ast_source_channel			: in  std_logic_vector(CHANNEL_WIDTH-1 downto 0);
 	
 			--to AST interface
 			ast_sink_valid					: out std_logic;													 												
 			ast_sink_sop					: out std_logic;													 
 			ast_sink_eop					: out std_logic;	
-			ast_sink_ready					: in  std_logic; 
+			ast_sink_ready					: out  std_logic; 
 			ast_sink_data					: out std_logic_vector(31 downto 0);
 			ast_sink_channel				: out std_logic_vector(CHANNEL_WIDTH-1 downto 0)	
 		);
@@ -43,8 +43,8 @@ signal in_ready, out_ready : std_logic;
 
 begin
 
-	in_ready <= ast_sink_ready;
-	ast_source_ready <= out_ready;
+	in_ready <= ast_source_ready;
+	ast_sink_ready <= out_ready;
 
 	u_ready : process(clk_b,reset, enb)
 	begin

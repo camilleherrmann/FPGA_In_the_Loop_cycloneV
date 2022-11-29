@@ -64,7 +64,7 @@ begin
 			s_channel 				<= (others => '0');
 		elsif (clk_b'event and clk_b='1') then
 			if (out_ready ='1' and s_valid ='1') then 
-			s_channel				<= s_channel + 1;
+			s_channel				<= ast_source_channel + 1;
 			end if;
 		end if;
 	end process;
@@ -74,8 +74,8 @@ begin
 	begin
 		if (reset = '0') then
 			s_sop 					<= '0';
-		elsif(clk_b'event and clk_b='0') then
-			if (s_channel = (s_channel'range => '1')) then
+		elsif(clk_b'event and clk_b='1') then
+			if (s_channel + 1 = (s_channel'range => '0')) then
 				s_sop 				<= '1';
 			else s_sop				<= '0';
 			end if;
@@ -87,7 +87,7 @@ begin
 		if (reset = '0') then
 			s_eop 					<= '0';
 		elsif(clk_b'event and clk_b='1') then
-			if (s_channel = (s_channel'range => '0')) then
+			if (s_channel = (s_channel'range => '1')) then
 				s_eop 				<= '1';
 			else s_eop				<= '0';
 			end if;

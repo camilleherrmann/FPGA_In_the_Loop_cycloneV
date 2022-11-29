@@ -1,5 +1,5 @@
 Analysis & Synthesis report for top_level
-Tue Nov 29 10:30:46 2022
+Tue Nov 29 11:38:15 2022
 Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
 
 
@@ -53,13 +53,13 @@ refer to the applicable agreement for further details.
 +-------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                  ;
 +---------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status     ; Successful - Tue Nov 29 10:30:46 2022       ;
+; Analysis & Synthesis Status     ; Successful - Tue Nov 29 11:38:15 2022       ;
 ; Quartus Prime Version           ; 18.1.0 Build 625 09/12/2018 SJ Lite Edition ;
 ; Revision Name                   ; top_level                                   ;
 ; Top-level Entity Name           ; in_adapt                                    ;
 ; Family                          ; Cyclone V                                   ;
 ; Logic utilization (in ALMs)     ; N/A                                         ;
-; Total registers                 ; 2                                           ;
+; Total registers                 ; 3                                           ;
 ; Total pins                      ; 84                                          ;
 ; Total virtual pins              ; 0                                           ;
 ; Total block memory bits         ; 0                                           ;
@@ -199,31 +199,31 @@ refer to the applicable agreement for further details.
 +----------------------------------+-----------------+------------------------------+------------------------------------------------------------------------------------+---------+
 
 
-+------------------------------------------------------------------------+
-; Analysis & Synthesis Resource Usage Summary                            ;
-+---------------------------------------------+--------------------------+
-; Resource                                    ; Usage                    ;
-+---------------------------------------------+--------------------------+
-; Estimate of Logic utilization (ALMs needed) ; 1                        ;
-;                                             ;                          ;
-; Combinational ALUT usage for logic          ; 1                        ;
-;     -- 7 input functions                    ; 0                        ;
-;     -- 6 input functions                    ; 0                        ;
-;     -- 5 input functions                    ; 0                        ;
-;     -- 4 input functions                    ; 0                        ;
-;     -- <=3 input functions                  ; 1                        ;
-;                                             ;                          ;
-; Dedicated logic registers                   ; 2                        ;
-;                                             ;                          ;
-; I/O pins                                    ; 84                       ;
-;                                             ;                          ;
-; Total DSP Blocks                            ; 0                        ;
-;                                             ;                          ;
-; Maximum fan-out node                        ; in_conv:output|out_ready ;
-; Maximum fan-out                             ; 2                        ;
-; Total fan-out                               ; 94                       ;
-; Average fan-out                             ; 0.55                     ;
-+---------------------------------------------+--------------------------+
++---------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary             ;
++---------------------------------------------+-----------+
+; Resource                                    ; Usage     ;
++---------------------------------------------+-----------+
+; Estimate of Logic utilization (ALMs needed) ; 2         ;
+;                                             ;           ;
+; Combinational ALUT usage for logic          ; 1         ;
+;     -- 7 input functions                    ; 0         ;
+;     -- 6 input functions                    ; 0         ;
+;     -- 5 input functions                    ; 0         ;
+;     -- 4 input functions                    ; 0         ;
+;     -- <=3 input functions                  ; 1         ;
+;                                             ;           ;
+; Dedicated logic registers                   ; 3         ;
+;                                             ;           ;
+; I/O pins                                    ; 84        ;
+;                                             ;           ;
+; Total DSP Blocks                            ; 0         ;
+;                                             ;           ;
+; Maximum fan-out node                        ; clk~input ;
+; Maximum fan-out                             ; 3         ;
+; Total fan-out                               ; 97        ;
+; Average fan-out                             ; 0.56      ;
++---------------------------------------------+-----------+
 
 
 +---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -231,8 +231,8 @@ refer to the applicable agreement for further details.
 +----------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+--------------------------+-------------+--------------+
 ; Compilation Hierarchy Node ; Combinational ALUTs ; Dedicated Logic Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name      ; Entity Name ; Library Name ;
 +----------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+--------------------------+-------------+--------------+
-; |in_adapt                  ; 1 (0)               ; 2 (0)                     ; 0                 ; 0          ; 84   ; 0            ; |in_adapt                ; in_adapt    ; work         ;
-;    |in_conv:output|        ; 1 (1)               ; 2 (2)                     ; 0                 ; 0          ; 0    ; 0            ; |in_adapt|in_conv:output ; in_conv     ; work         ;
+; |in_adapt                  ; 1 (0)               ; 3 (0)                     ; 0                 ; 0          ; 84   ; 0            ; |in_adapt                ; in_adapt    ; work         ;
+;    |in_conv:output|        ; 1 (1)               ; 3 (3)                     ; 0                 ; 0          ; 0    ; 0            ; |in_adapt|in_conv:output ; in_conv     ; work         ;
 +----------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+--------------------------+-------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
@@ -255,7 +255,6 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; in_conv:output|s_rden                   ; Stuck at GND due to stuck port data_in      ;
 ; in_conv:output|s_valid                  ; Stuck at GND due to stuck port data_in      ;
 ; in_conv:output|s_channel[0..5]          ; Stuck at GND due to stuck port clock_enable ;
-; in_conv:output|s_sop                    ; Stuck at GND due to stuck port data_in      ;
 ; in_conv:output|addr[0..9]               ; Stuck at GND due to stuck port clock_enable ;
 ; in_conv:output|ast_sink_data[31]        ; Stuck at GND due to stuck port clock_enable ;
 ; in_storing:entry|data_a[31]             ; Lost fanout                                 ;
@@ -326,65 +325,64 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; in_storing:entry|s_wren                 ; Lost fanout                                 ;
 ; in_storing:entry|round[0,1]             ; Lost fanout                                 ;
 ; in_storing:entry|curr_head[1..7]        ; Lost fanout                                 ;
-; Total Number of Removed Registers = 112 ;                                             ;
+; Total Number of Removed Registers = 111 ;                                             ;
 +-----------------------------------------+---------------------------------------------+
 
 
-+-------------------------------------------------------------------------------------------------------------------------------------------+
-; Removed Registers Triggering Further Register Optimizations                                                                               ;
-+-----------------------------+---------------------------+---------------------------------------------------------------------------------+
-; Register name               ; Reason for Removal        ; Registers Removed due to This Register                                          ;
-+-----------------------------+---------------------------+---------------------------------------------------------------------------------+
-; in_conv:output|s_rden       ; Stuck at GND              ; in_conv:output|ast_sink_data[31], in_storing:entry|data_a[31],                  ;
-;                             ; due to stuck port data_in ; in_conv:output|ast_sink_data[30], in_storing:entry|data_a[30],                  ;
-;                             ;                           ; in_conv:output|ast_sink_data[29], in_storing:entry|data_a[29],                  ;
-;                             ;                           ; in_conv:output|ast_sink_data[28], in_storing:entry|data_a[28],                  ;
-;                             ;                           ; in_conv:output|ast_sink_data[27], in_storing:entry|data_a[27],                  ;
-;                             ;                           ; in_conv:output|ast_sink_data[26], in_storing:entry|data_a[26],                  ;
-;                             ;                           ; in_conv:output|ast_sink_data[25], in_storing:entry|data_a[25],                  ;
-;                             ;                           ; in_conv:output|ast_sink_data[24], in_storing:entry|data_a[24],                  ;
-;                             ;                           ; in_conv:output|ast_sink_data[23], in_storing:entry|data_a[23],                  ;
-;                             ;                           ; in_conv:output|ast_sink_data[22], in_storing:entry|data_a[22],                  ;
-;                             ;                           ; in_conv:output|ast_sink_data[21], in_storing:entry|data_a[21],                  ;
-;                             ;                           ; in_conv:output|ast_sink_data[20], in_storing:entry|data_a[20],                  ;
-;                             ;                           ; in_conv:output|ast_sink_data[19], in_storing:entry|data_a[19],                  ;
-;                             ;                           ; in_conv:output|ast_sink_data[18], in_storing:entry|data_a[18],                  ;
-;                             ;                           ; in_conv:output|ast_sink_data[17], in_storing:entry|data_a[17],                  ;
-;                             ;                           ; in_conv:output|ast_sink_data[16], in_storing:entry|data_a[16],                  ;
-;                             ;                           ; in_conv:output|ast_sink_data[15], in_storing:entry|data_a[15],                  ;
-;                             ;                           ; in_conv:output|ast_sink_data[14], in_storing:entry|data_a[14],                  ;
-;                             ;                           ; in_conv:output|ast_sink_data[13], in_storing:entry|data_a[13],                  ;
-;                             ;                           ; in_conv:output|ast_sink_data[12], in_storing:entry|data_a[12],                  ;
-;                             ;                           ; in_conv:output|ast_sink_data[11], in_storing:entry|data_a[11],                  ;
-;                             ;                           ; in_conv:output|ast_sink_data[10], in_storing:entry|data_a[10],                  ;
-;                             ;                           ; in_conv:output|ast_sink_data[9], in_storing:entry|data_a[9],                    ;
-;                             ;                           ; in_conv:output|ast_sink_data[8], in_storing:entry|data_a[8],                    ;
-;                             ;                           ; in_conv:output|ast_sink_data[7], in_storing:entry|data_a[7],                    ;
-;                             ;                           ; in_conv:output|ast_sink_data[6], in_storing:entry|data_a[6],                    ;
-;                             ;                           ; in_conv:output|ast_sink_data[5], in_storing:entry|data_a[5],                    ;
-;                             ;                           ; in_conv:output|ast_sink_data[4], in_storing:entry|data_a[4],                    ;
-;                             ;                           ; in_conv:output|ast_sink_data[3], in_storing:entry|data_a[3],                    ;
-;                             ;                           ; in_conv:output|ast_sink_data[2], in_storing:entry|data_a[2],                    ;
-;                             ;                           ; in_conv:output|ast_sink_data[1], in_storing:entry|data_a[1],                    ;
-;                             ;                           ; in_conv:output|ast_sink_data[0], in_storing:entry|data_a[0]                     ;
-; in_conv:output|s_valid      ; Stuck at GND              ; in_conv:output|s_channel[5], in_conv:output|s_channel[4],                       ;
-;                             ; due to stuck port data_in ; in_conv:output|s_channel[3], in_conv:output|s_channel[2],                       ;
-;                             ;                           ; in_conv:output|s_channel[1], in_conv:output|s_channel[0], in_conv:output|s_sop, ;
-;                             ;                           ; in_conv:output|addr[9], in_conv:output|addr[8], in_conv:output|addr[7],         ;
-;                             ;                           ; in_conv:output|addr[6], in_conv:output|addr[5], in_conv:output|addr[4],         ;
-;                             ;                           ; in_conv:output|addr[3], in_conv:output|addr[2], in_conv:output|addr[1],         ;
-;                             ;                           ; in_conv:output|addr[0]                                                          ;
-; in_storing:entry|data_a[32] ; Lost Fanouts              ; in_storing:entry|curr_head[0], in_storing:entry|s_wren                          ;
-; in_storing:entry|data_a[33] ; Lost Fanouts              ; in_storing:entry|curr_head[1]                                                   ;
-; in_storing:entry|data_a[34] ; Lost Fanouts              ; in_storing:entry|curr_head[2]                                                   ;
-; in_storing:entry|data_a[35] ; Lost Fanouts              ; in_storing:entry|curr_head[3]                                                   ;
-; in_storing:entry|data_a[36] ; Lost Fanouts              ; in_storing:entry|curr_head[4]                                                   ;
-; in_storing:entry|data_a[37] ; Lost Fanouts              ; in_storing:entry|curr_head[5]                                                   ;
-; in_storing:entry|data_a[38] ; Lost Fanouts              ; in_storing:entry|curr_head[6]                                                   ;
-; in_storing:entry|data_a[39] ; Lost Fanouts              ; in_storing:entry|curr_head[7]                                                   ;
-; in_storing:entry|addr[8]    ; Lost Fanouts              ; in_storing:entry|round[0]                                                       ;
-; in_storing:entry|addr[9]    ; Lost Fanouts              ; in_storing:entry|round[1]                                                       ;
-+-----------------------------+---------------------------+---------------------------------------------------------------------------------+
++---------------------------------------------------------------------------------------------------------------------------------------------+
+; Removed Registers Triggering Further Register Optimizations                                                                                 ;
++-----------------------------+---------------------------+-----------------------------------------------------------------------------------+
+; Register name               ; Reason for Removal        ; Registers Removed due to This Register                                            ;
++-----------------------------+---------------------------+-----------------------------------------------------------------------------------+
+; in_conv:output|s_rden       ; Stuck at GND              ; in_conv:output|ast_sink_data[31], in_storing:entry|data_a[31],                    ;
+;                             ; due to stuck port data_in ; in_conv:output|ast_sink_data[30], in_storing:entry|data_a[30],                    ;
+;                             ;                           ; in_conv:output|ast_sink_data[29], in_storing:entry|data_a[29],                    ;
+;                             ;                           ; in_conv:output|ast_sink_data[28], in_storing:entry|data_a[28],                    ;
+;                             ;                           ; in_conv:output|ast_sink_data[27], in_storing:entry|data_a[27],                    ;
+;                             ;                           ; in_conv:output|ast_sink_data[26], in_storing:entry|data_a[26],                    ;
+;                             ;                           ; in_conv:output|ast_sink_data[25], in_storing:entry|data_a[25],                    ;
+;                             ;                           ; in_conv:output|ast_sink_data[24], in_storing:entry|data_a[24],                    ;
+;                             ;                           ; in_conv:output|ast_sink_data[23], in_storing:entry|data_a[23],                    ;
+;                             ;                           ; in_conv:output|ast_sink_data[22], in_storing:entry|data_a[22],                    ;
+;                             ;                           ; in_conv:output|ast_sink_data[21], in_storing:entry|data_a[21],                    ;
+;                             ;                           ; in_conv:output|ast_sink_data[20], in_storing:entry|data_a[20],                    ;
+;                             ;                           ; in_conv:output|ast_sink_data[19], in_storing:entry|data_a[19],                    ;
+;                             ;                           ; in_conv:output|ast_sink_data[18], in_storing:entry|data_a[18],                    ;
+;                             ;                           ; in_conv:output|ast_sink_data[17], in_storing:entry|data_a[17],                    ;
+;                             ;                           ; in_conv:output|ast_sink_data[16], in_storing:entry|data_a[16],                    ;
+;                             ;                           ; in_conv:output|ast_sink_data[15], in_storing:entry|data_a[15],                    ;
+;                             ;                           ; in_conv:output|ast_sink_data[14], in_storing:entry|data_a[14],                    ;
+;                             ;                           ; in_conv:output|ast_sink_data[13], in_storing:entry|data_a[13],                    ;
+;                             ;                           ; in_conv:output|ast_sink_data[12], in_storing:entry|data_a[12],                    ;
+;                             ;                           ; in_conv:output|ast_sink_data[11], in_storing:entry|data_a[11],                    ;
+;                             ;                           ; in_conv:output|ast_sink_data[10], in_storing:entry|data_a[10],                    ;
+;                             ;                           ; in_conv:output|ast_sink_data[9], in_storing:entry|data_a[9],                      ;
+;                             ;                           ; in_conv:output|ast_sink_data[8], in_storing:entry|data_a[8],                      ;
+;                             ;                           ; in_conv:output|ast_sink_data[7], in_storing:entry|data_a[7],                      ;
+;                             ;                           ; in_conv:output|ast_sink_data[6], in_storing:entry|data_a[6],                      ;
+;                             ;                           ; in_conv:output|ast_sink_data[5], in_storing:entry|data_a[5],                      ;
+;                             ;                           ; in_conv:output|ast_sink_data[4], in_storing:entry|data_a[4],                      ;
+;                             ;                           ; in_conv:output|ast_sink_data[3], in_storing:entry|data_a[3],                      ;
+;                             ;                           ; in_conv:output|ast_sink_data[2], in_storing:entry|data_a[2],                      ;
+;                             ;                           ; in_conv:output|ast_sink_data[1], in_storing:entry|data_a[1],                      ;
+;                             ;                           ; in_conv:output|ast_sink_data[0], in_storing:entry|data_a[0]                       ;
+; in_conv:output|s_valid      ; Stuck at GND              ; in_conv:output|s_channel[5], in_conv:output|s_channel[4],                         ;
+;                             ; due to stuck port data_in ; in_conv:output|s_channel[3], in_conv:output|s_channel[2],                         ;
+;                             ;                           ; in_conv:output|s_channel[1], in_conv:output|s_channel[0], in_conv:output|addr[9], ;
+;                             ;                           ; in_conv:output|addr[8], in_conv:output|addr[7], in_conv:output|addr[6],           ;
+;                             ;                           ; in_conv:output|addr[5], in_conv:output|addr[4], in_conv:output|addr[3],           ;
+;                             ;                           ; in_conv:output|addr[2], in_conv:output|addr[1], in_conv:output|addr[0]            ;
+; in_storing:entry|data_a[32] ; Lost Fanouts              ; in_storing:entry|curr_head[0], in_storing:entry|s_wren                            ;
+; in_storing:entry|data_a[33] ; Lost Fanouts              ; in_storing:entry|curr_head[1]                                                     ;
+; in_storing:entry|data_a[34] ; Lost Fanouts              ; in_storing:entry|curr_head[2]                                                     ;
+; in_storing:entry|data_a[35] ; Lost Fanouts              ; in_storing:entry|curr_head[3]                                                     ;
+; in_storing:entry|data_a[36] ; Lost Fanouts              ; in_storing:entry|curr_head[4]                                                     ;
+; in_storing:entry|data_a[37] ; Lost Fanouts              ; in_storing:entry|curr_head[5]                                                     ;
+; in_storing:entry|data_a[38] ; Lost Fanouts              ; in_storing:entry|curr_head[6]                                                     ;
+; in_storing:entry|data_a[39] ; Lost Fanouts              ; in_storing:entry|curr_head[7]                                                     ;
+; in_storing:entry|addr[8]    ; Lost Fanouts              ; in_storing:entry|round[0]                                                         ;
+; in_storing:entry|addr[9]    ; Lost Fanouts              ; in_storing:entry|round[1]                                                         ;
++-----------------------------+---------------------------+-----------------------------------------------------------------------------------+
 
 
 +------------------------------------------------------+
@@ -392,10 +390,10 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 2     ;
+; Total registers                              ; 3     ;
 ; Number of registers using Synchronous Clear  ; 0     ;
 ; Number of registers using Synchronous Load   ; 0     ;
-; Number of registers using Asynchronous Clear ; 2     ;
+; Number of registers using Asynchronous Clear ; 3     ;
 ; Number of registers using Asynchronous Load  ; 0     ;
 ; Number of registers using Clock Enable       ; 0     ;
 ; Number of registers using Preset             ; 0     ;
@@ -550,8 +548,8 @@ Note: In order to hide this table in the UI and the text report file, please set
 +-----------------------+-----------------------------+
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
-; arriav_ff             ; 2                           ;
-;     CLR               ; 2                           ;
+; arriav_ff             ; 3                           ;
+;     CLR               ; 3                           ;
 ; arriav_lcell_comb     ; 2                           ;
 ;     normal            ; 2                           ;
 ;         0 data inputs ; 1                           ;
@@ -559,7 +557,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 ; boundary_port         ; 84                          ;
 ;                       ;                             ;
 ; Max LUT depth         ; 1.00                        ;
-; Average LUT depth     ; 0.50                        ;
+; Average LUT depth     ; 0.44                        ;
 +-----------------------+-----------------------------+
 
 
@@ -578,7 +576,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
-    Info: Processing started: Tue Nov 29 10:30:33 2022
+    Info: Processing started: Tue Nov 29 11:38:02 2022
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off top_level -c top_level
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
@@ -707,7 +705,6 @@ Warning (14284): Synthesized away the following node(s):
         Warning (14320): Synthesized away node "in_sram:ram|altsyncram:altsyncram_component|altsyncram_du24:auto_generated|q_a[31]" File: C:/Users/BAT 14/Documents/MEA5/PFE/FIL_init/FIL_application/db/altsyncram_du24.tdf Line: 1254
 Warning (13024): Output pins are stuck at VCC or GND
     Warning (13410): Pin "ast_sink_valid" is stuck at GND File: C:/Users/BAT 14/Documents/MEA5/PFE/FIL_init/FIL_application/src/in_adapt.vhd Line: 26
-    Warning (13410): Pin "ast_sink_sop" is stuck at GND File: C:/Users/BAT 14/Documents/MEA5/PFE/FIL_init/FIL_application/src/in_adapt.vhd Line: 27
     Warning (13410): Pin "ast_sink_data[0]" is stuck at GND File: C:/Users/BAT 14/Documents/MEA5/PFE/FIL_init/FIL_application/src/in_adapt.vhd Line: 30
     Warning (13410): Pin "ast_sink_data[1]" is stuck at GND File: C:/Users/BAT 14/Documents/MEA5/PFE/FIL_init/FIL_application/src/in_adapt.vhd Line: 30
     Warning (13410): Pin "ast_sink_data[2]" is stuck at GND File: C:/Users/BAT 14/Documents/MEA5/PFE/FIL_init/FIL_application/src/in_adapt.vhd Line: 30
@@ -789,13 +786,13 @@ Warning (21074): Design contains 38 input pin(s) that do not drive logic
     Warning (15610): No output dependent on input pin "ast_source_channel[3]" File: C:/Users/BAT 14/Documents/MEA5/PFE/FIL_init/FIL_application/src/in_adapt.vhd Line: 23
     Warning (15610): No output dependent on input pin "ast_source_channel[4]" File: C:/Users/BAT 14/Documents/MEA5/PFE/FIL_init/FIL_application/src/in_adapt.vhd Line: 23
     Warning (15610): No output dependent on input pin "ast_source_channel[5]" File: C:/Users/BAT 14/Documents/MEA5/PFE/FIL_init/FIL_application/src/in_adapt.vhd Line: 23
-Info (21057): Implemented 86 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 87 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 42 input pins
     Info (21059): Implemented 42 output pins
-    Info (21061): Implemented 2 logic cells
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 129 warnings
-    Info: Peak virtual memory: 4865 megabytes
-    Info: Processing ended: Tue Nov 29 10:30:46 2022
+    Info (21061): Implemented 3 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 128 warnings
+    Info: Peak virtual memory: 4866 megabytes
+    Info: Processing ended: Tue Nov 29 11:38:15 2022
     Info: Elapsed time: 00:00:13
     Info: Total CPU time (on all processors): 00:00:27
 

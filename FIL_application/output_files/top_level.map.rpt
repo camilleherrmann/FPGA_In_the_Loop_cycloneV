@@ -1,0 +1,801 @@
+Analysis & Synthesis report for top_level
+Tue Nov 29 09:49:09 2022
+Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Parallel Compilation
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. Analysis & Synthesis IP Cores Summary
+  9. Registers Removed During Synthesis
+ 10. Removed Registers Triggering Further Register Optimizations
+ 11. General Register Statistics
+ 12. Source assignments for in_sram:ram|altsyncram:altsyncram_component|altsyncram_du24:auto_generated
+ 13. Parameter Settings for User Entity Instance: Top-level Entity: |in_adapt
+ 14. Parameter Settings for User Entity Instance: in_sram:ram|altsyncram:altsyncram_component
+ 15. Parameter Settings for User Entity Instance: in_conv:output
+ 16. altsyncram Parameter Settings by Entity Instance
+ 17. Port Connectivity Checks: "in_conv:output"
+ 18. Port Connectivity Checks: "in_sram:ram"
+ 19. Port Connectivity Checks: "in_storing:entry"
+ 20. Post-Synthesis Netlist Statistics for Top Partition
+ 21. Elapsed Time Per Partition
+ 22. Analysis & Synthesis Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 2018  Intel Corporation. All rights reserved.
+Your use of Intel Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Intel Program License 
+Subscription Agreement, the Intel Quartus Prime License Agreement,
+the Intel FPGA IP License Agreement, or other applicable license
+agreement, including, without limitation, that your use is for
+the sole purpose of programming logic devices manufactured by
+Intel and sold by Intel or its authorized distributors.  Please
+refer to the applicable agreement for further details.
+
+
+
++-------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                  ;
++---------------------------------+---------------------------------------------+
+; Analysis & Synthesis Status     ; Successful - Tue Nov 29 09:49:09 2022       ;
+; Quartus Prime Version           ; 18.1.0 Build 625 09/12/2018 SJ Lite Edition ;
+; Revision Name                   ; top_level                                   ;
+; Top-level Entity Name           ; in_adapt                                    ;
+; Family                          ; Cyclone V                                   ;
+; Logic utilization (in ALMs)     ; N/A                                         ;
+; Total registers                 ; 1                                           ;
+; Total pins                      ; 76                                          ;
+; Total virtual pins              ; 0                                           ;
+; Total block memory bits         ; 0                                           ;
+; Total DSP Blocks                ; 0                                           ;
+; Total HSSI RX PCSs              ; 0                                           ;
+; Total HSSI PMA RX Deserializers ; 0                                           ;
+; Total HSSI TX PCSs              ; 0                                           ;
+; Total HSSI PMA TX Serializers   ; 0                                           ;
+; Total PLLs                      ; 0                                           ;
+; Total DLLs                      ; 0                                           ;
++---------------------------------+---------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Settings                                                                                             ;
++---------------------------------------------------------------------------------+--------------------+--------------------+
+; Option                                                                          ; Setting            ; Default Value      ;
++---------------------------------------------------------------------------------+--------------------+--------------------+
+; Device                                                                          ; 5CGXFC7C7F23C8     ;                    ;
+; Top-level entity name                                                           ; in_adapt           ; top_level          ;
+; Family name                                                                     ; Cyclone V          ; Cyclone V          ;
+; Use smart compilation                                                           ; Off                ; Off                ;
+; Enable parallel Assembler and Timing Analyzer during compilation                ; On                 ; On                 ;
+; Enable compact report table                                                     ; Off                ; Off                ;
+; Restructure Multiplexers                                                        ; Auto               ; Auto               ;
+; MLAB Add Timing Constraints For Mixed-Port Feed-Through Mode Setting Don't Care ; Off                ; Off                ;
+; Create Debugging Nodes for IP Cores                                             ; Off                ; Off                ;
+; Preserve fewer node names                                                       ; On                 ; On                 ;
+; Intel FPGA IP Evaluation Mode                                                   ; Enable             ; Enable             ;
+; Verilog Version                                                                 ; Verilog_2001       ; Verilog_2001       ;
+; VHDL Version                                                                    ; VHDL_1993          ; VHDL_1993          ;
+; State Machine Processing                                                        ; Auto               ; Auto               ;
+; Safe State Machine                                                              ; Off                ; Off                ;
+; Extract Verilog State Machines                                                  ; On                 ; On                 ;
+; Extract VHDL State Machines                                                     ; On                 ; On                 ;
+; Ignore Verilog initial constructs                                               ; Off                ; Off                ;
+; Iteration limit for constant Verilog loops                                      ; 5000               ; 5000               ;
+; Iteration limit for non-constant Verilog loops                                  ; 250                ; 250                ;
+; Add Pass-Through Logic to Inferred RAMs                                         ; On                 ; On                 ;
+; Infer RAMs from Raw Logic                                                       ; On                 ; On                 ;
+; Parallel Synthesis                                                              ; On                 ; On                 ;
+; DSP Block Balancing                                                             ; Auto               ; Auto               ;
+; NOT Gate Push-Back                                                              ; On                 ; On                 ;
+; Power-Up Don't Care                                                             ; On                 ; On                 ;
+; Remove Redundant Logic Cells                                                    ; Off                ; Off                ;
+; Remove Duplicate Registers                                                      ; On                 ; On                 ;
+; Ignore CARRY Buffers                                                            ; Off                ; Off                ;
+; Ignore CASCADE Buffers                                                          ; Off                ; Off                ;
+; Ignore GLOBAL Buffers                                                           ; Off                ; Off                ;
+; Ignore ROW GLOBAL Buffers                                                       ; Off                ; Off                ;
+; Ignore LCELL Buffers                                                            ; Off                ; Off                ;
+; Ignore SOFT Buffers                                                             ; On                 ; On                 ;
+; Limit AHDL Integers to 32 Bits                                                  ; Off                ; Off                ;
+; Optimization Technique                                                          ; Balanced           ; Balanced           ;
+; Carry Chain Length                                                              ; 70                 ; 70                 ;
+; Auto Carry Chains                                                               ; On                 ; On                 ;
+; Auto Open-Drain Pins                                                            ; On                 ; On                 ;
+; Perform WYSIWYG Primitive Resynthesis                                           ; Off                ; Off                ;
+; Auto ROM Replacement                                                            ; On                 ; On                 ;
+; Auto RAM Replacement                                                            ; On                 ; On                 ;
+; Auto DSP Block Replacement                                                      ; On                 ; On                 ;
+; Auto Shift Register Replacement                                                 ; Auto               ; Auto               ;
+; Allow Shift Register Merging across Hierarchies                                 ; Auto               ; Auto               ;
+; Auto Clock Enable Replacement                                                   ; On                 ; On                 ;
+; Strict RAM Replacement                                                          ; Off                ; Off                ;
+; Allow Synchronous Control Signals                                               ; On                 ; On                 ;
+; Force Use of Synchronous Clear Signals                                          ; Off                ; Off                ;
+; Auto Resource Sharing                                                           ; Off                ; Off                ;
+; Allow Any RAM Size For Recognition                                              ; Off                ; Off                ;
+; Allow Any ROM Size For Recognition                                              ; Off                ; Off                ;
+; Allow Any Shift Register Size For Recognition                                   ; Off                ; Off                ;
+; Use LogicLock Constraints during Resource Balancing                             ; On                 ; On                 ;
+; Ignore translate_off and synthesis_off directives                               ; Off                ; Off                ;
+; Timing-Driven Synthesis                                                         ; On                 ; On                 ;
+; Report Parameter Settings                                                       ; On                 ; On                 ;
+; Report Source Assignments                                                       ; On                 ; On                 ;
+; Report Connectivity Checks                                                      ; On                 ; On                 ;
+; Ignore Maximum Fan-Out Assignments                                              ; Off                ; Off                ;
+; Synchronization Register Chain Length                                           ; 3                  ; 3                  ;
+; Power Optimization During Synthesis                                             ; Normal compilation ; Normal compilation ;
+; HDL message level                                                               ; Level2             ; Level2             ;
+; Suppress Register Optimization Related Messages                                 ; Off                ; Off                ;
+; Number of Removed Registers Reported in Synthesis Report                        ; 5000               ; 5000               ;
+; Number of Swept Nodes Reported in Synthesis Report                              ; 5000               ; 5000               ;
+; Number of Inverted Registers Reported in Synthesis Report                       ; 100                ; 100                ;
+; Clock MUX Protection                                                            ; On                 ; On                 ;
+; Auto Gated Clock Conversion                                                     ; Off                ; Off                ;
+; Block Design Naming                                                             ; Auto               ; Auto               ;
+; SDC constraint protection                                                       ; Off                ; Off                ;
+; Synthesis Effort                                                                ; Auto               ; Auto               ;
+; Shift Register Replacement - Allow Asynchronous Clear Signal                    ; On                 ; On                 ;
+; Pre-Mapping Resynthesis Optimization                                            ; Off                ; Off                ;
+; Analysis & Synthesis Message Level                                              ; Medium             ; Medium             ;
+; Disable Register Merging Across Hierarchies                                     ; Auto               ; Auto               ;
+; Resource Aware Inference For Block RAM                                          ; On                 ; On                 ;
+; Automatic Parallel Synthesis                                                    ; On                 ; On                 ;
+; Partial Reconfiguration Bitstream ID                                            ; Off                ; Off                ;
++---------------------------------------------------------------------------------+--------------------+--------------------+
+
+
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 8           ;
+; Maximum allowed            ; 4           ;
+;                            ;             ;
+; Average used               ; 1.00        ;
+; Maximum used               ; 1           ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     Processor 1            ; 100.0%      ;
++----------------------------+-------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                           ;
++----------------------------------+-----------------+------------------------------+------------------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type                    ; File Name with Absolute Path                                                       ; Library ;
++----------------------------------+-----------------+------------------------------+------------------------------------------------------------------------------------+---------+
+; src/in_adapt.vhd                 ; yes             ; User VHDL File               ; C:/Users/BAT 14/Documents/MEA5/PFE/FIL_init/FIL_application/src/in_adapt.vhd       ;         ;
+; src/in_conv.vhd                  ; yes             ; User VHDL File               ; C:/Users/BAT 14/Documents/MEA5/PFE/FIL_init/FIL_application/src/in_conv.vhd        ;         ;
+; src/in_storing.vhd               ; yes             ; User VHDL File               ; C:/Users/BAT 14/Documents/MEA5/PFE/FIL_init/FIL_application/src/in_storing.vhd     ;         ;
+; src/in_sram.vhd                  ; yes             ; User Wizard-Generated File   ; C:/Users/BAT 14/Documents/MEA5/PFE/FIL_init/FIL_application/src/in_sram.vhd        ;         ;
+; altsyncram.tdf                   ; yes             ; Megafunction                 ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/altsyncram.tdf              ;         ;
+; stratix_ram_block.inc            ; yes             ; Megafunction                 ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/stratix_ram_block.inc       ;         ;
+; lpm_mux.inc                      ; yes             ; Megafunction                 ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/lpm_mux.inc                 ;         ;
+; lpm_decode.inc                   ; yes             ; Megafunction                 ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/lpm_decode.inc              ;         ;
+; aglobal181.inc                   ; yes             ; Megafunction                 ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/aglobal181.inc              ;         ;
+; a_rdenreg.inc                    ; yes             ; Megafunction                 ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/a_rdenreg.inc               ;         ;
+; altrom.inc                       ; yes             ; Megafunction                 ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/altrom.inc                  ;         ;
+; altram.inc                       ; yes             ; Megafunction                 ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/altram.inc                  ;         ;
+; altdpram.inc                     ; yes             ; Megafunction                 ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/altdpram.inc                ;         ;
+; db/altsyncram_du24.tdf           ; yes             ; Auto-Generated Megafunction  ; C:/Users/BAT 14/Documents/MEA5/PFE/FIL_init/FIL_application/db/altsyncram_du24.tdf ;         ;
++----------------------------------+-----------------+------------------------------+------------------------------------------------------------------------------------+---------+
+
+
++--------------------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary                        ;
++---------------------------------------------+----------------------+
+; Resource                                    ; Usage                ;
++---------------------------------------------+----------------------+
+; Estimate of Logic utilization (ALMs needed) ; 1                    ;
+;                                             ;                      ;
+; Combinational ALUT usage for logic          ; 0                    ;
+;     -- 7 input functions                    ; 0                    ;
+;     -- 6 input functions                    ; 0                    ;
+;     -- 5 input functions                    ; 0                    ;
+;     -- 4 input functions                    ; 0                    ;
+;     -- <=3 input functions                  ; 0                    ;
+;                                             ;                      ;
+; Dedicated logic registers                   ; 1                    ;
+;                                             ;                      ;
+; I/O pins                                    ; 76                   ;
+;                                             ;                      ;
+; Total DSP Blocks                            ; 0                    ;
+;                                             ;                      ;
+; Maximum fan-out node                        ; in_conv:output|s_eop ;
+; Maximum fan-out                             ; 1                    ;
+; Total fan-out                               ; 79                   ;
+; Average fan-out                             ; 0.52                 ;
++---------------------------------------------+----------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                         ;
++----------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+--------------------------+-------------+--------------+
+; Compilation Hierarchy Node ; Combinational ALUTs ; Dedicated Logic Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name      ; Entity Name ; Library Name ;
++----------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+--------------------------+-------------+--------------+
+; |in_adapt                  ; 0 (0)               ; 1 (0)                     ; 0                 ; 0          ; 76   ; 0            ; |in_adapt                ; in_adapt    ; work         ;
+;    |in_conv:output|        ; 0 (0)               ; 1 (1)                     ; 0                 ; 0          ; 0    ; 0            ; |in_adapt|in_conv:output ; in_conv     ; work         ;
++----------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+--------------------------+-------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
++---------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis IP Cores Summary                                                                   ;
++--------+--------------+---------+--------------+--------------+-----------------------+-----------------+
+; Vendor ; IP Core Name ; Version ; Release Date ; License Type ; Entity Instance       ; IP Include File ;
++--------+--------------+---------+--------------+--------------+-----------------------+-----------------+
+; Altera ; RAM: 2-PORT  ; 18.1    ; N/A          ; N/A          ; |in_adapt|in_sram:ram ; src/in_sram.vhd ;
++--------+--------------+---------+--------------+--------------+-----------------------+-----------------+
+
+
++---------------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                                    ;
++-----------------------------------------+---------------------------------------------+
+; Register name                           ; Reason for Removal                          ;
++-----------------------------------------+---------------------------------------------+
+; in_conv:output|out_ready                ; Stuck at GND due to stuck port clock_enable ;
+; in_storing:entry|data_a[32..39]         ; Lost fanout                                 ;
+; in_conv:output|s_channel[0..5]          ; Stuck at GND due to stuck port clock_enable ;
+; in_conv:output|s_sop                    ; Stuck at GND due to stuck port data_in      ;
+; in_conv:output|s_rden                   ; Stuck at GND due to stuck port data_in      ;
+; in_conv:output|s_valid                  ; Stuck at GND due to stuck port data_in      ;
+; in_conv:output|addr[0..9]               ; Stuck at GND due to stuck port clock_enable ;
+; in_conv:output|ast_sink_data[31]        ; Stuck at GND due to stuck port clock_enable ;
+; in_storing:entry|data_a[31]             ; Lost fanout                                 ;
+; in_conv:output|ast_sink_data[30]        ; Stuck at GND due to stuck port clock_enable ;
+; in_storing:entry|data_a[30]             ; Lost fanout                                 ;
+; in_conv:output|ast_sink_data[29]        ; Stuck at GND due to stuck port clock_enable ;
+; in_storing:entry|data_a[29]             ; Lost fanout                                 ;
+; in_conv:output|ast_sink_data[28]        ; Stuck at GND due to stuck port clock_enable ;
+; in_storing:entry|data_a[28]             ; Lost fanout                                 ;
+; in_conv:output|ast_sink_data[27]        ; Stuck at GND due to stuck port clock_enable ;
+; in_storing:entry|data_a[27]             ; Lost fanout                                 ;
+; in_conv:output|ast_sink_data[26]        ; Stuck at GND due to stuck port clock_enable ;
+; in_storing:entry|data_a[26]             ; Lost fanout                                 ;
+; in_conv:output|ast_sink_data[25]        ; Stuck at GND due to stuck port clock_enable ;
+; in_storing:entry|data_a[25]             ; Lost fanout                                 ;
+; in_conv:output|ast_sink_data[24]        ; Stuck at GND due to stuck port clock_enable ;
+; in_storing:entry|data_a[24]             ; Lost fanout                                 ;
+; in_conv:output|ast_sink_data[23]        ; Stuck at GND due to stuck port clock_enable ;
+; in_storing:entry|data_a[23]             ; Lost fanout                                 ;
+; in_conv:output|ast_sink_data[22]        ; Stuck at GND due to stuck port clock_enable ;
+; in_storing:entry|data_a[22]             ; Lost fanout                                 ;
+; in_conv:output|ast_sink_data[21]        ; Stuck at GND due to stuck port clock_enable ;
+; in_storing:entry|data_a[21]             ; Lost fanout                                 ;
+; in_conv:output|ast_sink_data[20]        ; Stuck at GND due to stuck port clock_enable ;
+; in_storing:entry|data_a[20]             ; Lost fanout                                 ;
+; in_conv:output|ast_sink_data[19]        ; Stuck at GND due to stuck port clock_enable ;
+; in_storing:entry|data_a[19]             ; Lost fanout                                 ;
+; in_conv:output|ast_sink_data[18]        ; Stuck at GND due to stuck port clock_enable ;
+; in_storing:entry|data_a[18]             ; Lost fanout                                 ;
+; in_conv:output|ast_sink_data[17]        ; Stuck at GND due to stuck port clock_enable ;
+; in_storing:entry|data_a[17]             ; Lost fanout                                 ;
+; in_conv:output|ast_sink_data[16]        ; Stuck at GND due to stuck port clock_enable ;
+; in_storing:entry|data_a[16]             ; Lost fanout                                 ;
+; in_conv:output|ast_sink_data[15]        ; Stuck at GND due to stuck port clock_enable ;
+; in_storing:entry|data_a[15]             ; Lost fanout                                 ;
+; in_conv:output|ast_sink_data[14]        ; Stuck at GND due to stuck port clock_enable ;
+; in_storing:entry|data_a[14]             ; Lost fanout                                 ;
+; in_conv:output|ast_sink_data[13]        ; Stuck at GND due to stuck port clock_enable ;
+; in_storing:entry|data_a[13]             ; Lost fanout                                 ;
+; in_conv:output|ast_sink_data[12]        ; Stuck at GND due to stuck port clock_enable ;
+; in_storing:entry|data_a[12]             ; Lost fanout                                 ;
+; in_conv:output|ast_sink_data[11]        ; Stuck at GND due to stuck port clock_enable ;
+; in_storing:entry|data_a[11]             ; Lost fanout                                 ;
+; in_conv:output|ast_sink_data[10]        ; Stuck at GND due to stuck port clock_enable ;
+; in_storing:entry|data_a[10]             ; Lost fanout                                 ;
+; in_conv:output|ast_sink_data[9]         ; Stuck at GND due to stuck port clock_enable ;
+; in_storing:entry|data_a[9]              ; Lost fanout                                 ;
+; in_conv:output|ast_sink_data[8]         ; Stuck at GND due to stuck port clock_enable ;
+; in_storing:entry|data_a[8]              ; Lost fanout                                 ;
+; in_conv:output|ast_sink_data[7]         ; Stuck at GND due to stuck port clock_enable ;
+; in_storing:entry|data_a[7]              ; Lost fanout                                 ;
+; in_conv:output|ast_sink_data[6]         ; Stuck at GND due to stuck port clock_enable ;
+; in_storing:entry|data_a[6]              ; Lost fanout                                 ;
+; in_conv:output|ast_sink_data[5]         ; Stuck at GND due to stuck port clock_enable ;
+; in_storing:entry|data_a[5]              ; Lost fanout                                 ;
+; in_conv:output|ast_sink_data[4]         ; Stuck at GND due to stuck port clock_enable ;
+; in_storing:entry|data_a[4]              ; Lost fanout                                 ;
+; in_conv:output|ast_sink_data[3]         ; Stuck at GND due to stuck port clock_enable ;
+; in_storing:entry|data_a[3]              ; Lost fanout                                 ;
+; in_conv:output|ast_sink_data[2]         ; Stuck at GND due to stuck port clock_enable ;
+; in_storing:entry|data_a[2]              ; Lost fanout                                 ;
+; in_conv:output|ast_sink_data[1]         ; Stuck at GND due to stuck port clock_enable ;
+; in_storing:entry|data_a[1]              ; Lost fanout                                 ;
+; in_conv:output|ast_sink_data[0]         ; Stuck at GND due to stuck port clock_enable ;
+; in_storing:entry|data_a[0]              ; Lost fanout                                 ;
+; in_storing:entry|addr[0..9]             ; Lost fanout                                 ;
+; in_storing:entry|curr_head[0]           ; Lost fanout                                 ;
+; in_storing:entry|s_wren                 ; Lost fanout                                 ;
+; in_storing:entry|round[0,1]             ; Lost fanout                                 ;
+; in_storing:entry|curr_head[1..7]        ; Lost fanout                                 ;
+; Total Number of Removed Registers = 113 ;                                             ;
++-----------------------------------------+---------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------+
+; Removed Registers Triggering Further Register Optimizations                                                                                    ;
++-----------------------------+--------------------------------+---------------------------------------------------------------------------------+
+; Register name               ; Reason for Removal             ; Registers Removed due to This Register                                          ;
++-----------------------------+--------------------------------+---------------------------------------------------------------------------------+
+; in_conv:output|s_rden       ; Stuck at GND                   ; in_storing:entry|data_a[31], in_storing:entry|data_a[30],                       ;
+;                             ; due to stuck port data_in      ; in_storing:entry|data_a[29], in_conv:output|ast_sink_data[28],                  ;
+;                             ;                                ; in_storing:entry|data_a[28], in_conv:output|ast_sink_data[27],                  ;
+;                             ;                                ; in_storing:entry|data_a[27], in_conv:output|ast_sink_data[26],                  ;
+;                             ;                                ; in_storing:entry|data_a[26], in_conv:output|ast_sink_data[25],                  ;
+;                             ;                                ; in_storing:entry|data_a[25], in_conv:output|ast_sink_data[24],                  ;
+;                             ;                                ; in_storing:entry|data_a[24], in_conv:output|ast_sink_data[23],                  ;
+;                             ;                                ; in_storing:entry|data_a[23], in_conv:output|ast_sink_data[22],                  ;
+;                             ;                                ; in_storing:entry|data_a[22], in_conv:output|ast_sink_data[21],                  ;
+;                             ;                                ; in_storing:entry|data_a[21], in_conv:output|ast_sink_data[20],                  ;
+;                             ;                                ; in_storing:entry|data_a[20], in_conv:output|ast_sink_data[19],                  ;
+;                             ;                                ; in_storing:entry|data_a[19], in_conv:output|ast_sink_data[18],                  ;
+;                             ;                                ; in_storing:entry|data_a[18], in_conv:output|ast_sink_data[17],                  ;
+;                             ;                                ; in_storing:entry|data_a[17], in_conv:output|ast_sink_data[16],                  ;
+;                             ;                                ; in_storing:entry|data_a[16], in_conv:output|ast_sink_data[15],                  ;
+;                             ;                                ; in_storing:entry|data_a[15], in_conv:output|ast_sink_data[14],                  ;
+;                             ;                                ; in_storing:entry|data_a[14], in_conv:output|ast_sink_data[13],                  ;
+;                             ;                                ; in_storing:entry|data_a[13], in_conv:output|ast_sink_data[12],                  ;
+;                             ;                                ; in_storing:entry|data_a[12], in_conv:output|ast_sink_data[11],                  ;
+;                             ;                                ; in_storing:entry|data_a[11], in_conv:output|ast_sink_data[10],                  ;
+;                             ;                                ; in_storing:entry|data_a[10], in_conv:output|ast_sink_data[9],                   ;
+;                             ;                                ; in_storing:entry|data_a[9], in_conv:output|ast_sink_data[8],                    ;
+;                             ;                                ; in_storing:entry|data_a[8], in_conv:output|ast_sink_data[7],                    ;
+;                             ;                                ; in_storing:entry|data_a[7], in_conv:output|ast_sink_data[6],                    ;
+;                             ;                                ; in_storing:entry|data_a[6], in_conv:output|ast_sink_data[5],                    ;
+;                             ;                                ; in_storing:entry|data_a[5], in_conv:output|ast_sink_data[4],                    ;
+;                             ;                                ; in_storing:entry|data_a[4], in_conv:output|ast_sink_data[3],                    ;
+;                             ;                                ; in_storing:entry|data_a[3], in_conv:output|ast_sink_data[2],                    ;
+;                             ;                                ; in_storing:entry|data_a[2], in_conv:output|ast_sink_data[1],                    ;
+;                             ;                                ; in_storing:entry|data_a[1], in_conv:output|ast_sink_data[0],                    ;
+;                             ;                                ; in_storing:entry|data_a[0]                                                      ;
+; in_conv:output|out_ready    ; Stuck at GND                   ; in_conv:output|s_channel[5], in_conv:output|s_channel[4],                       ;
+;                             ; due to stuck port clock_enable ; in_conv:output|s_channel[3], in_conv:output|s_channel[2],                       ;
+;                             ;                                ; in_conv:output|s_channel[1], in_conv:output|s_channel[0], in_conv:output|s_sop, ;
+;                             ;                                ; in_conv:output|addr[0], in_conv:output|ast_sink_data[31],                       ;
+;                             ;                                ; in_conv:output|ast_sink_data[30], in_conv:output|ast_sink_data[29]              ;
+; in_conv:output|s_valid      ; Stuck at GND                   ; in_conv:output|addr[9], in_conv:output|addr[8], in_conv:output|addr[7],         ;
+;                             ; due to stuck port data_in      ; in_conv:output|addr[6], in_conv:output|addr[5], in_conv:output|addr[4],         ;
+;                             ;                                ; in_conv:output|addr[3], in_conv:output|addr[2], in_conv:output|addr[1]          ;
+; in_storing:entry|data_a[32] ; Lost Fanouts                   ; in_storing:entry|curr_head[0], in_storing:entry|s_wren                          ;
+; in_storing:entry|data_a[33] ; Lost Fanouts                   ; in_storing:entry|curr_head[1]                                                   ;
+; in_storing:entry|data_a[34] ; Lost Fanouts                   ; in_storing:entry|curr_head[2]                                                   ;
+; in_storing:entry|data_a[35] ; Lost Fanouts                   ; in_storing:entry|curr_head[3]                                                   ;
+; in_storing:entry|data_a[36] ; Lost Fanouts                   ; in_storing:entry|curr_head[4]                                                   ;
+; in_storing:entry|data_a[37] ; Lost Fanouts                   ; in_storing:entry|curr_head[5]                                                   ;
+; in_storing:entry|data_a[38] ; Lost Fanouts                   ; in_storing:entry|curr_head[6]                                                   ;
+; in_storing:entry|data_a[39] ; Lost Fanouts                   ; in_storing:entry|curr_head[7]                                                   ;
+; in_storing:entry|addr[8]    ; Lost Fanouts                   ; in_storing:entry|round[0]                                                       ;
+; in_storing:entry|addr[9]    ; Lost Fanouts                   ; in_storing:entry|round[1]                                                       ;
++-----------------------------+--------------------------------+---------------------------------------------------------------------------------+
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 1     ;
+; Number of registers using Synchronous Clear  ; 0     ;
+; Number of registers using Synchronous Load   ; 0     ;
+; Number of registers using Asynchronous Clear ; 1     ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 0     ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++---------------------------------------------------------------------------------------------------+
+; Source assignments for in_sram:ram|altsyncram:altsyncram_component|altsyncram_du24:auto_generated ;
++---------------------------------+--------------------+------+-------------------------------------+
+; Assignment                      ; Value              ; From ; To                                  ;
++---------------------------------+--------------------+------+-------------------------------------+
+; OPTIMIZE_POWER_DURING_SYNTHESIS ; NORMAL_COMPILATION ; -    ; -                                   ;
++---------------------------------+--------------------+------+-------------------------------------+
+
+
++--------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Top-level Entity: |in_adapt ;
++----------------+-------+-------------------------------------------------+
+; Parameter Name ; Value ; Type                                            ;
++----------------+-------+-------------------------------------------------+
+; NUM_CHANNEL    ; 40    ; Signed Integer                                  ;
+; CHANNEL_WIDTH  ; 6     ; Signed Integer                                  ;
++----------------+-------+-------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: in_sram:ram|altsyncram:altsyncram_component ;
++------------------------------------+----------------------+------------------------------+
+; Parameter Name                     ; Value                ; Type                         ;
++------------------------------------+----------------------+------------------------------+
+; BYTE_SIZE_BLOCK                    ; 8                    ; Untyped                      ;
+; AUTO_CARRY_CHAINS                  ; ON                   ; AUTO_CARRY                   ;
+; IGNORE_CARRY_BUFFERS               ; OFF                  ; IGNORE_CARRY                 ;
+; AUTO_CASCADE_CHAINS                ; ON                   ; AUTO_CASCADE                 ;
+; IGNORE_CASCADE_BUFFERS             ; OFF                  ; IGNORE_CASCADE               ;
+; WIDTH_BYTEENA                      ; 1                    ; Untyped                      ;
+; OPERATION_MODE                     ; BIDIR_DUAL_PORT      ; Untyped                      ;
+; WIDTH_A                            ; 40                   ; Signed Integer               ;
+; WIDTHAD_A                          ; 10                   ; Signed Integer               ;
+; NUMWORDS_A                         ; 1024                 ; Signed Integer               ;
+; OUTDATA_REG_A                      ; CLOCK0               ; Untyped                      ;
+; ADDRESS_ACLR_A                     ; NONE                 ; Untyped                      ;
+; OUTDATA_ACLR_A                     ; CLEAR0               ; Untyped                      ;
+; WRCONTROL_ACLR_A                   ; NONE                 ; Untyped                      ;
+; INDATA_ACLR_A                      ; NONE                 ; Untyped                      ;
+; BYTEENA_ACLR_A                     ; NONE                 ; Untyped                      ;
+; WIDTH_B                            ; 40                   ; Signed Integer               ;
+; WIDTHAD_B                          ; 10                   ; Signed Integer               ;
+; NUMWORDS_B                         ; 1024                 ; Signed Integer               ;
+; INDATA_REG_B                       ; CLOCK1               ; Untyped                      ;
+; WRCONTROL_WRADDRESS_REG_B          ; CLOCK1               ; Untyped                      ;
+; RDCONTROL_REG_B                    ; CLOCK1               ; Untyped                      ;
+; ADDRESS_REG_B                      ; CLOCK1               ; Untyped                      ;
+; OUTDATA_REG_B                      ; CLOCK1               ; Untyped                      ;
+; BYTEENA_REG_B                      ; CLOCK1               ; Untyped                      ;
+; INDATA_ACLR_B                      ; NONE                 ; Untyped                      ;
+; WRCONTROL_ACLR_B                   ; NONE                 ; Untyped                      ;
+; ADDRESS_ACLR_B                     ; NONE                 ; Untyped                      ;
+; OUTDATA_ACLR_B                     ; CLEAR1               ; Untyped                      ;
+; RDCONTROL_ACLR_B                   ; NONE                 ; Untyped                      ;
+; BYTEENA_ACLR_B                     ; NONE                 ; Untyped                      ;
+; WIDTH_BYTEENA_A                    ; 1                    ; Signed Integer               ;
+; WIDTH_BYTEENA_B                    ; 1                    ; Signed Integer               ;
+; RAM_BLOCK_TYPE                     ; AUTO                 ; Untyped                      ;
+; BYTE_SIZE                          ; 8                    ; Signed Integer               ;
+; READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE            ; Untyped                      ;
+; READ_DURING_WRITE_MODE_PORT_A      ; NEW_DATA_NO_NBE_READ ; Untyped                      ;
+; READ_DURING_WRITE_MODE_PORT_B      ; NEW_DATA_NO_NBE_READ ; Untyped                      ;
+; INIT_FILE                          ; UNUSED               ; Untyped                      ;
+; INIT_FILE_LAYOUT                   ; PORT_A               ; Untyped                      ;
+; MAXIMUM_DEPTH                      ; 0                    ; Signed Integer               ;
+; CLOCK_ENABLE_INPUT_A               ; BYPASS               ; Untyped                      ;
+; CLOCK_ENABLE_INPUT_B               ; BYPASS               ; Untyped                      ;
+; CLOCK_ENABLE_OUTPUT_A              ; BYPASS               ; Untyped                      ;
+; CLOCK_ENABLE_OUTPUT_B              ; BYPASS               ; Untyped                      ;
+; CLOCK_ENABLE_CORE_A                ; USE_INPUT_CLKEN      ; Untyped                      ;
+; CLOCK_ENABLE_CORE_B                ; USE_INPUT_CLKEN      ; Untyped                      ;
+; ENABLE_ECC                         ; FALSE                ; Untyped                      ;
+; ECC_PIPELINE_STAGE_ENABLED         ; FALSE                ; Untyped                      ;
+; WIDTH_ECCSTATUS                    ; 3                    ; Signed Integer               ;
+; DEVICE_FAMILY                      ; Cyclone V            ; Untyped                      ;
+; CBXI_PARAMETER                     ; altsyncram_du24      ; Untyped                      ;
++------------------------------------+----------------------+------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: in_conv:output ;
++----------------+-------+------------------------------------+
+; Parameter Name ; Value ; Type                               ;
++----------------+-------+------------------------------------+
+; num_channel    ; 40    ; Signed Integer                     ;
+; channel_width  ; 6     ; Signed Integer                     ;
++----------------+-------+------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------------------------------+
+; altsyncram Parameter Settings by Entity Instance                                        ;
++-------------------------------------------+---------------------------------------------+
+; Name                                      ; Value                                       ;
++-------------------------------------------+---------------------------------------------+
+; Number of entity instances                ; 1                                           ;
+; Entity Instance                           ; in_sram:ram|altsyncram:altsyncram_component ;
+;     -- OPERATION_MODE                     ; BIDIR_DUAL_PORT                             ;
+;     -- WIDTH_A                            ; 40                                          ;
+;     -- NUMWORDS_A                         ; 1024                                        ;
+;     -- OUTDATA_REG_A                      ; CLOCK0                                      ;
+;     -- WIDTH_B                            ; 40                                          ;
+;     -- NUMWORDS_B                         ; 1024                                        ;
+;     -- ADDRESS_REG_B                      ; CLOCK1                                      ;
+;     -- OUTDATA_REG_B                      ; CLOCK1                                      ;
+;     -- RAM_BLOCK_TYPE                     ; AUTO                                        ;
+;     -- READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE                                   ;
++-------------------------------------------+---------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "in_conv:output"                                                                                                                                            ;
++--------------------+--------+----------+----------------------------------------------------------------------------------------------------------------------------------------------+
+; Port               ; Type   ; Severity ; Details                                                                                                                                      ;
++--------------------+--------+----------+----------------------------------------------------------------------------------------------------------------------------------------------+
+; wren_b             ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed.                                                          ;
+; ast_source_ready   ; Output ; Warning  ; Declared by entity but not connected by instance. Logic that only feeds a dangling port will be removed.                                     ;
+; ast_source_channel ; Input  ; Warning  ; Declared by entity but not connected by instance. If a default value exists, it will be used.  Otherwise, the port will be connected to GND. ;
+; ast_sink_ready     ; Input  ; Warning  ; Declared by entity but not connected by instance. If a default value exists, it will be used.  Otherwise, the port will be connected to GND. ;
++--------------------+--------+----------+----------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "in_sram:ram"                                                                          ;
++--------+--------+----------+-------------------------------------------------------------------------------------+
+; Port   ; Type   ; Severity ; Details                                                                             ;
++--------+--------+----------+-------------------------------------------------------------------------------------+
+; aclr_a ; Input  ; Info     ; Stuck at GND                                                                        ;
+; aclr_b ; Input  ; Info     ; Stuck at GND                                                                        ;
+; rden_a ; Input  ; Info     ; Stuck at GND                                                                        ;
+; wren_b ; Input  ; Info     ; Stuck at GND                                                                        ;
+; q_a    ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++--------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "in_storing:entry"                                                                     ;
++--------+--------+----------+-------------------------------------------------------------------------------------+
+; Port   ; Type   ; Severity ; Details                                                                             ;
++--------+--------+----------+-------------------------------------------------------------------------------------+
+; rden_a ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; q_a    ; Input  ; Info     ; Stuck at GND                                                                        ;
++--------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++-----------------------------------------------------+
+; Post-Synthesis Netlist Statistics for Top Partition ;
++-----------------------+-----------------------------+
+; Type                  ; Count                       ;
++-----------------------+-----------------------------+
+; arriav_ff             ; 1                           ;
+;     CLR               ; 1                           ;
+; arriav_lcell_comb     ; 1                           ;
+;     normal            ; 1                           ;
+;         0 data inputs ; 1                           ;
+; boundary_port         ; 76                          ;
+;                       ;                             ;
+; Max LUT depth         ; 0.00                        ;
+; Average LUT depth     ; 0.00                        ;
++-----------------------+-----------------------------+
+
+
++-------------------------------+
+; Elapsed Time Per Partition    ;
++----------------+--------------+
+; Partition Name ; Elapsed Time ;
++----------------+--------------+
+; Top            ; 00:00:00     ;
++----------------+--------------+
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
+Info: *******************************************************************
+Info: Running Quartus Prime Analysis & Synthesis
+    Info: Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
+    Info: Processing started: Tue Nov 29 09:48:55 2022
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off top_level -c top_level
+Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
+Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
+Info (12021): Found 2 design units, including 1 entities, in source file src/tb_in.vhd
+    Info (12022): Found design unit 1: tb_in-testbench File: C:/Users/BAT 14/Documents/MEA5/PFE/FIL_init/FIL_application/src/tb_in.vhd Line: 9
+    Info (12023): Found entity 1: tb_in File: C:/Users/BAT 14/Documents/MEA5/PFE/FIL_init/FIL_application/src/tb_in.vhd Line: 6
+Info (12021): Found 2 design units, including 1 entities, in source file src/in_adapt.vhd
+    Info (12022): Found design unit 1: in_adapt-bev File: C:/Users/BAT 14/Documents/MEA5/PFE/FIL_init/FIL_application/src/in_adapt.vhd Line: 28
+    Info (12023): Found entity 1: in_adapt File: C:/Users/BAT 14/Documents/MEA5/PFE/FIL_init/FIL_application/src/in_adapt.vhd Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file src/in_conv.vhd
+    Info (12022): Found design unit 1: in_conv-behav File: C:/Users/BAT 14/Documents/MEA5/PFE/FIL_init/FIL_application/src/in_conv.vhd Line: 37
+    Info (12023): Found entity 1: in_conv File: C:/Users/BAT 14/Documents/MEA5/PFE/FIL_init/FIL_application/src/in_conv.vhd Line: 6
+Info (12021): Found 2 design units, including 1 entities, in source file src/in_storing.vhd
+    Info (12022): Found design unit 1: in_storing-behav File: C:/Users/BAT 14/Documents/MEA5/PFE/FIL_init/FIL_application/src/in_storing.vhd Line: 25
+    Info (12023): Found entity 1: in_storing File: C:/Users/BAT 14/Documents/MEA5/PFE/FIL_init/FIL_application/src/in_storing.vhd Line: 6
+Info (12021): Found 2 design units, including 1 entities, in source file src/in_sram.vhd
+    Info (12022): Found design unit 1: in_sram-SYN File: C:/Users/BAT 14/Documents/MEA5/PFE/FIL_init/FIL_application/src/in_sram.vhd Line: 63
+    Info (12023): Found entity 1: in_sram File: C:/Users/BAT 14/Documents/MEA5/PFE/FIL_init/FIL_application/src/in_sram.vhd Line: 42
+Info (12127): Elaborating entity "in_adapt" for the top level hierarchy
+Warning (10036): Verilog HDL or VHDL warning at in_adapt.vhd(98): object "q_a" assigned a value but never read File: C:/Users/BAT 14/Documents/MEA5/PFE/FIL_init/FIL_application/src/in_adapt.vhd Line: 98
+Info (12128): Elaborating entity "in_storing" for hierarchy "in_storing:entry" File: C:/Users/BAT 14/Documents/MEA5/PFE/FIL_init/FIL_application/src/in_adapt.vhd Line: 103
+Warning (10540): VHDL Signal Declaration warning at in_storing.vhd(19): used explicit default value for signal "rden_a" because signal was never assigned a value File: C:/Users/BAT 14/Documents/MEA5/PFE/FIL_init/FIL_application/src/in_storing.vhd Line: 19
+Info (12128): Elaborating entity "in_sram" for hierarchy "in_sram:ram" File: C:/Users/BAT 14/Documents/MEA5/PFE/FIL_init/FIL_application/src/in_adapt.vhd Line: 117
+Info (12128): Elaborating entity "altsyncram" for hierarchy "in_sram:ram|altsyncram:altsyncram_component" File: C:/Users/BAT 14/Documents/MEA5/PFE/FIL_init/FIL_application/src/in_sram.vhd Line: 72
+Info (12130): Elaborated megafunction instantiation "in_sram:ram|altsyncram:altsyncram_component" File: C:/Users/BAT 14/Documents/MEA5/PFE/FIL_init/FIL_application/src/in_sram.vhd Line: 72
+Info (12133): Instantiated megafunction "in_sram:ram|altsyncram:altsyncram_component" with the following parameter: File: C:/Users/BAT 14/Documents/MEA5/PFE/FIL_init/FIL_application/src/in_sram.vhd Line: 72
+    Info (12134): Parameter "address_aclr_a" = "UNUSED"
+    Info (12134): Parameter "address_aclr_b" = "NONE"
+    Info (12134): Parameter "address_reg_b" = "CLOCK1"
+    Info (12134): Parameter "byte_size" = "8"
+    Info (12134): Parameter "byteena_aclr_a" = "UNUSED"
+    Info (12134): Parameter "byteena_aclr_b" = "NONE"
+    Info (12134): Parameter "byteena_reg_b" = "CLOCK1"
+    Info (12134): Parameter "clock_enable_core_a" = "USE_INPUT_CLKEN"
+    Info (12134): Parameter "clock_enable_core_b" = "USE_INPUT_CLKEN"
+    Info (12134): Parameter "clock_enable_input_a" = "BYPASS"
+    Info (12134): Parameter "clock_enable_input_b" = "BYPASS"
+    Info (12134): Parameter "clock_enable_output_a" = "BYPASS"
+    Info (12134): Parameter "clock_enable_output_b" = "BYPASS"
+    Info (12134): Parameter "intended_device_family" = "Cyclone V"
+    Info (12134): Parameter "ecc_pipeline_stage_enabled" = "FALSE"
+    Info (12134): Parameter "enable_ecc" = "FALSE"
+    Info (12134): Parameter "implement_in_les" = "OFF"
+    Info (12134): Parameter "indata_aclr_a" = "UNUSED"
+    Info (12134): Parameter "indata_aclr_b" = "NONE"
+    Info (12134): Parameter "indata_reg_b" = "CLOCK1"
+    Info (12134): Parameter "init_file" = "UNUSED"
+    Info (12134): Parameter "init_file_layout" = "PORT_A"
+    Info (12134): Parameter "maximum_depth" = "0"
+    Info (12134): Parameter "numwords_a" = "1024"
+    Info (12134): Parameter "numwords_b" = "1024"
+    Info (12134): Parameter "operation_mode" = "BIDIR_DUAL_PORT"
+    Info (12134): Parameter "outdata_aclr_a" = "CLEAR0"
+    Info (12134): Parameter "outdata_aclr_b" = "CLEAR1"
+    Info (12134): Parameter "outdata_reg_a" = "CLOCK0"
+    Info (12134): Parameter "outdata_reg_b" = "CLOCK1"
+    Info (12134): Parameter "power_up_uninitialized" = "FALSE"
+    Info (12134): Parameter "ram_block_type" = "AUTO"
+    Info (12134): Parameter "rdcontrol_aclr_b" = "NONE"
+    Info (12134): Parameter "rdcontrol_reg_b" = "CLOCK1"
+    Info (12134): Parameter "read_during_write_mode_mixed_ports" = "DONT_CARE"
+    Info (12134): Parameter "read_during_write_mode_port_a" = "NEW_DATA_NO_NBE_READ"
+    Info (12134): Parameter "read_during_write_mode_port_b" = "NEW_DATA_NO_NBE_READ"
+    Info (12134): Parameter "stratixiv_m144k_allow_dual_clocks" = "ON"
+    Info (12134): Parameter "width_a" = "40"
+    Info (12134): Parameter "width_b" = "40"
+    Info (12134): Parameter "width_byteena_a" = "1"
+    Info (12134): Parameter "width_byteena_b" = "1"
+    Info (12134): Parameter "width_eccstatus" = "3"
+    Info (12134): Parameter "widthad_a" = "10"
+    Info (12134): Parameter "widthad_b" = "10"
+    Info (12134): Parameter "wrcontrol_aclr_a" = "UNUSED"
+    Info (12134): Parameter "wrcontrol_aclr_b" = "NONE"
+    Info (12134): Parameter "wrcontrol_wraddress_reg_b" = "CLOCK1"
+    Info (12134): Parameter "lpm_hint" = "UNUSED"
+    Info (12134): Parameter "lpm_type" = "altsyncram"
+Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_du24.tdf
+    Info (12023): Found entity 1: altsyncram_du24 File: C:/Users/BAT 14/Documents/MEA5/PFE/FIL_init/FIL_application/db/altsyncram_du24.tdf Line: 27
+Info (12128): Elaborating entity "altsyncram_du24" for hierarchy "in_sram:ram|altsyncram:altsyncram_component|altsyncram_du24:auto_generated" File: c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/altsyncram.tdf Line: 791
+Info (12128): Elaborating entity "in_conv" for hierarchy "in_conv:output" File: C:/Users/BAT 14/Documents/MEA5/PFE/FIL_init/FIL_application/src/in_adapt.vhd Line: 134
+Warning (10540): VHDL Signal Declaration warning at in_conv.vhd(18): used explicit default value for signal "data_b" because signal was never assigned a value File: C:/Users/BAT 14/Documents/MEA5/PFE/FIL_init/FIL_application/src/in_conv.vhd Line: 18
+Warning (10540): VHDL Signal Declaration warning at in_conv.vhd(20): used explicit default value for signal "wren_b" because signal was never assigned a value File: C:/Users/BAT 14/Documents/MEA5/PFE/FIL_init/FIL_application/src/in_conv.vhd Line: 20
+Warning (14284): Synthesized away the following node(s):
+    Warning (14285): Synthesized away the following RAM node(s):
+        Warning (14320): Synthesized away node "in_sram:ram|altsyncram:altsyncram_component|altsyncram_du24:auto_generated|q_a[32]" File: C:/Users/BAT 14/Documents/MEA5/PFE/FIL_init/FIL_application/db/altsyncram_du24.tdf Line: 1293
+        Warning (14320): Synthesized away node "in_sram:ram|altsyncram:altsyncram_component|altsyncram_du24:auto_generated|q_a[33]" File: C:/Users/BAT 14/Documents/MEA5/PFE/FIL_init/FIL_application/db/altsyncram_du24.tdf Line: 1332
+        Warning (14320): Synthesized away node "in_sram:ram|altsyncram:altsyncram_component|altsyncram_du24:auto_generated|q_a[34]" File: C:/Users/BAT 14/Documents/MEA5/PFE/FIL_init/FIL_application/db/altsyncram_du24.tdf Line: 1371
+        Warning (14320): Synthesized away node "in_sram:ram|altsyncram:altsyncram_component|altsyncram_du24:auto_generated|q_a[35]" File: C:/Users/BAT 14/Documents/MEA5/PFE/FIL_init/FIL_application/db/altsyncram_du24.tdf Line: 1410
+        Warning (14320): Synthesized away node "in_sram:ram|altsyncram:altsyncram_component|altsyncram_du24:auto_generated|q_a[36]" File: C:/Users/BAT 14/Documents/MEA5/PFE/FIL_init/FIL_application/db/altsyncram_du24.tdf Line: 1449
+        Warning (14320): Synthesized away node "in_sram:ram|altsyncram:altsyncram_component|altsyncram_du24:auto_generated|q_a[37]" File: C:/Users/BAT 14/Documents/MEA5/PFE/FIL_init/FIL_application/db/altsyncram_du24.tdf Line: 1488
+        Warning (14320): Synthesized away node "in_sram:ram|altsyncram:altsyncram_component|altsyncram_du24:auto_generated|q_a[38]" File: C:/Users/BAT 14/Documents/MEA5/PFE/FIL_init/FIL_application/db/altsyncram_du24.tdf Line: 1527
+        Warning (14320): Synthesized away node "in_sram:ram|altsyncram:altsyncram_component|altsyncram_du24:auto_generated|q_a[39]" File: C:/Users/BAT 14/Documents/MEA5/PFE/FIL_init/FIL_application/db/altsyncram_du24.tdf Line: 1566
+Warning (14284): Synthesized away the following node(s):
+    Warning (14285): Synthesized away the following RAM node(s):
+        Warning (14320): Synthesized away node "in_sram:ram|altsyncram:altsyncram_component|altsyncram_du24:auto_generated|q_a[0]" File: C:/Users/BAT 14/Documents/MEA5/PFE/FIL_init/FIL_application/db/altsyncram_du24.tdf Line: 45
+        Warning (14320): Synthesized away node "in_sram:ram|altsyncram:altsyncram_component|altsyncram_du24:auto_generated|q_a[1]" File: C:/Users/BAT 14/Documents/MEA5/PFE/FIL_init/FIL_application/db/altsyncram_du24.tdf Line: 84
+        Warning (14320): Synthesized away node "in_sram:ram|altsyncram:altsyncram_component|altsyncram_du24:auto_generated|q_a[2]" File: C:/Users/BAT 14/Documents/MEA5/PFE/FIL_init/FIL_application/db/altsyncram_du24.tdf Line: 123
+        Warning (14320): Synthesized away node "in_sram:ram|altsyncram:altsyncram_component|altsyncram_du24:auto_generated|q_a[3]" File: C:/Users/BAT 14/Documents/MEA5/PFE/FIL_init/FIL_application/db/altsyncram_du24.tdf Line: 162
+        Warning (14320): Synthesized away node "in_sram:ram|altsyncram:altsyncram_component|altsyncram_du24:auto_generated|q_a[4]" File: C:/Users/BAT 14/Documents/MEA5/PFE/FIL_init/FIL_application/db/altsyncram_du24.tdf Line: 201
+        Warning (14320): Synthesized away node "in_sram:ram|altsyncram:altsyncram_component|altsyncram_du24:auto_generated|q_a[5]" File: C:/Users/BAT 14/Documents/MEA5/PFE/FIL_init/FIL_application/db/altsyncram_du24.tdf Line: 240
+        Warning (14320): Synthesized away node "in_sram:ram|altsyncram:altsyncram_component|altsyncram_du24:auto_generated|q_a[6]" File: C:/Users/BAT 14/Documents/MEA5/PFE/FIL_init/FIL_application/db/altsyncram_du24.tdf Line: 279
+        Warning (14320): Synthesized away node "in_sram:ram|altsyncram:altsyncram_component|altsyncram_du24:auto_generated|q_a[7]" File: C:/Users/BAT 14/Documents/MEA5/PFE/FIL_init/FIL_application/db/altsyncram_du24.tdf Line: 318
+        Warning (14320): Synthesized away node "in_sram:ram|altsyncram:altsyncram_component|altsyncram_du24:auto_generated|q_a[8]" File: C:/Users/BAT 14/Documents/MEA5/PFE/FIL_init/FIL_application/db/altsyncram_du24.tdf Line: 357
+        Warning (14320): Synthesized away node "in_sram:ram|altsyncram:altsyncram_component|altsyncram_du24:auto_generated|q_a[9]" File: C:/Users/BAT 14/Documents/MEA5/PFE/FIL_init/FIL_application/db/altsyncram_du24.tdf Line: 396
+        Warning (14320): Synthesized away node "in_sram:ram|altsyncram:altsyncram_component|altsyncram_du24:auto_generated|q_a[10]" File: C:/Users/BAT 14/Documents/MEA5/PFE/FIL_init/FIL_application/db/altsyncram_du24.tdf Line: 435
+        Warning (14320): Synthesized away node "in_sram:ram|altsyncram:altsyncram_component|altsyncram_du24:auto_generated|q_a[11]" File: C:/Users/BAT 14/Documents/MEA5/PFE/FIL_init/FIL_application/db/altsyncram_du24.tdf Line: 474
+        Warning (14320): Synthesized away node "in_sram:ram|altsyncram:altsyncram_component|altsyncram_du24:auto_generated|q_a[12]" File: C:/Users/BAT 14/Documents/MEA5/PFE/FIL_init/FIL_application/db/altsyncram_du24.tdf Line: 513
+        Warning (14320): Synthesized away node "in_sram:ram|altsyncram:altsyncram_component|altsyncram_du24:auto_generated|q_a[13]" File: C:/Users/BAT 14/Documents/MEA5/PFE/FIL_init/FIL_application/db/altsyncram_du24.tdf Line: 552
+        Warning (14320): Synthesized away node "in_sram:ram|altsyncram:altsyncram_component|altsyncram_du24:auto_generated|q_a[14]" File: C:/Users/BAT 14/Documents/MEA5/PFE/FIL_init/FIL_application/db/altsyncram_du24.tdf Line: 591
+        Warning (14320): Synthesized away node "in_sram:ram|altsyncram:altsyncram_component|altsyncram_du24:auto_generated|q_a[15]" File: C:/Users/BAT 14/Documents/MEA5/PFE/FIL_init/FIL_application/db/altsyncram_du24.tdf Line: 630
+        Warning (14320): Synthesized away node "in_sram:ram|altsyncram:altsyncram_component|altsyncram_du24:auto_generated|q_a[16]" File: C:/Users/BAT 14/Documents/MEA5/PFE/FIL_init/FIL_application/db/altsyncram_du24.tdf Line: 669
+        Warning (14320): Synthesized away node "in_sram:ram|altsyncram:altsyncram_component|altsyncram_du24:auto_generated|q_a[17]" File: C:/Users/BAT 14/Documents/MEA5/PFE/FIL_init/FIL_application/db/altsyncram_du24.tdf Line: 708
+        Warning (14320): Synthesized away node "in_sram:ram|altsyncram:altsyncram_component|altsyncram_du24:auto_generated|q_a[18]" File: C:/Users/BAT 14/Documents/MEA5/PFE/FIL_init/FIL_application/db/altsyncram_du24.tdf Line: 747
+        Warning (14320): Synthesized away node "in_sram:ram|altsyncram:altsyncram_component|altsyncram_du24:auto_generated|q_a[19]" File: C:/Users/BAT 14/Documents/MEA5/PFE/FIL_init/FIL_application/db/altsyncram_du24.tdf Line: 786
+        Warning (14320): Synthesized away node "in_sram:ram|altsyncram:altsyncram_component|altsyncram_du24:auto_generated|q_a[20]" File: C:/Users/BAT 14/Documents/MEA5/PFE/FIL_init/FIL_application/db/altsyncram_du24.tdf Line: 825
+        Warning (14320): Synthesized away node "in_sram:ram|altsyncram:altsyncram_component|altsyncram_du24:auto_generated|q_a[21]" File: C:/Users/BAT 14/Documents/MEA5/PFE/FIL_init/FIL_application/db/altsyncram_du24.tdf Line: 864
+        Warning (14320): Synthesized away node "in_sram:ram|altsyncram:altsyncram_component|altsyncram_du24:auto_generated|q_a[22]" File: C:/Users/BAT 14/Documents/MEA5/PFE/FIL_init/FIL_application/db/altsyncram_du24.tdf Line: 903
+        Warning (14320): Synthesized away node "in_sram:ram|altsyncram:altsyncram_component|altsyncram_du24:auto_generated|q_a[23]" File: C:/Users/BAT 14/Documents/MEA5/PFE/FIL_init/FIL_application/db/altsyncram_du24.tdf Line: 942
+        Warning (14320): Synthesized away node "in_sram:ram|altsyncram:altsyncram_component|altsyncram_du24:auto_generated|q_a[24]" File: C:/Users/BAT 14/Documents/MEA5/PFE/FIL_init/FIL_application/db/altsyncram_du24.tdf Line: 981
+        Warning (14320): Synthesized away node "in_sram:ram|altsyncram:altsyncram_component|altsyncram_du24:auto_generated|q_a[25]" File: C:/Users/BAT 14/Documents/MEA5/PFE/FIL_init/FIL_application/db/altsyncram_du24.tdf Line: 1020
+        Warning (14320): Synthesized away node "in_sram:ram|altsyncram:altsyncram_component|altsyncram_du24:auto_generated|q_a[26]" File: C:/Users/BAT 14/Documents/MEA5/PFE/FIL_init/FIL_application/db/altsyncram_du24.tdf Line: 1059
+        Warning (14320): Synthesized away node "in_sram:ram|altsyncram:altsyncram_component|altsyncram_du24:auto_generated|q_a[27]" File: C:/Users/BAT 14/Documents/MEA5/PFE/FIL_init/FIL_application/db/altsyncram_du24.tdf Line: 1098
+        Warning (14320): Synthesized away node "in_sram:ram|altsyncram:altsyncram_component|altsyncram_du24:auto_generated|q_a[28]" File: C:/Users/BAT 14/Documents/MEA5/PFE/FIL_init/FIL_application/db/altsyncram_du24.tdf Line: 1137
+        Warning (14320): Synthesized away node "in_sram:ram|altsyncram:altsyncram_component|altsyncram_du24:auto_generated|q_a[29]" File: C:/Users/BAT 14/Documents/MEA5/PFE/FIL_init/FIL_application/db/altsyncram_du24.tdf Line: 1176
+        Warning (14320): Synthesized away node "in_sram:ram|altsyncram:altsyncram_component|altsyncram_du24:auto_generated|q_a[30]" File: C:/Users/BAT 14/Documents/MEA5/PFE/FIL_init/FIL_application/db/altsyncram_du24.tdf Line: 1215
+        Warning (14320): Synthesized away node "in_sram:ram|altsyncram:altsyncram_component|altsyncram_du24:auto_generated|q_a[31]" File: C:/Users/BAT 14/Documents/MEA5/PFE/FIL_init/FIL_application/db/altsyncram_du24.tdf Line: 1254
+Warning (12241): 1 hierarchies have connectivity warnings - see the Connectivity Checks report folder
+Warning (13024): Output pins are stuck at VCC or GND
+    Warning (13410): Pin "ast_sink_valid" is stuck at GND File: C:/Users/BAT 14/Documents/MEA5/PFE/FIL_init/FIL_application/src/in_adapt.vhd Line: 20
+    Warning (13410): Pin "ast_sink_sop" is stuck at GND File: C:/Users/BAT 14/Documents/MEA5/PFE/FIL_init/FIL_application/src/in_adapt.vhd Line: 21
+    Warning (13410): Pin "ast_sink_data[0]" is stuck at GND File: C:/Users/BAT 14/Documents/MEA5/PFE/FIL_init/FIL_application/src/in_adapt.vhd Line: 23
+    Warning (13410): Pin "ast_sink_data[1]" is stuck at GND File: C:/Users/BAT 14/Documents/MEA5/PFE/FIL_init/FIL_application/src/in_adapt.vhd Line: 23
+    Warning (13410): Pin "ast_sink_data[2]" is stuck at GND File: C:/Users/BAT 14/Documents/MEA5/PFE/FIL_init/FIL_application/src/in_adapt.vhd Line: 23
+    Warning (13410): Pin "ast_sink_data[3]" is stuck at GND File: C:/Users/BAT 14/Documents/MEA5/PFE/FIL_init/FIL_application/src/in_adapt.vhd Line: 23
+    Warning (13410): Pin "ast_sink_data[4]" is stuck at GND File: C:/Users/BAT 14/Documents/MEA5/PFE/FIL_init/FIL_application/src/in_adapt.vhd Line: 23
+    Warning (13410): Pin "ast_sink_data[5]" is stuck at GND File: C:/Users/BAT 14/Documents/MEA5/PFE/FIL_init/FIL_application/src/in_adapt.vhd Line: 23
+    Warning (13410): Pin "ast_sink_data[6]" is stuck at GND File: C:/Users/BAT 14/Documents/MEA5/PFE/FIL_init/FIL_application/src/in_adapt.vhd Line: 23
+    Warning (13410): Pin "ast_sink_data[7]" is stuck at GND File: C:/Users/BAT 14/Documents/MEA5/PFE/FIL_init/FIL_application/src/in_adapt.vhd Line: 23
+    Warning (13410): Pin "ast_sink_data[8]" is stuck at GND File: C:/Users/BAT 14/Documents/MEA5/PFE/FIL_init/FIL_application/src/in_adapt.vhd Line: 23
+    Warning (13410): Pin "ast_sink_data[9]" is stuck at GND File: C:/Users/BAT 14/Documents/MEA5/PFE/FIL_init/FIL_application/src/in_adapt.vhd Line: 23
+    Warning (13410): Pin "ast_sink_data[10]" is stuck at GND File: C:/Users/BAT 14/Documents/MEA5/PFE/FIL_init/FIL_application/src/in_adapt.vhd Line: 23
+    Warning (13410): Pin "ast_sink_data[11]" is stuck at GND File: C:/Users/BAT 14/Documents/MEA5/PFE/FIL_init/FIL_application/src/in_adapt.vhd Line: 23
+    Warning (13410): Pin "ast_sink_data[12]" is stuck at GND File: C:/Users/BAT 14/Documents/MEA5/PFE/FIL_init/FIL_application/src/in_adapt.vhd Line: 23
+    Warning (13410): Pin "ast_sink_data[13]" is stuck at GND File: C:/Users/BAT 14/Documents/MEA5/PFE/FIL_init/FIL_application/src/in_adapt.vhd Line: 23
+    Warning (13410): Pin "ast_sink_data[14]" is stuck at GND File: C:/Users/BAT 14/Documents/MEA5/PFE/FIL_init/FIL_application/src/in_adapt.vhd Line: 23
+    Warning (13410): Pin "ast_sink_data[15]" is stuck at GND File: C:/Users/BAT 14/Documents/MEA5/PFE/FIL_init/FIL_application/src/in_adapt.vhd Line: 23
+    Warning (13410): Pin "ast_sink_data[16]" is stuck at GND File: C:/Users/BAT 14/Documents/MEA5/PFE/FIL_init/FIL_application/src/in_adapt.vhd Line: 23
+    Warning (13410): Pin "ast_sink_data[17]" is stuck at GND File: C:/Users/BAT 14/Documents/MEA5/PFE/FIL_init/FIL_application/src/in_adapt.vhd Line: 23
+    Warning (13410): Pin "ast_sink_data[18]" is stuck at GND File: C:/Users/BAT 14/Documents/MEA5/PFE/FIL_init/FIL_application/src/in_adapt.vhd Line: 23
+    Warning (13410): Pin "ast_sink_data[19]" is stuck at GND File: C:/Users/BAT 14/Documents/MEA5/PFE/FIL_init/FIL_application/src/in_adapt.vhd Line: 23
+    Warning (13410): Pin "ast_sink_data[20]" is stuck at GND File: C:/Users/BAT 14/Documents/MEA5/PFE/FIL_init/FIL_application/src/in_adapt.vhd Line: 23
+    Warning (13410): Pin "ast_sink_data[21]" is stuck at GND File: C:/Users/BAT 14/Documents/MEA5/PFE/FIL_init/FIL_application/src/in_adapt.vhd Line: 23
+    Warning (13410): Pin "ast_sink_data[22]" is stuck at GND File: C:/Users/BAT 14/Documents/MEA5/PFE/FIL_init/FIL_application/src/in_adapt.vhd Line: 23
+    Warning (13410): Pin "ast_sink_data[23]" is stuck at GND File: C:/Users/BAT 14/Documents/MEA5/PFE/FIL_init/FIL_application/src/in_adapt.vhd Line: 23
+    Warning (13410): Pin "ast_sink_data[24]" is stuck at GND File: C:/Users/BAT 14/Documents/MEA5/PFE/FIL_init/FIL_application/src/in_adapt.vhd Line: 23
+    Warning (13410): Pin "ast_sink_data[25]" is stuck at GND File: C:/Users/BAT 14/Documents/MEA5/PFE/FIL_init/FIL_application/src/in_adapt.vhd Line: 23
+    Warning (13410): Pin "ast_sink_data[26]" is stuck at GND File: C:/Users/BAT 14/Documents/MEA5/PFE/FIL_init/FIL_application/src/in_adapt.vhd Line: 23
+    Warning (13410): Pin "ast_sink_data[27]" is stuck at GND File: C:/Users/BAT 14/Documents/MEA5/PFE/FIL_init/FIL_application/src/in_adapt.vhd Line: 23
+    Warning (13410): Pin "ast_sink_data[28]" is stuck at GND File: C:/Users/BAT 14/Documents/MEA5/PFE/FIL_init/FIL_application/src/in_adapt.vhd Line: 23
+    Warning (13410): Pin "ast_sink_data[29]" is stuck at GND File: C:/Users/BAT 14/Documents/MEA5/PFE/FIL_init/FIL_application/src/in_adapt.vhd Line: 23
+    Warning (13410): Pin "ast_sink_data[30]" is stuck at GND File: C:/Users/BAT 14/Documents/MEA5/PFE/FIL_init/FIL_application/src/in_adapt.vhd Line: 23
+    Warning (13410): Pin "ast_sink_data[31]" is stuck at GND File: C:/Users/BAT 14/Documents/MEA5/PFE/FIL_init/FIL_application/src/in_adapt.vhd Line: 23
+    Warning (13410): Pin "ast_sink_channel[0]" is stuck at GND File: C:/Users/BAT 14/Documents/MEA5/PFE/FIL_init/FIL_application/src/in_adapt.vhd Line: 24
+    Warning (13410): Pin "ast_sink_channel[1]" is stuck at GND File: C:/Users/BAT 14/Documents/MEA5/PFE/FIL_init/FIL_application/src/in_adapt.vhd Line: 24
+    Warning (13410): Pin "ast_sink_channel[2]" is stuck at GND File: C:/Users/BAT 14/Documents/MEA5/PFE/FIL_init/FIL_application/src/in_adapt.vhd Line: 24
+    Warning (13410): Pin "ast_sink_channel[3]" is stuck at GND File: C:/Users/BAT 14/Documents/MEA5/PFE/FIL_init/FIL_application/src/in_adapt.vhd Line: 24
+    Warning (13410): Pin "ast_sink_channel[4]" is stuck at GND File: C:/Users/BAT 14/Documents/MEA5/PFE/FIL_init/FIL_application/src/in_adapt.vhd Line: 24
+    Warning (13410): Pin "ast_sink_channel[5]" is stuck at GND File: C:/Users/BAT 14/Documents/MEA5/PFE/FIL_init/FIL_application/src/in_adapt.vhd Line: 24
+Info (286030): Timing-Driven Synthesis is running
+Info (17049): 61 registers lost all their fanouts during netlist optimizations.
+Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
+    Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
+Warning (21074): Design contains 33 input pin(s) that do not drive logic
+    Warning (15610): No output dependent on input pin "enb" File: C:/Users/BAT 14/Documents/MEA5/PFE/FIL_init/FIL_application/src/in_adapt.vhd Line: 12
+    Warning (15610): No output dependent on input pin "din[0]" File: C:/Users/BAT 14/Documents/MEA5/PFE/FIL_init/FIL_application/src/in_adapt.vhd Line: 16
+    Warning (15610): No output dependent on input pin "din[1]" File: C:/Users/BAT 14/Documents/MEA5/PFE/FIL_init/FIL_application/src/in_adapt.vhd Line: 16
+    Warning (15610): No output dependent on input pin "din[2]" File: C:/Users/BAT 14/Documents/MEA5/PFE/FIL_init/FIL_application/src/in_adapt.vhd Line: 16
+    Warning (15610): No output dependent on input pin "din[3]" File: C:/Users/BAT 14/Documents/MEA5/PFE/FIL_init/FIL_application/src/in_adapt.vhd Line: 16
+    Warning (15610): No output dependent on input pin "din[4]" File: C:/Users/BAT 14/Documents/MEA5/PFE/FIL_init/FIL_application/src/in_adapt.vhd Line: 16
+    Warning (15610): No output dependent on input pin "din[5]" File: C:/Users/BAT 14/Documents/MEA5/PFE/FIL_init/FIL_application/src/in_adapt.vhd Line: 16
+    Warning (15610): No output dependent on input pin "din[6]" File: C:/Users/BAT 14/Documents/MEA5/PFE/FIL_init/FIL_application/src/in_adapt.vhd Line: 16
+    Warning (15610): No output dependent on input pin "din[7]" File: C:/Users/BAT 14/Documents/MEA5/PFE/FIL_init/FIL_application/src/in_adapt.vhd Line: 16
+    Warning (15610): No output dependent on input pin "din[8]" File: C:/Users/BAT 14/Documents/MEA5/PFE/FIL_init/FIL_application/src/in_adapt.vhd Line: 16
+    Warning (15610): No output dependent on input pin "din[9]" File: C:/Users/BAT 14/Documents/MEA5/PFE/FIL_init/FIL_application/src/in_adapt.vhd Line: 16
+    Warning (15610): No output dependent on input pin "din[10]" File: C:/Users/BAT 14/Documents/MEA5/PFE/FIL_init/FIL_application/src/in_adapt.vhd Line: 16
+    Warning (15610): No output dependent on input pin "din[11]" File: C:/Users/BAT 14/Documents/MEA5/PFE/FIL_init/FIL_application/src/in_adapt.vhd Line: 16
+    Warning (15610): No output dependent on input pin "din[12]" File: C:/Users/BAT 14/Documents/MEA5/PFE/FIL_init/FIL_application/src/in_adapt.vhd Line: 16
+    Warning (15610): No output dependent on input pin "din[13]" File: C:/Users/BAT 14/Documents/MEA5/PFE/FIL_init/FIL_application/src/in_adapt.vhd Line: 16
+    Warning (15610): No output dependent on input pin "din[14]" File: C:/Users/BAT 14/Documents/MEA5/PFE/FIL_init/FIL_application/src/in_adapt.vhd Line: 16
+    Warning (15610): No output dependent on input pin "din[15]" File: C:/Users/BAT 14/Documents/MEA5/PFE/FIL_init/FIL_application/src/in_adapt.vhd Line: 16
+    Warning (15610): No output dependent on input pin "din[16]" File: C:/Users/BAT 14/Documents/MEA5/PFE/FIL_init/FIL_application/src/in_adapt.vhd Line: 16
+    Warning (15610): No output dependent on input pin "din[17]" File: C:/Users/BAT 14/Documents/MEA5/PFE/FIL_init/FIL_application/src/in_adapt.vhd Line: 16
+    Warning (15610): No output dependent on input pin "din[18]" File: C:/Users/BAT 14/Documents/MEA5/PFE/FIL_init/FIL_application/src/in_adapt.vhd Line: 16
+    Warning (15610): No output dependent on input pin "din[19]" File: C:/Users/BAT 14/Documents/MEA5/PFE/FIL_init/FIL_application/src/in_adapt.vhd Line: 16
+    Warning (15610): No output dependent on input pin "din[20]" File: C:/Users/BAT 14/Documents/MEA5/PFE/FIL_init/FIL_application/src/in_adapt.vhd Line: 16
+    Warning (15610): No output dependent on input pin "din[21]" File: C:/Users/BAT 14/Documents/MEA5/PFE/FIL_init/FIL_application/src/in_adapt.vhd Line: 16
+    Warning (15610): No output dependent on input pin "din[22]" File: C:/Users/BAT 14/Documents/MEA5/PFE/FIL_init/FIL_application/src/in_adapt.vhd Line: 16
+    Warning (15610): No output dependent on input pin "din[23]" File: C:/Users/BAT 14/Documents/MEA5/PFE/FIL_init/FIL_application/src/in_adapt.vhd Line: 16
+    Warning (15610): No output dependent on input pin "din[24]" File: C:/Users/BAT 14/Documents/MEA5/PFE/FIL_init/FIL_application/src/in_adapt.vhd Line: 16
+    Warning (15610): No output dependent on input pin "din[25]" File: C:/Users/BAT 14/Documents/MEA5/PFE/FIL_init/FIL_application/src/in_adapt.vhd Line: 16
+    Warning (15610): No output dependent on input pin "din[26]" File: C:/Users/BAT 14/Documents/MEA5/PFE/FIL_init/FIL_application/src/in_adapt.vhd Line: 16
+    Warning (15610): No output dependent on input pin "din[27]" File: C:/Users/BAT 14/Documents/MEA5/PFE/FIL_init/FIL_application/src/in_adapt.vhd Line: 16
+    Warning (15610): No output dependent on input pin "din[28]" File: C:/Users/BAT 14/Documents/MEA5/PFE/FIL_init/FIL_application/src/in_adapt.vhd Line: 16
+    Warning (15610): No output dependent on input pin "din[29]" File: C:/Users/BAT 14/Documents/MEA5/PFE/FIL_init/FIL_application/src/in_adapt.vhd Line: 16
+    Warning (15610): No output dependent on input pin "din[30]" File: C:/Users/BAT 14/Documents/MEA5/PFE/FIL_init/FIL_application/src/in_adapt.vhd Line: 16
+    Warning (15610): No output dependent on input pin "din[31]" File: C:/Users/BAT 14/Documents/MEA5/PFE/FIL_init/FIL_application/src/in_adapt.vhd Line: 16
+Info (21057): Implemented 77 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 35 input pins
+    Info (21059): Implemented 41 output pins
+    Info (21061): Implemented 1 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 125 warnings
+    Info: Peak virtual memory: 4863 megabytes
+    Info: Processing ended: Tue Nov 29 09:49:09 2022
+    Info: Elapsed time: 00:00:14
+    Info: Total CPU time (on all processors): 00:00:29
+
+

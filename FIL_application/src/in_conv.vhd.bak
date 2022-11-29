@@ -1,0 +1,25 @@
+library ieee;
+use ieee.std_logic_1164.all;
+Use ieee.numeric_std.all;
+use ieee.std_Logic_unsigned.all;
+
+entity in_conv is 
+	port (
+			clk_b    					 : IN  std_logic;
+			enb    						 : IN  std_logic;
+			reset  						 : IN  std_logic;
+			
+			-- from the simunlink wrapper
+			din    						 : IN  std_logic_vector(31 DOWNTO 0);
+			
+			
+			-- to the SRAM a ports
+			address_a					: OUT STD_LOGIC_VECTOR (9 DOWNTO 0);
+			data_a						: OUT STD_LOGIC_VECTOR (39 DOWNTO 0);
+			rden_a						: OUT STD_LOGIC := '0' ;
+			wren_a						: OUT STD_LOGIC;
+			q_a							: IN STD_LOGIC_VECTOR (39 DOWNTO 0):= (others <= '0');
+			
+			
+		);
+end entity in_conv;

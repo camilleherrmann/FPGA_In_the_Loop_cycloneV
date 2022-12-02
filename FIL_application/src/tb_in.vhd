@@ -70,20 +70,39 @@ begin
 	
 	rst_enb: process
 	begin 	
-		s_reset 					<= '0';
-		s_enb 					<= '0';
-		s_ast_source_ready 	<= '1';
-		wait for 8ns;
 		s_reset 					<= '1';
-		wait for 16ns;
 		s_enb 					<= '1';
+		s_ast_source_ready 	<= '1';		
 		wait;
+	end process;
+	
+	channel : process
+	begin
+		s_ast_source_channel	<= s_ast_source_channel + 1;
+		wait for CLK_PERIOD_125MHZ;
 	end process;
 	
 	data : process
 	begin
-		s_din 					<= s_din + 1;
-		s_ast_source_channel	<= s_ast_source_channel + 1;
+		s_din	<=  s_din + 1;
+		wait for CLK_PERIOD_125MHZ;
+		s_din	<=  s_din + 1;
+		wait for CLK_PERIOD_125MHZ;
+		s_din	<=  s_din + 1;
+		wait for CLK_PERIOD_125MHZ;
+		s_din	<=  s_din;
+		wait for CLK_PERIOD_125MHZ;
+		s_din	<=  s_din;
+		wait for CLK_PERIOD_125MHZ;
+		s_din	<=  s_din - 1;
+		wait for CLK_PERIOD_125MHZ;
+		s_din	<=  s_din - 1;
+		wait for CLK_PERIOD_125MHZ;
+		s_din	<=  s_din - 1;
+		wait for CLK_PERIOD_125MHZ;
+		s_din	<=  s_din;
+		wait for CLK_PERIOD_125MHZ;
+		s_din	<=  s_din;
 		wait for CLK_PERIOD_125MHZ;
 	end process;
 	

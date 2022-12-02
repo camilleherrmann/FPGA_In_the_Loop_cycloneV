@@ -1,4 +1,5 @@
 # Reading C:/intelFPGA_lite/18.1/modelsim_ase/tcl/vsim/pref.tcl
+# ERROR: No extended dataflow license exists
 # do top_level_run_msim_rtl_vhdl.do
 # if {[file exists rtl_work]} {
 # 	vdel -lib rtl_work -all
@@ -12,7 +13,7 @@
 # 
 # vcom -93 -work work {C:/Users/BAT 14/Documents/MEA5/PFE/FIL_init/FIL_application/src/in_adapt.vhd}
 # Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 11:41:47 on Nov 29,2022
+# Start time: 16:21:52 on Dec 02,2022
 # vcom -reportprogress 300 -93 -work work C:/Users/BAT 14/Documents/MEA5/PFE/FIL_init/FIL_application/src/in_adapt.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
@@ -20,11 +21,11 @@
 # -- Loading package NUMERIC_STD
 # -- Compiling entity in_adapt
 # -- Compiling architecture bev of in_adapt
-# End time: 11:41:47 on Nov 29,2022, Elapsed time: 0:00:00
+# End time: 16:21:52 on Dec 02,2022, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # vcom -93 -work work {C:/Users/BAT 14/Documents/MEA5/PFE/FIL_init/FIL_application/src/in_conv.vhd}
 # Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 11:41:47 on Nov 29,2022
+# Start time: 16:21:52 on Dec 02,2022
 # vcom -reportprogress 300 -93 -work work C:/Users/BAT 14/Documents/MEA5/PFE/FIL_init/FIL_application/src/in_conv.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
@@ -34,11 +35,11 @@
 # -- Loading package STD_LOGIC_UNSIGNED
 # -- Compiling entity in_conv
 # -- Compiling architecture behav of in_conv
-# End time: 11:41:47 on Nov 29,2022, Elapsed time: 0:00:00
+# End time: 16:21:52 on Dec 02,2022, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # vcom -93 -work work {C:/Users/BAT 14/Documents/MEA5/PFE/FIL_init/FIL_application/src/in_storing.vhd}
 # Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 11:41:47 on Nov 29,2022
+# Start time: 16:21:52 on Dec 02,2022
 # vcom -reportprogress 300 -93 -work work C:/Users/BAT 14/Documents/MEA5/PFE/FIL_init/FIL_application/src/in_storing.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
@@ -48,11 +49,11 @@
 # -- Loading package STD_LOGIC_UNSIGNED
 # -- Compiling entity in_storing
 # -- Compiling architecture behav of in_storing
-# End time: 11:41:48 on Nov 29,2022, Elapsed time: 0:00:01
+# End time: 16:21:52 on Dec 02,2022, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # vcom -93 -work work {C:/Users/BAT 14/Documents/MEA5/PFE/FIL_init/FIL_application/src/in_sram.vhd}
 # Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 11:41:48 on Nov 29,2022
+# Start time: 16:21:52 on Dec 02,2022
 # vcom -reportprogress 300 -93 -work work C:/Users/BAT 14/Documents/MEA5/PFE/FIL_init/FIL_application/src/in_sram.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
@@ -60,12 +61,12 @@
 # -- Loading package altera_mf_components
 # -- Compiling entity in_sram
 # -- Compiling architecture SYN of in_sram
-# End time: 11:41:48 on Nov 29,2022, Elapsed time: 0:00:00
+# End time: 16:21:52 on Dec 02,2022, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # 
 # vcom -93 -work work {C:/Users/BAT 14/Documents/MEA5/PFE/FIL_init/FIL_application/src/tb_in.vhd}
 # Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 11:41:48 on Nov 29,2022
+# Start time: 16:21:52 on Dec 02,2022
 # vcom -reportprogress 300 -93 -work work C:/Users/BAT 14/Documents/MEA5/PFE/FIL_init/FIL_application/src/tb_in.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
@@ -75,14 +76,12 @@
 # -- Loading package STD_LOGIC_UNSIGNED
 # -- Compiling entity tb_in
 # -- Compiling architecture testbench of tb_in
-# ** Warning: C:/Users/BAT 14/Documents/MEA5/PFE/FIL_init/FIL_application/src/tb_in.vhd(76): (vcom-1207) An abstract literal and an identifier must have a separator between them.
-# ** Warning: C:/Users/BAT 14/Documents/MEA5/PFE/FIL_init/FIL_application/src/tb_in.vhd(78): (vcom-1207) An abstract literal and an identifier must have a separator between them.
-# End time: 11:41:48 on Nov 29,2022, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 2
+# End time: 16:21:52 on Dec 02,2022, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
 # 
 # vsim -t 1ps -L altera -L lpm -L sgate -L altera_mf -L altera_lnsim -L cyclonev -L rtl_work -L work -voptargs="+acc"  tb_in
 # vsim -t 1ps -L altera -L lpm -L sgate -L altera_mf -L altera_lnsim -L cyclonev -L rtl_work -L work -voptargs=""+acc"" tb_in 
-# Start time: 11:41:48 on Nov 29,2022
+# Start time: 16:21:53 on Dec 02,2022
 # Loading std.standard
 # Loading std.textio(body)
 # Loading ieee.std_logic_1164(body)
@@ -105,5 +104,43 @@
 # view signals
 # .main_pane.objects.interior.cs.body.tree
 # run -all
-# End time: 11:44:29 on Nov 29,2022, Elapsed time: 0:02:41
-# Errors: 0, Warnings: 0
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 8 ns  Iteration: 2  Instance: /tb_in/uut/ram/altsyncram_component
+# ** Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+#    Time: 8 ns  Iteration: 2  Instance: /tb_in/uut/ram/altsyncram_component
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 8 ns  Iteration: 2  Instance: /tb_in/uut/ram/altsyncram_component
+# ** Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+#    Time: 8 ns  Iteration: 2  Instance: /tb_in/uut/ram/altsyncram_component
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 8 ns  Iteration: 2  Instance: /tb_in/uut/ram/altsyncram_component
+# ** Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+#    Time: 8 ns  Iteration: 2  Instance: /tb_in/uut/ram/altsyncram_component
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 8 ns  Iteration: 2  Instance: /tb_in/uut/ram/altsyncram_component
+# ** Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+#    Time: 8 ns  Iteration: 2  Instance: /tb_in/uut/ram/altsyncram_component
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 8 ns  Iteration: 2  Instance: /tb_in/uut/ram/altsyncram_component
+# ** Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+#    Time: 8 ns  Iteration: 2  Instance: /tb_in/uut/ram/altsyncram_component
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 8 ns  Iteration: 2  Instance: /tb_in/uut/ram/altsyncram_component
+# ** Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+#    Time: 8 ns  Iteration: 2  Instance: /tb_in/uut/ram/altsyncram_component
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 8 ns  Iteration: 2  Instance: /tb_in/uut/ram/altsyncram_component
+# ** Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+#    Time: 8 ns  Iteration: 2  Instance: /tb_in/uut/ram/altsyncram_component
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 8 ns  Iteration: 2  Instance: /tb_in/uut/ram/altsyncram_component
+# ** Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+#    Time: 8 ns  Iteration: 2  Instance: /tb_in/uut/ram/altsyncram_component
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 8 ns  Iteration: 2  Instance: /tb_in/uut/ram/altsyncram_component
+# ** Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+#    Time: 8 ns  Iteration: 2  Instance: /tb_in/uut/ram/altsyncram_component
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 12 ns  Iteration: 1  Instance: /tb_in/uut/ram/altsyncram_component
+# ** Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+#    Time: 12 ns  Iteration: 1  Instance: /tb_in/uut/ram/altsyncram_component

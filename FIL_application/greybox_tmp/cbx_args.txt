@@ -38,9 +38,3 @@ wren_a
 wren_b
 q_a
 q_b
-
-
-
-
-
-

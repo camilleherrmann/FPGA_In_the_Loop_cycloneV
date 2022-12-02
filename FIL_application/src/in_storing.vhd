@@ -60,7 +60,7 @@ begin
 				addr		 			<= round & curr_head;
 				data_a 				<= curr_head & din;
 				curr_head 			<= curr_head + 1;
-				if (curr_head = (curr_head'range => '0')) then
+				if (curr_head = (curr_head'range => '1')) then
 					round 			<= round + 1;
 				end if;
 			end if;	

@@ -86,8 +86,8 @@ architecture bev of in_adapt is
 			-- from SRAM B
 			address_b						: OUT STD_LOGIC_VECTOR (9 DOWNTO 0);
 			data_b							: OUT STD_LOGIC_VECTOR (39 DOWNTO 0);
-			rden_b							: OUT STD_LOGIC  := '1';
-			wren_b							: OUT STD_LOGIC  := '0';
+			rden_b							: OUT STD_LOGIC;
+			wren_b							: OUT STD_LOGIC;
 			q_b								: IN STD_LOGIC_VECTOR (39 DOWNTO 0);
 			
 			--from AST interface  
@@ -106,7 +106,7 @@ end component in_conv;
 	
 	signal s_addr_a, s_addr_b 			: std_logic_vector(9 downto 0);
 	signal s_data_a, s_q_b, s_q_a, s_data_b	: std_logic_vector(39 downto 0);
-	signal s_wren_a, s_rden_b			: std_logic;
+	signal s_wren_a, s_rden_b			: std_logic := '1' ;
 	
 begin
 	

@@ -22,13 +22,13 @@ generic(
 			
 			--from AST interface  
 			ast_source_ready				: in std_logic; 
-			ast_source_channel			: in  std_logic_vector(CHANNEL_WIDTH-1 downto 0);
+			ast_source_channel			: in std_logic_vector(CHANNEL_WIDTH-1 downto 0);
 	
 			--to AST interface
 			ast_sink_valid					: out std_logic;													 												
 			ast_sink_sop					: out std_logic;													 
 			ast_sink_eop					: out std_logic;	
-			ast_sink_ready					: out  std_logic; 
+			ast_sink_ready					: out std_logic; 
 			ast_sink_data					: out std_logic_vector(31 downto 0);
 			ast_sink_channel				: out std_logic_vector(CHANNEL_WIDTH-1 downto 0)	
 		);
@@ -36,91 +36,147 @@ end entity in_conv;
 
 architecture behav of in_conv is
 
-signal s_channel : std_logic_vector(CHANNEL_WIDTH-1 downto 0);
+type 	 states								is (state1, state2);
+signal state								: states;
+signal s_channel 							: std_logic_vector(CHANNEL_WIDTH-1 downto 0);
 signal s_sop, s_eop,s_valid, s_rden : std_logic;
-signal addr 	: std_logic_vector(9 downto 0);
-signal in_ready, out_ready : std_logic;
+signal addr 								: std_logic_vector(9 downto 0);
+signal out_ready 							: std_logic;
+signal round1								: std_logic_vector(1 downto 0):="00";
+signal round2 								: std_logic_vector(7 downto 0):=(others => '0');
 
 begin
 
-	in_ready <= ast_source_ready;
-	ast_sink_ready <= out_ready;
-
-	u_ready : process(clk_b,reset, enb)
-	begin
-		if(reset='0')then
-			out_ready	<= '0';
-		elsif(clk_b'event and clk_b='1') then
-			if (enb = '1' and in_ready ='1') then
-				out_ready <= '1';	
-			end if;
-		end if;
-	end process;
-	
-
-	u_channel : process(clk_b, reset)
+	u_readenable : process(reset,enb)
 	begin
 		if (reset = '0') then
-			s_channel 				<= (others => '0');
-		elsif (clk_b'event and clk_b='1') then
-			if (out_ready ='1' and s_valid ='1') then 
-			s_channel				<= ast_source_channel + 1;
-			end if;
-		end if;
-	end process;
-
-		
-	u_ast_sop : process(clk_b, reset)
-	begin
-		if (reset = '0') then
-			s_sop 					<= '0';
-		elsif(clk_b'event and clk_b='1') then
-			if (s_channel + 1 = (s_channel'range => '0')) then
-				s_sop 				<= '1';
-			else s_sop				<= '0';
-			end if;
-		end if;
-	end process;	
-		
-	u_ast_eop : process(clk_b, reset)
-	begin
-		if (reset = '0') then
-			s_eop 					<= '0';
-		elsif(clk_b'event and clk_b='1') then
-			if (s_channel = (s_channel'range => '1')) then
-				s_eop 				<= '1';
-			else s_eop				<= '0';
-			end if;
+			s_rden	  				<='0';		
+			elsif (enb = '1')  then
+				s_rden				<='1';
 		end if;
 	end process;
 	
 	u_ast_valid : process (clk_b,reset,enb)
 		begin
 			if (reset = '0') then
-			s_valid 				<= '0';		
-			elsif(clk_b'event and clk_b='1' and enb = '1') then
-					s_valid <='1';
-					if (s_rden = '0') then 
-						s_valid		<= '0';
-					end if;
+			s_valid 					<= '0';		
+			elsif(clk_b'event and clk_b='1') then
+				if (s_rden = '1') then 
+					s_valid 			<='1';
+				else 	s_valid		<= '0';
+				end if;
 			end if;
 	end process;
 			
+
+
+	u_main_part : process(reset,clk_b)
+	begin
+		if (reset = '0') then
+			state 				<= state1;
+			s_channel			<= (others => '0');
+			out_ready			<= '0';
+			s_sop 				<= '0';
+			s_eop					<= '0';
+		
+		elsif (clk_b'event and clk_b='1') then
+		
+		case state is 
+		
+			when state1 =>
+				out_ready 		<= '1';
+				s_eop				<= '0';
+				if (s_valid = '1' and ast_source_ready = '1') then
+				   out_ready	<= '0';
+					s_sop			<= '1';
+					s_channel 	<= ast_source_channel;
+					state			<= state2;
+				end if;
+			
+			when state2 =>
+				s_sop 			<= '0';
+				if(s_valid = '1' and ast_source_ready = '1') then 
+				s_eop				<= '1';
+				out_ready		<= '1';
+				state				<= state1;
+				end if;
+				
+			when others =>
+				out_ready		<= '1';
+				state				<= state1;
+		end case;	
+		end if;	
+	end process;
+	
 	u_ast_data : process(clk_b, reset, enb)
 	begin
 		if (reset = '0') then
-			addr	  				<= (others => '0');		
+			addr	  				<= (others => '0');	
+			round1					<= (others => '0');	
 			elsif(clk_b'event and clk_b='1') then
-				if (enb = '1' and s_rden ='1' and s_valid ='1') then 
+				if (state = state1) then 
 				ast_sink_data <= q_b(31 downto 0);
-					if (addr = (addr'range => '1')) then
-					s_rden					<= '0';
-					else
-					addr				<=addr + '1';
-					end if;
+				addr 	<= round1 & round2;
+				round2 <= round2 + 1;
+				end if;
+				if (round2 = "11111111" ) then
+					round1 			<= round1 + 1;
 				end if;
 		end if;
 	end process;
+			
+--			
+--	u_ready : process(clk_b,reset, enb)
+--	begin
+--		if(reset='0')then
+--			out_ready	<= '0';
+--		elsif(clk_b'event and clk_b='1') then
+--			if (enb = '1' and in_ready ='1') then
+--				out_ready <= '1';	
+--			end if;
+--		end if;
+--	end process;
+		
+--	u_ast_sop : process(clk_b, reset)
+--	begin
+--		if (reset = '0') then
+--			s_sop 					<= '0';
+--		elsif(clk_b'event and clk_b='1') then
+--			if (s_channel + 1 = (s_channel'range => '0')) then
+--				s_sop 				<= '1';
+--			else s_sop				<= '0';
+--			end if;
+--		end if;
+--	end process;	
+--		
+--	u_ast_eop : process(clk_b, reset)
+--	begin
+--		if (reset = '0') then
+--			s_eop 					<= '0';
+--		elsif(clk_b'event and clk_b='1') then
+--			if (s_channel + 1 = (s_channel'range => '1')) then
+--				s_eop 				<= '1';
+--			else s_eop				<= '0';
+--			end if;
+--		end if;
+--	end process;
+--	
+--	
+--	u_channel : process(clk_b, reset)
+--	begin
+--		if (reset = '0') then
+--			s_channel 				<= (others => '0');
+--		elsif (clk_b'event and clk_b='1') then
+--			if (out_ready ='1' and s_valid ='1' and s_channel /= ast_source_channek) then 
+--			s_channel				<= s_channel + 1;
+--			end if;
+--		end if;
+--	end process;
+
+
+
+	
+
 
 ast_sink_channel		 <= s_channel;
 ast_sink_sop			 <= s_sop;
@@ -128,6 +184,7 @@ ast_sink_eop			 <= s_eop;
 ast_sink_valid			 <= s_valid;
 rden_b 					 <= s_rden;
 address_b 				 <= addr;
+ast_sink_ready 		 <= out_ready;
 	
 end behav;		
 			

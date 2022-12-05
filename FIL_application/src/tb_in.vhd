@@ -79,7 +79,7 @@ begin
 	channel : process
 	begin
 		s_ast_source_channel	<= s_ast_source_channel + 1;
-		wait for CLK_PERIOD_125MHZ;
+		wait for 16ns;
 	end process;
 	
 	data : process

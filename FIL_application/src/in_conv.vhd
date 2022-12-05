@@ -112,15 +112,15 @@ begin
 	begin
 		if (reset = '0') then
 			addr	  				<= (others => '0');	
-			round1					<= (others => '0');	
+			round1				<= (others => '0');	
 			elsif(clk_b'event and clk_b='1') then
 				if (state = state1) then 
-				ast_sink_data <= q_b(31 downto 0);
+				ast_sink_data	<= q_b(31 downto 0);
 				addr 	<= round1 & round2;
 				round2 <= round2 + 1;
 				end if;
 				if (round2 = "11111111" ) then
-					round1 			<= round1 + 1;
+					round1 		<= round1 + 1;
 				end if;
 		end if;
 	end process;

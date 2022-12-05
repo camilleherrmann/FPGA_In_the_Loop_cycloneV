@@ -1,5 +1,5 @@
 Analysis & Synthesis report for top_level
-Mon Dec 05 14:32:54 2022
+Mon Dec 05 19:06:03 2022
 Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
 
 
@@ -54,14 +54,14 @@ refer to the applicable agreement for further details.
 +-------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                  ;
 +---------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status     ; Successful - Mon Dec 05 14:32:54 2022       ;
+; Analysis & Synthesis Status     ; Successful - Mon Dec 05 19:06:02 2022       ;
 ; Quartus Prime Version           ; 18.1.0 Build 625 09/12/2018 SJ Lite Edition ;
 ; Revision Name                   ; top_level                                   ;
 ; Top-level Entity Name           ; in_adapt                                    ;
 ; Family                          ; Cyclone V                                   ;
 ; Logic utilization (in ALMs)     ; N/A                                         ;
 ; Total registers                 ; 116                                         ;
-; Total pins                      ; 84                                          ;
+; Total pins                      ; 85                                          ;
 ; Total virtual pins              ; 0                                           ;
 ; Total block memory bits         ; 32,768                                      ;
 ; Total DSP Blocks                ; 0                                           ;
@@ -200,33 +200,33 @@ refer to the applicable agreement for further details.
 +----------------------------------+-----------------+------------------------------+------------------------------------------------------------------------------------+---------+
 
 
-+---------------------------------------------------------+
-; Analysis & Synthesis Resource Usage Summary             ;
-+---------------------------------------------+-----------+
-; Resource                                    ; Usage     ;
-+---------------------------------------------+-----------+
-; Estimate of Logic utilization (ALMs needed) ; 60        ;
-;                                             ;           ;
-; Combinational ALUT usage for logic          ; 32        ;
-;     -- 7 input functions                    ; 0         ;
-;     -- 6 input functions                    ; 3         ;
-;     -- 5 input functions                    ; 3         ;
-;     -- 4 input functions                    ; 2         ;
-;     -- <=3 input functions                  ; 24        ;
-;                                             ;           ;
-; Dedicated logic registers                   ; 116       ;
-;                                             ;           ;
-; I/O pins                                    ; 84        ;
-; Total MLAB memory bits                      ; 0         ;
-; Total block memory bits                     ; 32768     ;
-;                                             ;           ;
-; Total DSP Blocks                            ; 0         ;
-;                                             ;           ;
-; Maximum fan-out node                        ; clk~input ;
-; Maximum fan-out                             ; 148       ;
-; Total fan-out                               ; 1402      ;
-; Average fan-out                             ; 4.03      ;
-+---------------------------------------------+-----------+
++-----------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary               ;
++---------------------------------------------+-------------+
+; Resource                                    ; Usage       ;
++---------------------------------------------+-------------+
+; Estimate of Logic utilization (ALMs needed) ; 60          ;
+;                                             ;             ;
+; Combinational ALUT usage for logic          ; 32          ;
+;     -- 7 input functions                    ; 0           ;
+;     -- 6 input functions                    ; 3           ;
+;     -- 5 input functions                    ; 3           ;
+;     -- 4 input functions                    ; 2           ;
+;     -- <=3 input functions                  ; 24          ;
+;                                             ;             ;
+; Dedicated logic registers                   ; 116         ;
+;                                             ;             ;
+; I/O pins                                    ; 85          ;
+; Total MLAB memory bits                      ; 0           ;
+; Total block memory bits                     ; 32768       ;
+;                                             ;             ;
+; Total DSP Blocks                            ; 0           ;
+;                                             ;             ;
+; Maximum fan-out node                        ; clk_b~input ;
+; Maximum fan-out                             ; 95          ;
+; Total fan-out                               ; 1435        ;
+; Average fan-out                             ; 4.10        ;
++---------------------------------------------+-------------+
 
 
 +----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -234,7 +234,7 @@ refer to the applicable agreement for further details.
 +-------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+--------------------------------------------------------------------------------------+-----------------+--------------+
 ; Compilation Hierarchy Node                ; Combinational ALUTs ; Dedicated Logic Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                  ; Entity Name     ; Library Name ;
 +-------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+--------------------------------------------------------------------------------------+-----------------+--------------+
-; |in_adapt                                 ; 32 (0)              ; 116 (0)                   ; 32768             ; 0          ; 84   ; 0            ; |in_adapt                                                                            ; in_adapt        ; work         ;
+; |in_adapt                                 ; 32 (0)              ; 116 (0)                   ; 32768             ; 0          ; 85   ; 0            ; |in_adapt                                                                            ; in_adapt        ; work         ;
 ;    |in_conv:output|                       ; 18 (18)             ; 63 (63)                   ; 0                 ; 0          ; 0    ; 0            ; |in_adapt|in_conv:output                                                             ; in_conv         ; work         ;
 ;    |in_sram:ram|                          ; 0 (0)               ; 0 (0)                     ; 32768             ; 0          ; 0    ; 0            ; |in_adapt|in_sram:ram                                                                ; in_sram         ; work         ;
 ;       |altsyncram:altsyncram_component|   ; 0 (0)               ; 0 (0)                     ; 32768             ; 0          ; 0    ; 0            ; |in_adapt|in_sram:ram|altsyncram:altsyncram_component                                ; altsyncram      ; work         ;
@@ -462,7 +462,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 ;         4 data inputs ; 2                           ;
 ;         5 data inputs ; 3                           ;
 ;         6 data inputs ; 3                           ;
-; boundary_port         ; 84                          ;
+; boundary_port         ; 85                          ;
 ; stratixv_ram_block    ; 32                          ;
 ;                       ;                             ;
 ; Max LUT depth         ; 2.00                        ;
@@ -485,15 +485,33 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
-    Info: Processing started: Mon Dec 05 14:32:40 2022
+    Info: Processing started: Mon Dec 05 19:05:49 2022
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off top_level -c top_level
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
+Info (12021): Found 2 design units, including 1 entities, in source file src/tb.vhd
+    Info (12022): Found design unit 1: tb-testbench File: C:/Users/BAT 14/Documents/MEA5/PFE/FIL_init/FIL_application/src/tb.vhd Line: 9
+    Info (12023): Found entity 1: tb File: C:/Users/BAT 14/Documents/MEA5/PFE/FIL_init/FIL_application/src/tb.vhd Line: 6
+Info (12021): Found 2 design units, including 1 entities, in source file src/out_ram.vhd
+    Info (12022): Found design unit 1: out_ram-SYN File: C:/Users/BAT 14/Documents/MEA5/PFE/FIL_init/FIL_application/src/out_ram.vhd Line: 63
+    Info (12023): Found entity 1: out_ram File: C:/Users/BAT 14/Documents/MEA5/PFE/FIL_init/FIL_application/src/out_ram.vhd Line: 42
+Info (12021): Found 2 design units, including 1 entities, in source file src/top_level.vhd
+    Info (12022): Found design unit 1: top_level-bev File: C:/Users/BAT 14/Documents/MEA5/PFE/FIL_init/FIL_application/src/top_level.vhd Line: 20
+    Info (12023): Found entity 1: top_level File: C:/Users/BAT 14/Documents/MEA5/PFE/FIL_init/FIL_application/src/top_level.vhd Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file src/out_storing.vhd
+    Info (12022): Found design unit 1: out_storing-behav File: C:/Users/BAT 14/Documents/MEA5/PFE/FIL_init/FIL_application/src/out_storing.vhd Line: 37
+    Info (12023): Found entity 1: out_storing File: C:/Users/BAT 14/Documents/MEA5/PFE/FIL_init/FIL_application/src/out_storing.vhd Line: 6
+Info (12021): Found 2 design units, including 1 entities, in source file src/out_convert.vhd
+    Info (12022): Found design unit 1: out_convert-behav File: C:/Users/BAT 14/Documents/MEA5/PFE/FIL_init/FIL_application/src/out_convert.vhd Line: 25
+    Info (12023): Found entity 1: out_convert File: C:/Users/BAT 14/Documents/MEA5/PFE/FIL_init/FIL_application/src/out_convert.vhd Line: 6
+Info (12021): Found 2 design units, including 1 entities, in source file src/out_adapt.vhd
+    Info (12022): Found design unit 1: out_adapt-bev File: C:/Users/BAT 14/Documents/MEA5/PFE/FIL_init/FIL_application/src/out_adapt.vhd Line: 36
+    Info (12023): Found entity 1: out_adapt File: C:/Users/BAT 14/Documents/MEA5/PFE/FIL_init/FIL_application/src/out_adapt.vhd Line: 5
 Info (12021): Found 2 design units, including 1 entities, in source file src/tb_in.vhd
     Info (12022): Found design unit 1: tb_in-testbench File: C:/Users/BAT 14/Documents/MEA5/PFE/FIL_init/FIL_application/src/tb_in.vhd Line: 9
     Info (12023): Found entity 1: tb_in File: C:/Users/BAT 14/Documents/MEA5/PFE/FIL_init/FIL_application/src/tb_in.vhd Line: 6
 Info (12021): Found 2 design units, including 1 entities, in source file src/in_adapt.vhd
-    Info (12022): Found design unit 1: in_adapt-bev File: C:/Users/BAT 14/Documents/MEA5/PFE/FIL_init/FIL_application/src/in_adapt.vhd Line: 35
+    Info (12022): Found design unit 1: in_adapt-bev File: C:/Users/BAT 14/Documents/MEA5/PFE/FIL_init/FIL_application/src/in_adapt.vhd Line: 36
     Info (12023): Found entity 1: in_adapt File: C:/Users/BAT 14/Documents/MEA5/PFE/FIL_init/FIL_application/src/in_adapt.vhd Line: 5
 Info (12021): Found 2 design units, including 1 entities, in source file src/in_conv.vhd
     Info (12022): Found design unit 1: in_conv-behav File: C:/Users/BAT 14/Documents/MEA5/PFE/FIL_init/FIL_application/src/in_conv.vhd Line: 37
@@ -504,11 +522,16 @@ Info (12021): Found 2 design units, including 1 entities, in source file src/in_
 Info (12021): Found 2 design units, including 1 entities, in source file src/in_sram.vhd
     Info (12022): Found design unit 1: in_sram-SYN File: C:/Users/BAT 14/Documents/MEA5/PFE/FIL_init/FIL_application/src/in_sram.vhd Line: 63
     Info (12023): Found entity 1: in_sram File: C:/Users/BAT 14/Documents/MEA5/PFE/FIL_init/FIL_application/src/in_sram.vhd Line: 42
+Info (12021): Found 2 design units, including 1 entities, in source file pll_a_b.vhd
+    Info (12022): Found design unit 1: pll_a_b-rtl File: C:/Users/BAT 14/Documents/MEA5/PFE/FIL_init/FIL_application/pll_a_b.vhd Line: 21
+    Info (12023): Found entity 1: pll_a_b File: C:/Users/BAT 14/Documents/MEA5/PFE/FIL_init/FIL_application/pll_a_b.vhd Line: 11
+Info (12021): Found 1 design units, including 1 entities, in source file pll_a_b/pll_a_b_0002.v
+    Info (12023): Found entity 1: pll_a_b_0002 File: C:/Users/BAT 14/Documents/MEA5/PFE/FIL_init/FIL_application/pll_a_b/pll_a_b_0002.v Line: 2
 Info (12127): Elaborating entity "in_adapt" for the top level hierarchy
-Warning (10036): Verilog HDL or VHDL warning at in_adapt.vhd(108): object "s_data_b" assigned a value but never read File: C:/Users/BAT 14/Documents/MEA5/PFE/FIL_init/FIL_application/src/in_adapt.vhd Line: 108
-Info (12128): Elaborating entity "in_storing" for hierarchy "in_storing:entry" File: C:/Users/BAT 14/Documents/MEA5/PFE/FIL_init/FIL_application/src/in_adapt.vhd Line: 113
+Warning (10036): Verilog HDL or VHDL warning at in_adapt.vhd(109): object "s_data_b" assigned a value but never read File: C:/Users/BAT 14/Documents/MEA5/PFE/FIL_init/FIL_application/src/in_adapt.vhd Line: 109
+Info (12128): Elaborating entity "in_storing" for hierarchy "in_storing:entry" File: C:/Users/BAT 14/Documents/MEA5/PFE/FIL_init/FIL_application/src/in_adapt.vhd Line: 114
 Warning (10540): VHDL Signal Declaration warning at in_storing.vhd(19): used explicit default value for signal "rden_a" because signal was never assigned a value File: C:/Users/BAT 14/Documents/MEA5/PFE/FIL_init/FIL_application/src/in_storing.vhd Line: 19
-Info (12128): Elaborating entity "in_sram" for hierarchy "in_sram:ram" File: C:/Users/BAT 14/Documents/MEA5/PFE/FIL_init/FIL_application/src/in_adapt.vhd Line: 127
+Info (12128): Elaborating entity "in_sram" for hierarchy "in_sram:ram" File: C:/Users/BAT 14/Documents/MEA5/PFE/FIL_init/FIL_application/src/in_adapt.vhd Line: 128
 Info (12128): Elaborating entity "altsyncram" for hierarchy "in_sram:ram|altsyncram:altsyncram_component" File: C:/Users/BAT 14/Documents/MEA5/PFE/FIL_init/FIL_application/src/in_sram.vhd Line: 72
 Info (12130): Elaborated megafunction instantiation "in_sram:ram|altsyncram:altsyncram_component" File: C:/Users/BAT 14/Documents/MEA5/PFE/FIL_init/FIL_application/src/in_sram.vhd Line: 72
 Info (12133): Instantiated megafunction "in_sram:ram|altsyncram:altsyncram_component" with the following parameter: File: C:/Users/BAT 14/Documents/MEA5/PFE/FIL_init/FIL_application/src/in_sram.vhd Line: 72
@@ -565,7 +588,7 @@ Info (12133): Instantiated megafunction "in_sram:ram|altsyncram:altsyncram_compo
 Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_du24.tdf
     Info (12023): Found entity 1: altsyncram_du24 File: C:/Users/BAT 14/Documents/MEA5/PFE/FIL_init/FIL_application/db/altsyncram_du24.tdf Line: 27
 Info (12128): Elaborating entity "altsyncram_du24" for hierarchy "in_sram:ram|altsyncram:altsyncram_component|altsyncram_du24:auto_generated" File: c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/altsyncram.tdf Line: 791
-Info (12128): Elaborating entity "in_conv" for hierarchy "in_conv:output" File: C:/Users/BAT 14/Documents/MEA5/PFE/FIL_init/FIL_application/src/in_adapt.vhd Line: 144
+Info (12128): Elaborating entity "in_conv" for hierarchy "in_conv:output" File: C:/Users/BAT 14/Documents/MEA5/PFE/FIL_init/FIL_application/src/in_adapt.vhd Line: 145
 Warning (10540): VHDL Signal Declaration warning at in_conv.vhd(18): used explicit default value for signal "data_b" because signal was never assigned a value File: C:/Users/BAT 14/Documents/MEA5/PFE/FIL_init/FIL_application/src/in_conv.vhd Line: 18
 Warning (10540): VHDL Signal Declaration warning at in_conv.vhd(20): used explicit default value for signal "wren_b" because signal was never assigned a value File: C:/Users/BAT 14/Documents/MEA5/PFE/FIL_init/FIL_application/src/in_conv.vhd Line: 20
 Warning (10631): VHDL Process Statement warning at in_conv.vhd(50): inferring latch(es) for signal or variable "s_rden", which holds its previous value in one or more paths through the process File: C:/Users/BAT 14/Documents/MEA5/PFE/FIL_init/FIL_application/src/in_conv.vhd Line: 50
@@ -582,16 +605,21 @@ Warning (14284): Synthesized away the following node(s):
         Warning (14320): Synthesized away node "in_sram:ram|altsyncram:altsyncram_component|altsyncram_du24:auto_generated|q_a[39]" File: C:/Users/BAT 14/Documents/MEA5/PFE/FIL_init/FIL_application/db/altsyncram_du24.tdf Line: 1566
 Info (286030): Timing-Driven Synthesis is running
 Info (17049): 8 registers lost all their fanouts during netlist optimizations.
+Warning (20013): Ignored 16 assignments for entity "pll_a_b" -- entity does not exist in design
+    Warning (20014): Assignment for entity set_global_assignment -name IP_TOOL_NAME altera_pll -entity pll_a_b -sip pll_a_b.sip -library lib_pll_a_b was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name IP_TOOL_VERSION 18.1 -entity pll_a_b -sip pll_a_b.sip -library lib_pll_a_b was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name IP_TOOL_ENV mwpim -entity pll_a_b -sip pll_a_b.sip -library lib_pll_a_b was ignored
+Warning (20013): Ignored 317 assignments for entity "pll_a_b_0002" -- entity does not exist in design
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Info (21057): Implemented 239 device resources after synthesis - the final resource count might be different
-    Info (21058): Implemented 42 input pins
+Info (21057): Implemented 240 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 43 input pins
     Info (21059): Implemented 42 output pins
     Info (21061): Implemented 123 logic cells
     Info (21064): Implemented 32 RAM segments
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 16 warnings
-    Info: Peak virtual memory: 4867 megabytes
-    Info: Processing ended: Mon Dec 05 14:32:54 2022
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 21 warnings
+    Info: Peak virtual memory: 4868 megabytes
+    Info: Processing ended: Mon Dec 05 19:06:03 2022
     Info: Elapsed time: 00:00:14
     Info: Total CPU time (on all processors): 00:00:28
 

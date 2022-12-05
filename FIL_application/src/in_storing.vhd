@@ -32,7 +32,7 @@ signal s_wren								: std_logic;
 
 begin 
 
-	u_wren : process(clk_a,reset, round, curr_head)
+	u_wren : process(clk_a,reset)
 		begin 
 		
 		if (reset = '0') then
@@ -47,7 +47,7 @@ begin
 	end process;
 				
 
-	u_data_addr : process(clk_a,reset,enb,s_wren)
+	u_data_addr : process(clk_a,reset,enb)
 		begin
 		if (reset = '0') then
 				addr		 			<= (others => '0');
@@ -58,10 +58,10 @@ begin
 		elsif(clk_a'event and clk_a='1') then
 			if (s_wren = '1' and enb ='1') then
 				addr		 			<= round & curr_head;
-				data_a 				<= curr_head & din;
-				curr_head 			<= curr_head + 1;
+				data_a 					<= curr_head & din;
+				curr_head 				<= curr_head + 1;
 				if (curr_head = (curr_head'range => '1')) then
-					round 			<= round + 1;
+					round 				<= round + 1;
 				end if;
 			end if;	
 		end if;

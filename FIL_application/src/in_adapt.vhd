@@ -8,7 +8,8 @@ generic(
 		CHANNEL_WIDTH			 : integer 	:= 6  
 	);
 	port (
-		clk   				 				: IN  std_logic;
+		clk_a   				 				: IN  std_logic;
+		clk_b  				 				: IN  std_logic;
 		enb   				 				: IN  std_logic;
 		reset 				 				: IN  std_logic;
 		
@@ -111,7 +112,7 @@ end component in_conv;
 begin
 	
 	entry : in_storing port map(
-			clk_a    					=> clk,
+			clk_a    					=> clk_a,
 			enb    						=> enb,	
 			reset  						=> reset,
 
@@ -129,8 +130,8 @@ begin
 			aclr_b						=> '0',
 			address_a					=> s_addr_a,
 			address_b					=> s_addr_b,
-			clock_a						=> clk,
-			clock_b						=> clk,
+			clock_a						=> clk_a,
+			clock_b						=> clk_b,
 			data_a						=> s_data_a,
 			data_b						=> s_data_a,
 			rden_a						=> '0',
@@ -142,7 +143,7 @@ begin
 			);
 
 	output : in_conv port map(
-			clk_b    					=> clk,
+			clk_b    					=> clk_b,
 			enb    						=> enb,
 			reset  						=> reset,
 

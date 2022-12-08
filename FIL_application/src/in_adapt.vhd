@@ -133,7 +133,7 @@ begin
 			clock_a						=> clk_a,
 			clock_b						=> clk_b,
 			data_a						=> s_data_a,
-			data_b						=> s_data_a,
+			data_b						=> s_data_b,
 			rden_a						=> '0',
 			rden_b						=> s_rden_b,
 			wren_a						=> s_wren_a,

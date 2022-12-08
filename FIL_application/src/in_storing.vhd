@@ -24,8 +24,8 @@ end entity in_storing;
 
 architecture behav of in_storing is
 
-signal round 								: std_logic_vector(1 downto 0):="00";
-signal curr_head 							: std_logic_vector(7 downto 0):=(others => '0');
+--signal round 								: std_logic_vector(1 downto 0):="00";
+--signal curr_head 							: std_logic_vector(7 downto 0):=(others => '0');
 signal addr									: std_logic_vector(9 downto 0);
 signal s_wren								: std_logic;
 
@@ -39,7 +39,7 @@ begin
 			s_wren 					<= '0';
 			
 		elsif(clk_a'event and clk_a='1') then
-			if (round = "11" and curr_head = (curr_head'range => '1')) then
+			if (addr = (addr'range => '1')) then
 				s_wren				<= '0';
 			else s_wren 			<= '1';
 			end if;
@@ -48,20 +48,22 @@ begin
 				
 
 	u_data_addr : process(clk_a,reset,enb)
+	variable curr_head : std_logic_vector(7 downto 0):=(others => '0');
+	variable round : std_logic_vector(1 downto 0):=(others => '0');
 		begin
 		if (reset = '0') then
 				addr		 			<= (others => '0');
 				data_a 				<= (others => '0');
-				round 					<= "00";
-				curr_head 				<= (others => '0');
+				round 				:= "00";
+				curr_head 			:= (others => '0');
 			
 		elsif(clk_a'event and clk_a='1') then
 			if (s_wren = '1' and enb ='1') then
-				addr		 			<= round & curr_head;
-				data_a 					<= curr_head & din;
-				curr_head 				<= curr_head + 1;
+				addr		 				<= round & curr_head;
+				data_a 					<= (curr_head) & din;
+				curr_head 				:= curr_head + 1;
 				if (curr_head = (curr_head'range => '1')) then
-					round 				<= round + 1;
+					round 				:= round + 1;
 				end if;
 			end if;	
 		end if;

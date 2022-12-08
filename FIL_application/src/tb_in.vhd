@@ -14,7 +14,8 @@ generic(
 		CHANNEL_WIDTH			 : integer 	:= 6  
 	);
 	port (
-		clk   				 	 : IN  std_logic;
+		clk_a   				 	 : IN  std_logic;
+		clk_b   				 	 : IN  std_logic;
 		enb   				 	 : IN  std_logic;
 		reset 				 	 : IN  std_logic;
 		
@@ -39,9 +40,11 @@ generic(
 end component in_adapt;
 
 constant CLK_PERIOD_125MHZ 		: time := 8 ns;
+constant CLK_PERIOD_20MHZ 		: time := 50 ns;
 constant CHANNEL_WIDTH			   : integer 	:= 6;
 
-signal s_clk   				 	: std_logic;
+signal s_clk_a   				 	: std_logic;
+signal s_clk_b					 	: std_logic;
 signal s_enb   				 	: std_logic;
 signal s_reset 				 	: std_logic;
 
@@ -60,12 +63,20 @@ signal s_ast_sink_channel		: std_logic_vector(CHANNEL_WIDTH-1 downto 0)	;
 
 begin
 
-	signal_clk: process
+	signal_clk_b: process
 	Begin
-		s_clk  					<= '1' ; 
+		s_clk_b  					<= '1' ; 
 		wait for CLK_PERIOD_125MHZ/2 ;
-		s_clk  					<= '0'  ;
+		s_clk_b 					<= '0'  ;
 		wait for CLK_PERIOD_125MHZ/2 ;
+	End Process;
+	
+		signal_clk_a: process
+	Begin
+		s_clk_a  					<= '1' ; 
+		wait for CLK_PERIOD_20MHZ/2 ;
+		s_clk_a 					<= '0'  ;
+		wait for CLK_PERIOD_20MHZ/2 ;
 	End Process;
 	
 	rst_enb: process
@@ -79,31 +90,31 @@ begin
 	channel : process
 	begin
 		s_ast_source_channel	<= s_ast_source_channel + 1;
-		wait for 16ns;
+		wait for 16 ns;
 	end process;
 	
 	data : process
 	begin
 		s_din	<=  s_din + 1;
-		wait for CLK_PERIOD_125MHZ;
+		wait for CLK_PERIOD_20MHZ;
 		s_din	<=  s_din + 1;
-		wait for CLK_PERIOD_125MHZ;
+		wait for CLK_PERIOD_20MHZ;
 		s_din	<=  s_din + 1;
-		wait for CLK_PERIOD_125MHZ;
+		wait for CLK_PERIOD_20MHZ;
 		s_din	<=  s_din;
-		wait for CLK_PERIOD_125MHZ;
+		wait for CLK_PERIOD_20MHZ;
 		s_din	<=  s_din;
-		wait for CLK_PERIOD_125MHZ;
+		wait for CLK_PERIOD_20MHZ;
 		s_din	<=  s_din - 1;
-		wait for CLK_PERIOD_125MHZ;
+		wait for CLK_PERIOD_20MHZ;
 		s_din	<=  s_din - 1;
-		wait for CLK_PERIOD_125MHZ;
+		wait for CLK_PERIOD_20MHZ;
 		s_din	<=  s_din - 1;
-		wait for CLK_PERIOD_125MHZ;
+		wait for CLK_PERIOD_20MHZ;
 		s_din	<=  s_din;
-		wait for CLK_PERIOD_125MHZ;
+		wait for CLK_PERIOD_20MHZ;
 		s_din	<=  s_din;
-		wait for CLK_PERIOD_125MHZ;
+		wait for CLK_PERIOD_20MHZ;
 	end process;
 	
 	
@@ -114,7 +125,8 @@ begin
 		CHANNEL_WIDTH			 => 6  
 	)
 		port map (
-		clk   				 	 => s_clk,
+		clk_a   				 	 => s_clk_a,
+		clk_b  				 	 => s_clk_b,
 		enb   				 	 => s_enb,
 		reset 				 	 => s_reset,
 		

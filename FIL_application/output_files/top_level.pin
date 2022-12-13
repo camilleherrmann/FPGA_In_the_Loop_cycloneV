@@ -102,44 +102,44 @@ GND                          : AA3       : gnd    :                   :         
 GND                          : AA4       : gnd    :                   :         :           :                
 AS_DATA2, DATA2              : AA5       :        :                   :         : 3A        :                
 GND                          : AA6       : gnd    :                   :         :           :                
-ast_sink_data[27]            : AA7       : output : 2.5 V             :         : 3B        : N              
-ast_sink_data[29]            : AA8       : output : 2.5 V             :         : 3B        : N              
-din[0]                       : AA9       : input  : 2.5 V             :         : 3B        : N              
-din[24]                      : AA10      : input  : 2.5 V             :         : 3B        : N              
+ast_sink_channel[5]          : AA7       : output : 2.5 V             :         : 3B        : N              
+ast_sink_data[28]            : AA8       : output : 2.5 V             :         : 3B        : N              
+din[16]                      : AA9       : input  : 2.5 V             :         : 3B        : N              
+din[14]                      : AA10      : input  : 2.5 V             :         : 3B        : N              
 GND                          : AA11      : gnd    :                   :         :           :                
-ast_sink_data[1]             : AA12      : output : 2.5 V             :         : 3B        : N              
-ast_sink_channel[3]          : AA13      : output : 2.5 V             :         : 4A        : N              
-ast_source_channel[2]        : AA14      : input  : 2.5 V             :         : 4A        : N              
-ast_source_channel[4]        : AA15      : input  : 2.5 V             :         : 4A        : N              
+ast_sink_data[30]            : AA12      : output : 2.5 V             :         : 3B        : N              
+din[13]                      : AA13      : input  : 2.5 V             :         : 4A        : N              
+din[15]                      : AA14      : input  : 2.5 V             :         : 4A        : N              
+ast_sink_data[25]            : AA15      : output : 2.5 V             :         : 4A        : N              
 VCCIO4A                      : AA16      : power  :                   : 2.5V    : 4A        :                
-din[2]                       : AA17      : input  : 2.5 V             :         : 4A        : N              
-din[13]                      : AA18      : input  : 2.5 V             :         : 4A        : N              
-din[11]                      : AA19      : input  : 2.5 V             :         : 4A        : N              
-din[15]                      : AA20      : input  : 2.5 V             :         : 4A        : N              
+din[6]                       : AA17      : input  : 2.5 V             :         : 4A        : N              
+din[31]                      : AA18      : input  : 2.5 V             :         : 4A        : N              
+ast_sink_data[23]            : AA19      : output : 2.5 V             :         : 4A        : N              
+ast_sink_data[16]            : AA20      : output : 2.5 V             :         : 4A        : N              
 VCCIO4A                      : AA21      : power  :                   : 2.5V    : 4A        :                
-din[16]                      : AA22      : input  : 2.5 V             :         : 4A        : N              
+enb                          : AA22      : input  : 2.5 V             :         : 4A        : N              
 GND                          : AB1       : gnd    :                   :         :           :                
 GND                          : AB2       : gnd    :                   :         :           :                
 AS_DATA1, DATA1              : AB3       :        :                   :         : 3A        :                
 AS_DATA0, ASDO, DATA0        : AB4       :        :                   :         : 3A        :                
-din[12]                      : AB5       : input  : 2.5 V             :         : 3B        : N              
-ast_sink_data[24]            : AB6       : output : 2.5 V             :         : 3B        : N              
-ast_sink_data[30]            : AB7       : output : 2.5 V             :         : 3B        : N              
-ast_sink_data[26]            : AB8       : output : 2.5 V             :         : 3B        : N              
+ast_source_channel[5]        : AB5       : input  : 2.5 V             :         : 3B        : N              
+ast_sink_valid               : AB6       : output : 2.5 V             :         : 3B        : N              
+ast_source_channel[4]        : AB7       : input  : 2.5 V             :         : 3B        : N              
+ast_sink_data[0]             : AB8       : output : 2.5 V             :         : 3B        : N              
 GND                          : AB9       : gnd    :                   :         :           :                
-din[4]                       : AB10      : input  : 2.5 V             :         : 3B        : N              
-din[7]                       : AB11      : input  : 2.5 V             :         : 3B        : N              
-din[5]                       : AB12      : input  : 2.5 V             :         : 4A        : N              
-din[19]                      : AB13      : input  : 2.5 V             :         : 4A        : N              
+din[9]                       : AB10      : input  : 2.5 V             :         : 3B        : N              
+din[29]                      : AB11      : input  : 2.5 V             :         : 3B        : N              
+din[22]                      : AB12      : input  : 2.5 V             :         : 4A        : N              
+din[4]                       : AB13      : input  : 2.5 V             :         : 4A        : N              
 GND                          : AB14      : gnd    :                   :         :           :                
-ast_source_channel[0]        : AB15      : input  : 2.5 V             :         : 4A        : N              
+ast_sink_data[8]             : AB15      : output : 2.5 V             :         : 4A        : N              
 VREFB4AN0                    : AB16      : power  :                   :         : 4A        :                
-ast_sink_data[18]            : AB17      : output : 2.5 V             :         : 4A        : N              
-din[10]                      : AB18      : input  : 2.5 V             :         : 4A        : N              
+ast_sink_sop                 : AB17      : output : 2.5 V             :         : 4A        : N              
+din[3]                       : AB18      : input  : 2.5 V             :         : 4A        : N              
 GND                          : AB19      : gnd    :                   :         :           :                
-ast_sink_data[16]            : AB20      : output : 2.5 V             :         : 4A        : N              
-din[18]                      : AB21      : input  : 2.5 V             :         : 4A        : N              
-din[21]                      : AB22      : input  : 2.5 V             :         : 4A        : N              
+din[11]                      : AB20      : input  : 2.5 V             :         : 4A        : N              
+din[12]                      : AB21      : input  : 2.5 V             :         : 4A        : N              
+ast_source_ready             : AB22      : input  : 2.5 V             :         : 4A        : N              
 GND                          : B1        : gnd    :                   :         :           :                
 GND                          : B2        : gnd    :                   :         :           :                
 DNU                          : B3        :        :                   :         :           :                
@@ -365,10 +365,10 @@ GND                          : M2        : gnd    :                   :         
 VCCH_GXBL                    : M3        : power  :                   : 2.5V    :           :                
 GND                          : M4        : gnd    :                   :         :           :                
 TDO                          : M5        : output :                   :         : 3A        :                
-ast_sink_data[6]             : M6        : output : 2.5 V             :         : 3A        : N              
-din[31]                      : M7        : input  : 2.5 V             :         : 3A        : N              
-din[26]                      : M8        : input  : 2.5 V             :         : 3B        : N              
-din[22]                      : M9        : input  : 2.5 V             :         : 3B        : N              
+ast_sink_data[18]            : M6        : output : 2.5 V             :         : 3A        : N              
+ast_sink_data[3]             : M7        : output : 2.5 V             :         : 3A        : N              
+din[7]                       : M8        : input  : 2.5 V             :         : 3B        : N              
+din[5]                       : M9        : input  : 2.5 V             :         : 3B        : N              
 GND                          : M10       : gnd    :                   :         :           :                
 VCC                          : M11       : power  :                   : 1.1V    :           :                
 GND                          : M12       : gnd    :                   :         :           :                
@@ -387,10 +387,10 @@ GXB_NC                       : N2        :        :                   :         
 GND                          : N3        : gnd    :                   :         :           :                
 VCCE_GXBL                    : N4        : power  :                   : 1.1V    :           :                
 GND                          : N5        : gnd    :                   :         :           :                
-ast_sink_valid               : N6        : output : 2.5 V             :         : 3A        : N              
+ast_sink_data[15]            : N6        : output : 2.5 V             :         : 3A        : N              
 GND                          : N7        : gnd    :                   :         :           :                
-enb                          : N8        : input  : 2.5 V             :         : 3B        : N              
-reset                        : N9        : input  : 2.5 V             :         : 3B        : N              
+ast_sink_channel[0]          : N8        : output : 2.5 V             :         : 3B        : N              
+ast_sink_data[2]             : N9        : output : 2.5 V             :         : 3B        : N              
 VCC                          : N10       : power  :                   : 1.1V    :           :                
 GND                          : N11       : gnd    :                   :         :           :                
 VCC                          : N12       : power  :                   : 1.1V    :           :                
@@ -409,15 +409,15 @@ GND                          : P2        : gnd    :                   :         
 VCCL_GXBL                    : P3        : power  :                   : 1.1V    :           :                
 GND                          : P4        : gnd    :                   :         :           :                
 TMS                          : P5        : input  :                   :         : 3A        :                
-ast_sink_sop                 : P6        : output : 2.5 V             :         : 3A        : N              
-ast_sink_data[2]             : P7        : output : 2.5 V             :         : 3A        : N              
-ast_sink_data[25]            : P8        : output : 2.5 V             :         : 3B        : N              
-ast_sink_data[0]             : P9        : output : 2.5 V             :         : 3B        : N              
+din[27]                      : P6        : input  : 2.5 V             :         : 3A        : N              
+ast_sink_data[20]            : P7        : output : 2.5 V             :         : 3A        : N              
+ast_sink_data[5]             : P8        : output : 2.5 V             :         : 3B        : N              
+ast_sink_data[14]            : P9        : output : 2.5 V             :         : 3B        : N              
 GND                          : P10       : gnd    :                   :         :           :                
 VCC                          : P11       : power  :                   : 1.1V    :           :                
-din[30]                      : P12       : input  : 2.5 V             :         : 3B        : N              
+ast_sink_data[11]            : P12       : output : 2.5 V             :         : 3B        : N              
 VCC                          : P13       : power  :                   : 1.1V    :           :                
-ast_sink_data[17]            : P14       : output : 2.5 V             :         : 4A        : N              
+RESERVED_INPUT_WITH_WEAK_PULLUP : P14       :        :                   :         : 4A        :                
 VCC                          : P15       : power  :                   : 1.1V    :           :                
 RESERVED_INPUT_WITH_WEAK_PULLUP : P16       :        :                   :         : 5A        :                
 RESERVED_INPUT_WITH_WEAK_PULLUP : P17       :        :                   :         : 5A        :                
@@ -430,16 +430,16 @@ GND                          : R1        :        :                   :         
 GND                          : R2        :        :                   :         : B0L       :                
 GND                          : R3        : gnd    :                   :         :           :                
 nCSO, DATA4                  : R4        :        :                   :         : 3A        :                
-RESERVED_INPUT_WITH_WEAK_PULLUP : R5        :        :                   :         : 3A        :                
-RESERVED_INPUT_WITH_WEAK_PULLUP : R6        :        :                   :         : 3A        :                
-din[29]                      : R7        : input  : 2.5 V             :         : 3A        : N              
+ast_source_channel[1]        : R5        : input  : 2.5 V             :         : 3A        : N              
+ast_sink_data[27]            : R6        : output : 2.5 V             :         : 3A        : N              
+ast_sink_data[13]            : R7        : output : 2.5 V             :         : 3A        : N              
 VCCIO3B                      : R8        : power  :                   : 2.5V    : 3B        :                
-din[25]                      : R9        : input  : 2.5 V             :         : 3B        : N              
-din[27]                      : R10       : input  : 2.5 V             :         : 3B        : N              
-din[17]                      : R11       : input  : 2.5 V             :         : 3B        : N              
-ast_sink_data[3]             : R12       : output : 2.5 V             :         : 3B        : N              
+din[21]                      : R9        : input  : 2.5 V             :         : 3B        : N              
+din[10]                      : R10       : input  : 2.5 V             :         : 3B        : N              
+din[25]                      : R11       : input  : 2.5 V             :         : 3B        : N              
+din[20]                      : R12       : input  : 2.5 V             :         : 3B        : N              
 GND                          : R13       : gnd    :                   :         :           :                
-din[8]                       : R14       : input  : 2.5 V             :         : 4A        : N              
+RESERVED_INPUT_WITH_WEAK_PULLUP : R14       :        :                   :         : 4A        :                
 RESERVED_INPUT_WITH_WEAK_PULLUP : R15       :        :                   :         : 5A        :                
 RESERVED_INPUT_WITH_WEAK_PULLUP : R16       :        :                   :         : 5A        :                
 RESERVED_INPUT_WITH_WEAK_PULLUP : R17       :        :                   :         : 5A        :                
@@ -454,14 +454,14 @@ VCCH_GXBL                    : T3        : power  :                   : 2.5V    
 AS_DATA3, DATA3              : T4        :        :                   :         : 3A        :                
 VCCA_FPLL                    : T5        : power  :                   : 2.5V    :           :                
 VCCIO3A                      : T6        : power  :                   : 2.5V    : 3A        :                
-ast_sink_channel[5]          : T7        : output : 2.5 V             :         : 3A        : N              
-din[1]                       : T8        : input  : 2.5 V             :         : 3A        : N              
-ast_sink_data[28]            : T9        : output : 2.5 V             :         : 3B        : N              
-ast_sink_data[22]            : T10       : output : 2.5 V             :         : 3B        : N              
+ast_sink_data[12]            : T7        : output : 2.5 V             :         : 3A        : N              
+ast_sink_channel[1]          : T8        : output : 2.5 V             :         : 3A        : N              
+ast_sink_data[10]            : T9        : output : 2.5 V             :         : 3B        : N              
+din[19]                      : T10       : input  : 2.5 V             :         : 3B        : N              
 VCCIO3B                      : T11       : power  :                   : 2.5V    : 3B        :                
-ast_source_channel[3]        : T12       : input  : 2.5 V             :         : 4A        : N              
-ast_sink_channel[2]          : T13       : output : 2.5 V             :         : 4A        : N              
-din[6]                       : T14       : input  : 2.5 V             :         : 4A        : N              
+din[28]                      : T12       : input  : 2.5 V             :         : 4A        : N              
+ast_sink_data[24]            : T13       : output : 2.5 V             :         : 4A        : N              
+din[8]                       : T14       : input  : 2.5 V             :         : 4A        : N              
 RESERVED_INPUT_WITH_WEAK_PULLUP : T15       :        :                   :         : 5A        :                
 GND                          : T16       : gnd    :                   :         :           :                
 RESERVED_INPUT_WITH_WEAK_PULLUP : T17       :        :                   :         : 5A        :                
@@ -475,16 +475,16 @@ GXB_NC                       : U2        :        :                   :         
 GND                          : U3        : gnd    :                   :         :           :                
 GND                          : U4        :        :                   :         : B0L       :                
 GND                          : U5        : gnd    :                   :         :           :                
-ast_sink_channel[1]          : U6        : output : 2.5 V             :         : 3A        : N              
-RESERVED_INPUT_WITH_WEAK_PULLUP : U7        :        :                   :         : 3A        :                
-RESERVED_INPUT_WITH_WEAK_PULLUP : U8        :        :                   :         : 3A        :                
+ast_sink_channel[2]          : U6        : output : 2.5 V             :         : 3A        : N              
+ast_source_channel[3]        : U7        : input  : 2.5 V             :         : 3A        : N              
+ast_sink_data[29]            : U8        : output : 2.5 V             :         : 3A        : N              
 GND                          : U9        : gnd    :                   :         :           :                
-ast_sink_data[31]            : U10       : output : 2.5 V             :         : 3B        : N              
-ast_sink_data[23]            : U11       : output : 2.5 V             :         : 3B        : N              
-ast_sink_data[7]             : U12       : output : 2.5 V             :         : 3B        : N              
-ast_sink_channel[4]          : U13       : output : 2.5 V             :         : 4A        : N              
+ast_sink_data[9]             : U10       : output : 2.5 V             :         : 3B        : N              
+din[17]                      : U11       : input  : 2.5 V             :         : 3B        : N              
+ast_sink_channel[4]          : U12       : output : 2.5 V             :         : 3B        : N              
+din[2]                       : U13       : input  : 2.5 V             :         : 4A        : N              
 VCCIO4A                      : U14       : power  :                   : 2.5V    : 4A        :                
-ast_sink_data[21]            : U15       : output : 2.5 V             :         : 4A        : N              
+din[0]                       : U15       : input  : 2.5 V             :         : 4A        : N              
 RESERVED_INPUT_WITH_WEAK_PULLUP : U16       :        :                   :         : 4A        :                
 RESERVED_INPUT_WITH_WEAK_PULLUP : U17       :        :                   :         : 4A        :                
 VCCA_FPLL                    : U18       : power  :                   : 2.5V    :           :                
@@ -497,21 +497,21 @@ GND                          : V2        : gnd    :                   :         
 DCLK                         : V3        :        :                   :         : 3A        :                
 GND                          : V4        :        :                   :         : B0L       :                
 TCK                          : V5        : input  :                   :         : 3A        :                
-ast_sink_ready               : V6        : output : 2.5 V             :         : 3A        : N              
+ast_sink_channel[3]          : V6        : output : 2.5 V             :         : 3A        : N              
 GND                          : V7        : gnd    :                   :         :           :                
 VCCPGM                       : V8        : power  :                   : 1.8V/2.5V/3.0V/3.3V :           :                
-din[20]                      : V9        : input  : 2.5 V             :         : 3B        : N              
-din[14]                      : V10       : input  : 2.5 V             :         : 3B        : N              
+ast_source_channel[0]        : V9        : input  : 2.5 V             :         : 3B        : N              
+reset                        : V10       : input  : 2.5 V             :         : 3B        : N              
 DNU                          : V11       :        :                   :         :           :                
 GND                          : V12       : gnd    :                   :         :           :                
-ast_sink_channel[0]          : V13       : output : 2.5 V             :         : 4A        : N              
-ast_source_channel[5]        : V14       : input  : 2.5 V             :         : 4A        : N              
-ast_sink_data[8]             : V15       : output : 2.5 V             :         : 4A        : N              
-ast_sink_data[15]            : V16       : output : 2.5 V             :         : 4A        : N              
+din[26]                      : V13       : input  : 2.5 V             :         : 4A        : N              
+ast_sink_data[6]             : V14       : output : 2.5 V             :         : 4A        : N              
+ast_sink_ready               : V15       : output : 2.5 V             :         : 4A        : N              
+din[1]                       : V16       : input  : 2.5 V             :         : 4A        : N              
 GND                          : V17       : gnd    :                   :         :           :                
-ast_source_channel[1]        : V18       : input  : 2.5 V             :         : 4A        : N              
+RESERVED_INPUT_WITH_WEAK_PULLUP : V18       :        :                   :         : 4A        :                
 RESERVED_INPUT_WITH_WEAK_PULLUP : V19       :        :                   :         : 4A        :                
-ast_sink_data[12]            : V20       : output : 2.5 V             :         : 4A        : N              
+din[24]                      : V20       : input  : 2.5 V             :         : 4A        : N              
 RESERVED_INPUT_WITH_WEAK_PULLUP : V21       :        :                   :         : 4A        :                
 GND                          : V22       : gnd    :                   :         :           :                
 GND                          : W1        :        :                   :         : B0L       :                
@@ -521,21 +521,21 @@ GND                          : W4        : gnd    :                   :         
 TDI                          : W5        : input  :                   :         : 3A        :                
 VCCPD3A                      : W6        : power  :                   : 2.5V    : 3A        :                
 VCC_AUX                      : W7        : power  :                   : 2.5V    :           :                
-ast_source_ready             : W8        : input  : 2.5 V             :         : 3A        : N              
-ast_sink_eop                 : W9        : output : 2.5 V             :         : 3A        : N              
+ast_source_channel[2]        : W8        : input  : 2.5 V             :         : 3A        : N              
+ast_sink_data[31]            : W9        : output : 2.5 V             :         : 3A        : N              
 VCCIO3B                      : W10       : power  :                   : 2.5V    : 3B        :                
 VCCPD3B4A                    : W11       : power  :                   : 2.5V    : 3B, 4A    :                
 VCCPD3B4A                    : W12       : power  :                   : 2.5V    : 3B, 4A    :                
 VCC_AUX                      : W13       : power  :                   : 2.5V    :           :                
 VCCPD3B4A                    : W14       : power  :                   : 2.5V    : 3B, 4A    :                
 VCCIO4A                      : W15       : power  :                   : 2.5V    : 4A        :                
-ast_sink_data[14]            : W16       : output : 2.5 V             :         : 4A        : N              
+ast_sink_data[22]            : W16       : output : 2.5 V             :         : 4A        : N              
 VCCPD3B4A                    : W17       : power  :                   : 2.5V    : 3B, 4A    :                
 VCC_AUX                      : W18       : power  :                   : 2.5V    :           :                
-din[9]                       : W19       : input  : 2.5 V             :         : 4A        : N              
+ast_sink_data[26]            : W19       : output : 2.5 V             :         : 4A        : N              
 VCCIO4A                      : W20       : power  :                   : 2.5V    : 4A        :                
-RESERVED_INPUT_WITH_WEAK_PULLUP : W21       :        :                   :         : 4A        :                
-ast_sink_data[11]            : W22       : output : 2.5 V             :         : 4A        : N              
+ast_sink_data[7]             : W21       : output : 2.5 V             :         : 4A        : N              
+din[30]                      : W22       : input  : 2.5 V             :         : 4A        : N              
 GND                          : Y1        : gnd    :                   :         :           :                
 GND                          : Y2        : gnd    :                   :         :           :                
 GXB_NC                       : Y3        :        :                   :         : B0L       :                
@@ -544,17 +544,17 @@ GND                          : Y5        : gnd    :                   :         
 DNU                          : Y6        :        :                   :         :           :                
 VREFB3AN0                    : Y7        : power  :                   :         : 3A        :                
 VCCIO3A                      : Y8        : power  :                   : 2.5V    : 3A        :                
-din[28]                      : Y9        : input  : 2.5 V             :         : 3B        : N              
-din[23]                      : Y10       : input  : 2.5 V             :         : 3B        : N              
-din[3]                       : Y11       : input  : 2.5 V             :         : 3B        : N              
+ast_sink_data[19]            : Y9        : output : 2.5 V             :         : 3B        : N              
+din[18]                      : Y10       : input  : 2.5 V             :         : 3B        : N              
+ast_sink_data[21]            : Y11       : output : 2.5 V             :         : 3B        : N              
 VREFB3BN0                    : Y12       : power  :                   :         : 3B        :                
 VCCIO3B                      : Y13       : power  :                   : 2.5V    : 3B        :                
-ast_sink_data[9]             : Y14       : output : 2.5 V             :         : 4A        : N              
-ast_sink_data[19]            : Y15       : output : 2.5 V             :         : 4A        : N              
-ast_sink_data[13]            : Y16       : output : 2.5 V             :         : 4A        : N              
-ast_sink_data[20]            : Y17       : output : 2.5 V             :         : 4A        : N              
+ast_sink_data[4]             : Y14       : output : 2.5 V             :         : 4A        : N              
+ast_sink_data[1]             : Y15       : output : 2.5 V             :         : 4A        : N              
+ast_sink_data[17]            : Y16       : output : 2.5 V             :         : 4A        : N              
+din[23]                      : Y17       : input  : 2.5 V             :         : 4A        : N              
 GND                          : Y18       : gnd    :                   :         :           :                
-ast_sink_data[5]             : Y19       : output : 2.5 V             :         : 4A        : N              
-ast_sink_data[10]            : Y20       : output : 2.5 V             :         : 4A        : N              
+RESERVED_INPUT_WITH_WEAK_PULLUP : Y19       :        :                   :         : 4A        :                
+ast_sink_eop                 : Y20       : output : 2.5 V             :         : 4A        : N              
 RESERVED_INPUT_WITH_WEAK_PULLUP : Y21       :        :                   :         : 4A        :                
-ast_sink_data[4]             : Y22       : output : 2.5 V             :         : 4A        : N              
+RESERVED_INPUT_WITH_WEAK_PULLUP : Y22       :        :                   :         : 4A        :                

@@ -101,19 +101,11 @@ begin
 		wait for CLK_PERIOD_20MHZ;
 		s_din	<=  s_din + 1;
 		wait for CLK_PERIOD_20MHZ;
-		s_din	<=  s_din;
-		wait for CLK_PERIOD_20MHZ;
-		s_din	<=  s_din;
-		wait for CLK_PERIOD_20MHZ;
 		s_din	<=  s_din - 1;
 		wait for CLK_PERIOD_20MHZ;
 		s_din	<=  s_din - 1;
 		wait for CLK_PERIOD_20MHZ;
 		s_din	<=  s_din - 1;
-		wait for CLK_PERIOD_20MHZ;
-		s_din	<=  s_din;
-		wait for CLK_PERIOD_20MHZ;
-		s_din	<=  s_din;
 		wait for CLK_PERIOD_20MHZ;
 	end process;
 	

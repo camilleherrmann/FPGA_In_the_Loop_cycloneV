@@ -62,10 +62,13 @@ begin
 			s_valid 					<= '0';	
 			s_rden					<= '0';	
 			elsif(clk_b'event and clk_b='1') then
-				if (enb = '1' and addr /= (addr'range => '1')) then 
+				if (enb = '1' and addr = (addr'range => '0')) then 
 					s_valid 			<='1';
 					s_rden			<='1';
-				else 	s_valid		<= '0';
+				end if;
+				if (enb = '1' and addr = (addr'range => '1')) then
+				 	s_valid		<= '0';
+					s_rden		<= '0';
 				end if;
 			end if;
 	end process;

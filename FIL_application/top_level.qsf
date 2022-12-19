@@ -62,12 +62,13 @@ set_global_assignment -name EDA_TEST_BENCH_MODULE_NAME tb -section_id tb
 set_global_assignment -name EDA_TEST_BENCH_RUN_SIM_FOR "100 ns" -section_id tb
 set_global_assignment -name EDA_TEST_BENCH_RUN_SIM_FOR "200 ns" -section_id tb_in
 set_global_assignment -name EDA_ENABLE_IPUTF_MODE OFF -section_id eda_simulation
+set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
+set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -section_id Top
+set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
+set_global_assignment -name EDA_TEST_BENCH_FILE src/tb_in.vhd -section_id tb_in
+set_global_assignment -name EDA_TEST_BENCH_FILE src/tb.vhd -section_id tb
 set_global_assignment -name VHDL_FILE src/tb.vhd
-set_global_assignment -name QIP_FILE src/out_ram.qip
 set_global_assignment -name VHDL_FILE src/top_level.vhd
-set_global_assignment -name VHDL_FILE src/out_storing.vhd
-set_global_assignment -name VHDL_FILE src/out_convert.vhd
-set_global_assignment -name VHDL_FILE src/out_adapt.vhd
 set_global_assignment -name VHDL_FILE src/tb_in.vhd
 set_global_assignment -name VHDL_FILE src/in_adapt.vhd
 set_global_assignment -name VHDL_FILE src/in_conv.vhd
@@ -75,9 +76,4 @@ set_global_assignment -name VHDL_FILE src/in_storing.vhd
 set_global_assignment -name QIP_FILE src/in_sram.qip
 set_global_assignment -name QIP_FILE src/pll_a_b.qip
 set_global_assignment -name SIP_FILE src/pll_a_b.sip
-set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
-set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -section_id Top
-set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
-set_global_assignment -name EDA_TEST_BENCH_FILE src/tb_in.vhd -section_id tb_in
-set_global_assignment -name EDA_TEST_BENCH_FILE src/tb.vhd -section_id tb
 set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top

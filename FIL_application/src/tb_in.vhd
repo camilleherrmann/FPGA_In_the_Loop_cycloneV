@@ -27,15 +27,13 @@ generic(
 	
 		--from AST interface  
 		ast_source_ready				: in std_logic; 
-		ast_source_channel			: in  std_logic_vector(CHANNEL_WIDTH-1 downto 0);
-
+		
 		--to AST interface
-		ast_sink_valid					: out std_logic;													 												
-		ast_sink_sop					: out std_logic;													 
-		ast_sink_eop					: out std_logic;	
-		ast_sink_ready					: out  std_logic; 
-		ast_sink_data					: out std_logic_vector(31 downto 0);
-		ast_sink_channel				: out std_logic_vector(CHANNEL_WIDTH-1 downto 0)	
+		ast_source_valid					: out std_logic;													 												
+		ast_source_sop						: out std_logic;													 
+		ast_source_eop						: out std_logic;	
+		ast_source_data					: out std_logic_vector(31 downto 0);
+		ast_source_channel				: out std_logic_vector(CHANNEL_WIDTH-1 downto 0)	
 		);
 end component in_adapt;
 
@@ -51,14 +49,12 @@ signal s_reset 				 	: std_logic;
 signal s_din    					: std_logic_vector(31 DOWNTO 0) := (others => '0');
 
 signal s_ast_source_ready		: std_logic;
-signal s_ast_source_channel	: std_logic_vector(CHANNEL_WIDTH-1 downto 0) := (others => '0')	; 
 
-signal s_ast_sink_valid			: std_logic;													 												
-signal s_ast_sink_sop			: std_logic;													 
-signal s_ast_sink_eop			: std_logic;	
-signal s_ast_sink_ready			: std_logic;												
-signal s_ast_sink_data			: std_logic_vector(31 downto 0);
-signal s_ast_sink_channel		: std_logic_vector(CHANNEL_WIDTH-1 downto 0)	;
+signal s_ast_source_valid			: std_logic;													 												
+signal s_ast_source_sop				: std_logic;													 
+signal s_ast_source_eop				: std_logic;												
+signal s_ast_source_data			: std_logic_vector(31 downto 0);
+signal s_ast_source_channel		: std_logic_vector(CHANNEL_WIDTH-1 downto 0)	;
 
 
 begin
@@ -85,12 +81,6 @@ begin
 		s_enb 					<= '1';
 		s_ast_source_ready 	<= '1';		
 		wait;
-	end process;
-	
-	channel : process
-	begin
-		s_ast_source_channel	<= s_ast_source_channel + 1;
-		wait for 16 ns;
 	end process;
 	
 	data : process
@@ -130,15 +120,13 @@ begin
 	
 		--from AST interface  
 		ast_source_ready		=> s_ast_source_ready,
-		ast_source_channel	=> s_ast_source_channel,
 
 		--to AST interface
-		ast_sink_valid			=> s_ast_sink_valid,
-		ast_sink_sop			=> s_ast_sink_sop,
-		ast_sink_eop			=> s_ast_sink_eop,
-		ast_sink_ready			=> s_ast_sink_ready,
-		ast_sink_data			=> s_ast_sink_data,
-		ast_sink_channel		=> s_ast_sink_channel
+		ast_source_valid			=> s_ast_source_valid,
+		ast_source_sop				=> s_ast_source_sop,
+		ast_source_eop				=> s_ast_source_eop,
+		ast_source_data			=> s_ast_source_data,
+		ast_source_channel		=> s_ast_source_channel
 		);
 
 end testbench;

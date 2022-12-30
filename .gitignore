@@ -6,3 +6,8 @@ FIL_application/db/*
 
 # ignore simu folder
 FIL_application/simulation/*
+
+
+# ignore .bak
+*.bak
+*.rpt

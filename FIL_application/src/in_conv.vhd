@@ -83,14 +83,13 @@ MEF_out : process(reset,clk_b)
 				
 			when state1 =>
 				s_rden					<= '1';
-				s_valid					<= '1';
 				state						<= state2;
 			
 			when state2 =>	
 				if( ast_source_ready = '1' and q_b(39 downto 32) = addr(7 downto 0) ) then
 				s_channel 				<= s_channel + 1;
 				s_data					<= q_b(31 downto 0);	
-				s_valid					<= '0';
+				s_valid					<= '1';
 				state						<= state3;
 				else state				<= state2;
 				end if;
@@ -98,6 +97,7 @@ MEF_out : process(reset,clk_b)
 			when state3 =>
 				if (addr < (addr'range => '1')) then 
 					addr					<= addr + 1;
+					s_valid					<= '0';
 					state					<= state1;
 				else 
 					s_rden				<= '0';

@@ -10,7 +10,8 @@ architecture testbench of tb is
 
 component  top_level is 
 	port (
-		clk   				 				: IN  std_logic;
+		clk125   				 			: IN  std_logic;
+		clk20		  				 			: IN  std_logic;
 		enb   				 				: IN  std_logic;
 		reset 				 				: IN  std_logic;
 
@@ -26,7 +27,7 @@ end component top_level;
 constant CLK_PERIOD_125MHZ 		: time := 8 ns;
 constant CLK_PERIOD_20MHZ 		: time := 50 ns;
 
-signal s_clk   				 	: std_logic;
+signal s_clk125, s_clk20	 	: std_logic;
 signal s_enb   				 	: std_logic;
 signal s_reset 				 	: std_logic;
 
@@ -37,12 +38,20 @@ signal s_dout					: std_logic_vector(31 DOWNTO 0);
 
 begin
 
-	signal_clk: process
+	signal_clk125: process
 	Begin
-		s_clk  					<= '1' ; 
+		s_clk125  					<= '1' ; 
 		wait for CLK_PERIOD_125MHZ/2 ;
-		s_clk  					<= '0'  ;
+		s_clk125  					<= '0'  ;
 		wait for CLK_PERIOD_125MHZ/2 ;
+	End Process;
+	
+		signal_clk20: process
+	Begin
+		s_clk20  					<= '1' ; 
+		wait for CLK_PERIOD_20MHZ/2 ;
+		s_clk20  					<= '0'  ;
+		wait for CLK_PERIOD_20MHZ/2 ;
 	End Process;
 	
 	rst_enb: process
@@ -75,7 +84,8 @@ begin
 	uut : top_level
 	
 		port map(
-		clk   				 => s_clk,
+		clk125   				 => s_clk125,
+		clk20					=> s_clk20,
 		enb   				 => s_enb,
 		reset 				 => s_reset,
  

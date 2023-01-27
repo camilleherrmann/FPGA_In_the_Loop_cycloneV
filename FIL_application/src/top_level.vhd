@@ -4,7 +4,8 @@ Use ieee.numeric_std.all;
 
 entity top_level is 
 	port (
-		clk   				 				: IN  std_logic;
+		clk20   				 				: IN  std_logic;
+		clk125								: IN  std_logic;
 		enb   				 				: IN  std_logic;
 		reset 				 				: IN  std_logic;
 
@@ -79,20 +80,20 @@ architecture bev of top_level is
 	end component out_adapt;
 
 	
-	component pll_a_b is
-	port (
-		refclk   : in  std_logic := '0'; --  refclk.clk
-		rst      : in  std_logic := '0'; --   reset.reset
-		outclk_0 : out std_logic;        -- outclk0.clk
-		outclk_1 : out std_logic        -- outclk1.clk
-	);
-	end component pll_a_b;
+--	component pll_a_b is
+--	port (
+--		refclk   : in  std_logic := '0'; --  refclk.clk
+--		rst      : in  std_logic := '0'; --   reset.reset
+--		outclk_0 : out std_logic;        -- outclk0.clk
+--		outclk_1 : out std_logic        -- outclk1.clk
+--	);
+--	end component pll_a_b;
 	
 	constant NUM_CHANNEL 			 : integer 	:= 40;
 	constant CHANNEL_WIDTH			 : integer 	:= 6 ;
 
 	
-	signal clk20, clk125				: std_logic;
+--	signal clk20, clk125				: std_logic;
 	signal s_ast_ready				: std_logic;	
 	signal s_ast_valid				: std_logic;	
 	signal s_ast_sop					: std_logic;	
@@ -104,13 +105,13 @@ architecture bev of top_level is
 	begin
 	
 	
-	clock 	  : pll_a_b 
-	port map (
-		refclk   							=> clk,
-		rst      							=> '0',
-		outclk_0 							=> clk125,
-		outclk_1 							=> clk20
-	);
+--	clock 	  : pll_a_b 
+--	port map (
+--		refclk   							=> clk,
+--		rst      							=> '0',
+--		outclk_0 							=> clk125,
+--		outclk_1 							=> clk20
+--	);
 	
 	in_adapter : in_adapt 
 	port map(

@@ -31,37 +31,19 @@ begin
 
 MEF_out : process(reset,clk_a)
 	begin
-		if (reset = '0') then
-			state 						<= state0;
+	if (reset = '1') then
+		state 				<= state0;
+		s_data				<= (others => 'X');
+		s_read				<= '0';
 			
 		elsif (clk_a'event and clk_a='1') then
-		case state is 
-		
-			when state0 =>
-				s_data					<= (others => '0');
-            s_read					<= '0';
-				state						<= state1;
-				
-			when state1 =>
-				if (wrfull ='1') then 
-					s_read 				<= '1';
-					state 				<= state2;
-				end if;
-			
-			when state2 =>
-				if (rdempty ='1') then 
-					state 				<= state3;
-				else 
-					s_data				<= q;
-				end if;
-			
-			when state3 =>
-				s_read 					<= '0';
-			
-			when others =>
-				state						<= state0;
-			
-		end case;
+		if (enb = '1' and rdempty /= '1') then
+			s_read				<= '1';
+			s_data				<= q;
+		else 
+			s_read				<= '0';
+			s_data				<= (others => '0');
+		end if;
 	end if;
 end process;
 				

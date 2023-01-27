@@ -1,0 +1,5 @@
+set_global_assignment -library "ast_interlink" -name VERILOG_FILE [file join $::quartus(qip_path) "ast_interlink.v"]
+set_global_assignment -library "ast_interlink" -name VERILOG_FILE [file join $::quartus(qip_path) "submodules/altera_reset_controller.v"]
+set_global_assignment -library "ast_interlink" -name VERILOG_FILE [file join $::quartus(qip_path) "submodules/altera_reset_synchronizer.v"]
+set_global_assignment -library "ast_interlink" -name SDC_FILE [file join $::quartus(qip_path) "submodules/altera_reset_controller.sdc"]
+set_global_assignment -library "ast_interlink" -name VERILOG_FILE [file join $::quartus(qip_path) "submodules/altera_avalon_sc_fifo.v"]

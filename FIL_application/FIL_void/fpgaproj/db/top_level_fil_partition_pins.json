@@ -1,0 +1,25 @@
+{
+	"partitions" : [
+		{
+			"name" : "Top",
+			"pins" : [
+				{
+					"name" : "ETH_MDC",
+					"strict" : false
+				},
+				{
+					"name" : "ETH_RESET_n",
+					"strict" : false
+				},
+				{
+					"name" : "ETH_MDIO",
+					"strict" : false
+				},
+				{
+					"name" : "ETH_RXCLK",
+					"strict" : false
+				}
+			]
+		}
+	]
+}

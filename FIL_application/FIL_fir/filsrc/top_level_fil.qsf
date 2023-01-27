@@ -1,0 +1,19 @@
+set_location_assignment PIN_Y15 -to sysclk_p
+set_instance_assignment -name IO_STANDARD "LVDS" -to sysclk_p
+set_location_assignment PIN_AA15 -to sysclk_n
+set_instance_assignment -name IO_STANDARD "LVDS" -to sysclk_n
+set_location_assignment PIN_C17 -to ETH_MDC
+set_location_assignment PIN_D18 -to ETH_MDIO
+set_location_assignment PIN_J17 -to ETH_RESET_n
+set_location_assignment PIN_G17 -to ETH_RXCLK
+set_location_assignment PIN_AF8 -to ETH_RXD[0]
+set_location_assignment PIN_AB9 -to ETH_RXD[1]
+set_location_assignment PIN_AA9 -to ETH_RXD[2]
+set_location_assignment PIN_AH7 -to ETH_RXD[3]
+set_location_assignment PIN_D19 -to ETH_RX_CTL
+set_location_assignment PIN_U9 -to ETH_TXCLK
+set_location_assignment PIN_AG7 -to ETH_TXD[0]
+set_location_assignment PIN_AB8 -to ETH_TXD[1]
+set_location_assignment PIN_AA8 -to ETH_TXD[2]
+set_location_assignment PIN_AG8 -to ETH_TXD[3]
+set_location_assignment PIN_K20 -to ETH_TX_CTL

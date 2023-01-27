@@ -1,0 +1,3 @@
+v1
+GXB_MERGING,PLL Output Counter,385080,MWClkMgr:u_ClockManager|altpll:u_dcm|clockmodule_altpll:auto_generated|generic_pll2~PLL_OUTPUT_COUNTER,MWClkMgr:u_ClockManager|altpll:u_dcm|clockmodule_altpll:auto_generated|generic_pll3~PLL_OUTPUT_COUNTER,
+GXB_MERGING,Clock enable block,34481,MWClkMgr:u_ClockManager|altpll:u_dcm|clockmodule_altpll:auto_generated|wire_generic_pll2_outclk~CLKENA0,MWClkMgr:u_ClockManager|altpll:u_dcm|clockmodule_altpll:auto_generated|wire_generic_pll3_outclk~CLKENA0,

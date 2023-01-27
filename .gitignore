@@ -1,0 +1,13 @@
+# ignore all logs
+*.log
+
+# ignore db folder
+FIL_application/db/*
+
+# ignore simu folder
+FIL_application/simulation/*
+
+
+# ignore .bak
+*.bak
+*.rpt

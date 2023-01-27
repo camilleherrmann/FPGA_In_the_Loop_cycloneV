@@ -1,0 +1,74 @@
+library ieee;
+use ieee.std_logic_1164.all;
+Use ieee.numeric_std.all;
+use ieee.std_Logic_unsigned.all;
+
+entity in_storing is 
+	port (
+			clk_a    					 : IN  std_logic;
+			enb    						 : IN  std_logic;
+			reset  						 : IN  std_logic;
+			
+			-- from the simunlink wrapper
+			din    						 : IN  std_logic_vector(31 DOWNTO 0);
+			
+			
+			data							: OUT STD_LOGIC_VECTOR (31 DOWNTO 0);
+			wrreq							: OUT STD_LOGIC ;
+			rdempty						: IN STD_LOGIC ;
+			wrfull						: IN STD_LOGIC 
+			);
+end entity in_storing;
+
+architecture behav of in_storing is
+
+type 	 states								is (state0, state1, state2, state3);
+signal state								: states;
+signal s_data								: STD_LOGIC_VECTOR (31 DOWNTO 0):=(others => '0');
+signal s_wren								: std_logic;
+
+
+begin 
+	
+
+	
+	MEF_in_storing : process (reset, clk_a)
+begin
+
+	if (reset = '0') then
+		state 						<= state0;
+		
+	elsif (clk_a'event and clk_a = '1') then
+		case state is 
+		
+		when state0 =>
+			s_data 					<= (others => 'X');
+			s_wren					<= '0';
+			state						<= state1;
+			
+		when state1 => 
+			if (rdempty = '1') then
+			state						<= state2;
+			end if;
+			
+		when state2 =>
+			if (wrfull = '1') then
+				s_wren				<= '0';
+				state 				<= state1;
+			else
+				s_wren				<= '1';
+				s_data 				<= din;
+				state					<= state2;
+			end if;
+		
+		when others =>
+			state						<= state0;
+		
+		end case;
+	end if;
+end process;
+	
+wrreq				<= s_wren;
+data 				<= s_data;
+	
+end behav;

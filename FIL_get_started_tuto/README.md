@@ -113,8 +113,28 @@ Give the time duration of th simulation in the tool bar and put the simulation s
 
 Congratullation you've run a FPGA In The Loop. 
 
+## With Ethernet
 
+But we've run it fully with JTAG which isn't optimal because it is limitated to a slower transfer rate and smaller amount of data. 
+Let's use the [PID control example from MATHWORKS](https://fr.mathworks.com/help/hdlverifier/ug/verify-hdl-implementation-of-pid-controller-using-fpga-in-the-loop.html)
 
+Most of the setps are identicals such as the activation the hdl tool on MATLAB shell 
+```
+hdlsetuptoolpath('ToolName','Altera Quartus II','ToolPath','C:\Intel\quartus\bin64\quartus.exe')
+```
+And open the filWIzard
+```
+filWizard
+```
+
+But I have to setup the ethernet. To setup the host computer-board connection I choose my host address. To do that I go to the control panel and choose for the project 192.168.0.1 because it is not already used. 
+Then on the FilWizard I complete the fields depending on the needs (detailled before). On my case what’s different from the example is the board used. I use the board manager to get my board with all its fields filled but it also can be done manually. Be careful, on my project after those steps I had problems, the board wasn’t connected well, to resolve that I went to “Board Manager”, selected my board, and click on “edit” “Interface” and in “advanced option” I ticked to generate MDIO module. According to MATLAB documentation this box needs to be checked when the connection is about to be done with RGMII mode with ethernet PHY device Marvell88E1111 which is the case for the cyclone V GX. After the board the second thing different is for the ethernet configuration, for the board IP address, since I choose for the host 192.168.0.1 so the IP address has to be a subnet of 192.168.0.x and I choose 192.168.0.2.
+
+The rest of the setps are the exact same ones where I inform on the top level/ inputs/ outputs/ format...
+
+Before launching the test I check with a ping 192.168.0.2 that the connection is ok and then I can run my PID and I have as the tuto:
+
+![image](https://user-images.githubusercontent.com/107047264/215048739-c269b05c-411a-4687-bfb3-0635974b4adb.png)
 
 
 
